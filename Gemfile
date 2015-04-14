@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 gem 'bootstrap-sass', '3.3.4.1'
 gem 'font-awesome-rails', '4.3.0.0'
+gem 'devise', '3.4.1'
 gem 'pg', '0.18.1'
 gem 'paperclip'
 gem 'ckeditor', '4.1.1'

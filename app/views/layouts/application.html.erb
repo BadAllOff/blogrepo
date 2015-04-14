@@ -24,9 +24,14 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li><%= link_to 'Articles', articles_path, class: 'blog-header-nav-item' %></li>
-          <li><a class="blog-header-nav-item active" href="#">Learning</a></li>
           <li><a class="blog-header-nav-item" href="#">Work</a></li>
           <li><a class="blog-header-nav-item" href="#">About</a></li>
+          <% if user_signed_in?  %>
+            <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to 'Sign in', new_user_session_path %></li>
+            <li><%= link_to 'Sign up', new_user_registration_path %></li>
+          <% end %>
         </ul>
         <form class="navbar-form navbar-right" role="">
           <div class="form-group">
