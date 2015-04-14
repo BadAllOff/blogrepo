@@ -18,10 +18,15 @@
 @import "bootstrap";
 @import "font-awesome";
 
+.field_with_errors {
+  @extend .has-error;
+}
+
 /*
  * Globals
  */
 body { padding-top: 70px; }
+
 body {
   font-family: Georgia, "Times New Roman", Times, serif;
   color: #555;
