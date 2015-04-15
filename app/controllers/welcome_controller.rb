@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-    @articles = Article.all.order('pub_date DESC')
+    @articles = Article.all.where(show: true).order('pub_date DESC')
   end
 end

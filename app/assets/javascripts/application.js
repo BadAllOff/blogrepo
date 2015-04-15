@@ -11,8 +11,18 @@
 // about supported directives.
 //
 //= require jquery
-//= require bootstrap-sprockets
+//= require bootstrap
 //= require ckeditor/init
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+var ready;
+ready = function() {
+
+    $('.dropdown-toggle').dropdown();
+
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);

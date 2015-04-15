@@ -12,28 +12,28 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :title, class: 'col-sm-2 control-label' %>
+    <%= f.label Article.human_attribute_name(:title), class: 'col-sm-2 control-label' %>
     <div class="col-sm-10">
       <%= f.text_field :title, class: 'form-control' %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :image, class: 'col-sm-2 control-label' %>
+    <%= f.label Article.human_attribute_name(:image), class: 'col-sm-2 control-label' %>
     <div class="col-sm-10">
       <%= f.file_field :image %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :content, class: 'col-sm-2 control-label' %>
+    <%= f.label Article.human_attribute_name(:content), class: 'col-sm-2 control-label' %>
     <div class="col-sm-10">
       <%= f.cktext_area :content, class: 'form-control',:ckeditor => {:language => 'ru'} %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :pub_date, class: 'col-sm-2 control-label' %>
+    <%= f.label Article.human_attribute_name(:pub_date), class: 'col-sm-2 control-label' %>
     <div class="col-sm-10">
       <%= f.datetime_select :pub_date, class: 'form-control' %>
     </div>
@@ -43,7 +43,7 @@
     <div class="col-sm-offset-2 col-sm-10">
       <div class="checkbox">
         <label>
-          <%= f.check_box :show %> Publish article now.
+          <%= f.check_box :show %> <%= t('pub_now') %>
         </label>
       </div>
     </div>

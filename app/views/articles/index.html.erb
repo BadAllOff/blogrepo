@@ -15,7 +15,13 @@
     <% @articles.each do |article| %>
       <tr>
         <td><%= article.title %></td>
-        <td><%= article.pub_date %></td>
+        <td><%= article.pub_date %>
+        <% if article.show %>
+          <span class="label label-success">pub</span>
+        <% else %>
+          <span class="label label-danger">pub</span>
+        <% end %>
+        </td>
         <td>
           <div class="btn-group btn-group-sm" role="group" >
             <%= link_to 'Show', article, class: 'btn btn-info' %>

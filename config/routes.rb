@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
 
-  devise_for :users
-  mount Ckeditor::Engine => '/ckeditor'
-  resources :articles
+  scope '(:locale)', locale: /#{I18n.available_locales.join('|')}/ do
+    devise_for :users
+    mount Ckeditor::Engine => '/ckeditor'
+    resources :articles
+  end
+
+  # match '*path', to: redirect("/#{I18n.default_locale}/%{path}"), via: :all
+  # match '', to: redirect("/#{I18n.default_locale}"), via: :all
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

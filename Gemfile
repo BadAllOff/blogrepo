@@ -7,6 +7,9 @@ gem 'pg', '0.18.1'
 gem 'paperclip'
 gem 'ckeditor', '4.1.1'
 gem 'responders', '~> 2.0'
+gem 'globalize', '~> 5.0.0'
+# gem 'jquery-turbolinks', '2.1.0'
+
 
 
 gem 'rails', '4.2.1'

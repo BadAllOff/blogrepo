@@ -4,7 +4,11 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    if user_signed_in?
+      @articles = Article.all.order('pub_date DESC')
+    else
+      @articles = Article.all.where(show: true).order('pub_date DESC')
+    end
   end
 
   # GET /articles/1

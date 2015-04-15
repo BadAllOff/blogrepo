@@ -20,4 +20,17 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  work_link: 'Projects'
+  articles_link: 'Articles'
+  sign_up: 'Sign Up'
+  sign_in: 'Log In'
+  sign_out: 'Sign Out'
+  pub_now: 'Publish article now.'
+  forgot_your_password?: 'Forgot your password?'
+  welcome:
+    index:
+      blog_title: 'The Rails-ninja Blog'
+      blog-description: 'The officially personal blog of Rails-way. Follow me!'
+  activerecord:
+    article:
+      pub_date: 'Publication Date'

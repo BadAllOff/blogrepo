@@ -1,4 +1,6 @@
 class Article < ActiveRecord::Base
+  translates :title, :content
+
   validates :image, :attachment_presence => true
 
   has_attached_file :image, :styles => { :original => "768>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
