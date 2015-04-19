@@ -1,6 +1,6 @@
 class TranslateArticles < ActiveRecord::Migration
   def self.up
-    Article.create_translation_table! :title => :string,
+    Article.create_translation_table! :title => {:type => :string, :null => false, :default => 'No translation... yet!'},
                                    :content => {:type => :text, :null => false, :default => 'No content ... yet!'}
   end
 

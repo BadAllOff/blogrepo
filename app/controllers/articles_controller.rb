@@ -29,6 +29,7 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article = Article.new(article_params)
+    @article.tag_list.add(params[:tag_list], parse: true)
 
     respond_to do |format|
       if @article.save
@@ -44,6 +45,7 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update
+    @article.tag_list.add(params[:tag_list], parse: true)
     respond_to do |format|
       if @article.update(article_params)
         format.html { redirect_to @article, notice: 'Article was successfully updated.' }
@@ -73,6 +75,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :content, :pub_date, :show, :image)
+      params.require(:article).permit(:title, :content, :pub_date, :show, :image, :tag_list)
     end
 end

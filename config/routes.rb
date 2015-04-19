@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   scope '(:locale)', locale: /#{I18n.available_locales.join('|')}/ do
+    get 'tags/:tag', to: 'articles#index', as: :tag
     devise_for :users
     mount Ckeditor::Engine => '/ckeditor'
     resources :articles

@@ -9,17 +9,19 @@
   <div class="col-sm-8 blog-main">
     <% @articles.each do |article| %>
       <h2 class="blog-post-title"><%= article.title %></h2>
-      <p class="blog-post-meta"><%= time_ago_in_words(article.pub_date) %>, <a href="#">Badalloff</a></p>
+      <p class="blog-post-meta"><%= time_ago_in_words(article.pub_date) %>. <%= t(:tags) %>:
+        <%= show_tags(article) %>
+      </p>
       <%= image_tag article.image.url(:original), class: 'img-responsive', alt: "#{article.title}" %>
-      <%= article.content.html_safe %>
+      <%= article.content.html_safe if article.content %>
       <hr/>
     <% end %>
 
     <nav>
-      <ul class="pager">
+      <!--<ul class="pager">
         <li><a href="#">Previous</a></li>
         <li><a href="#">Next</a></li>
-      </ul>
+      </ul>-->
     </nav>
 
   </div><!-- /.blog-main -->
@@ -27,7 +29,27 @@
   <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
     <div class="sidebar-module sidebar-module-inset">
       <h4>About</h4>
-      <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+      <p>Follow the links below <%= fa_icon 'arrow-down' %></p>
+      <ol class="list-unstyled">
+        <li><a href="https://www.linkedin.com/profile/view?id=123807632" target="_blank"><%= fa_icon 'linkedin-square' %> LinkedIn</a> my skills and education. <em>
+          (I'm a big fan of computer science <%= fa_icon'connectdevelop' %> and science in general <%= fa_icon'rocket' %> )</em></li>
+        <li><hr/></li>
+        <li><a href="https://www.facebook.com/badalloff" target="_blank"><%= fa_icon 'facebook-official' %> Facebook</a>
+          you can contact me here. Just add as a friend.</li>
+        <li><hr/></li>
+        <li><a href="https://twitter.com/ShamilBadalov" target="_blank"><%= fa_icon 'twitter-square' %> Twitter</a></li>
+        <li><hr/></li>
+        <li><a href="https://github.com/RebelioUS" target="_blank"><%= fa_icon 'github-square' %> GitHub</a></li>
+      </ol>
+    </div>
+    <div class="sidebar-module sidebar-module">
+      <h4>Tags</h4>
+      <p>
+        <% tag_cloud(@tags, %w(tag1 tag2 tag3 tag4)) do |tag, css_class| %>
+          <%=  %>
+          <%= link_to "#{tag.name}(#{tag.taggings_count})", {controller: 'articles', :action => 'index', :tag => tag.name }, :class => css_class %>
+        <% end %>
+      </p>
     </div>
 
     <!--<div class="sidebar-module">
@@ -39,12 +61,7 @@
     </div>-->
     <div class="sidebar-module">
       <h4>Elsewhere</h4>
-      <ol class="list-unstyled">
-        <li><a href="https://www.linkedin.com/profile/view?id=123807632" target="_blank"><%= fa_icon 'linkedin-square' %> LinkedIn</a></li>
-        <li><a href="https://twitter.com/ShamilBadalov" target="_blank"><%= fa_icon 'twitter-square' %> Twitter</a></li>
-        <li><a href="https://www.facebook.com/badalloff" target="_blank"><%= fa_icon 'facebook-official' %> Facebook</a></li>
-        <li><a href="https://github.com/RebelioUS" target="_blank"><%= fa_icon 'github-square' %> GitHub</a></li>
-      </ol>
+
     </div>
   </div><!-- /.blog-sidebar -->
 

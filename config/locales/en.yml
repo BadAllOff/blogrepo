@@ -27,6 +27,7 @@ en:
   sign_out: 'Sign Out'
   pub_now: 'Publish article now.'
   forgot_your_password?: 'Forgot your password?'
+  tags: 'Tags'
   welcome:
     index:
       blog_title: 'The Rails-ninja Blog'

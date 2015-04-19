@@ -25,14 +25,14 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li><%= link_to t('articles_link'), articles_path, class: 'blog-header-nav-item' %></li>
-          <li><%= link_to t('work_link'), '#', class: '' %></li>
+          <!--<li><%= link_to t('work_link'), '#', class: '' %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Other <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
               <li><a href="#">soon...</a>
               </li>
             </ul>
-          </li>
+          </li>-->
           <% if user_signed_in?  %>
             <li><%= link_to t('sign_out'), destroy_user_session_path, method: :delete %></li>
           <% else %>
@@ -60,7 +60,8 @@
   </div><!-- /.container -->
 
   <footer class="blog-footer">
-    <p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+    <p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>. And copied by
+      <a href="<%= root_path %>">me</a>! :)</p>
     <p>
       <a href="#">Back to top</a>
     </p>

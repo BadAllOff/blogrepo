@@ -1,11 +1,12 @@
 <p id="notice"><%= notice %></p>
 
   <h1><%= @article.title %></h1>
+<p>Tags: <%= show_tags(@article) %></p>
   <%= image_tag @article.image.url(:original), class: 'img-responsive' %>
 
 <p>
   <strong>Content:</strong>
-  <%= @article.content.html_safe %>
+  <%= @article.content.html_safe if @article.content %>
 </p>
 
 <p>

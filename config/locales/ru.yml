@@ -7,6 +7,7 @@ ru:
   sign_out: 'Выйти'
   pub_now: 'Опубликовать?'
   forgot_your_password?: 'Забыли пароль?'
+  tags: 'Теги'
   welcome:
     index:
       blog_title: 'Блог сэнсэя Rails'
@@ -23,6 +24,7 @@ ru:
         image: 'Картинка'
         content: 'Контент'
         pub_date: 'Дата публикации'
+        tag_list: 'Теги'
 
   date:
     abbr_day_names:

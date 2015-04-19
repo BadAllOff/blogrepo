@@ -2,7 +2,7 @@
 
 <h1>Listing Articles</h1>
 
-<table class="table">
+<table class="table table-responsive">
   <thead>
     <tr>
       <th>Title</th>
@@ -14,7 +14,7 @@
   <tbody>
     <% @articles.each do |article| %>
       <tr>
-        <td><%= article.title %></td>
+        <td><%= article.title %> <br/> Tags: <%= show_tags(article) %></td>
         <td><%= article.pub_date %>
         <% if article.show %>
           <span class="label label-success">pub</span>
