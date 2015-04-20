@@ -1,39 +1,55 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Listing Articles</h1>
-
-<table class="table table-responsive">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Pub date</th>
-      <th>Controls
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @articles.each do |article| %>
+<% if user_signed_in?  %>
+  <table class="table table-responsive">
+    <thead>
       <tr>
-        <td><%= article.title %> <br/> Tags: <%= show_tags(article) %></td>
-        <td><%= article.pub_date %>
-        <% if article.show %>
-          <span class="label label-success">pub</span>
-        <% else %>
-          <span class="label label-danger">pub</span>
-        <% end %>
-        </td>
-        <td>
-          <div class="btn-group btn-group-sm" role="group" >
-            <%= link_to 'Show', article, class: 'btn btn-info' %>
-            <%= link_to 'Edit', edit_article_path(article), class: 'btn btn-warning' %>
-            <%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
-          </div>
-        </td>
+        <th>Title</th>
+        <th>Pub date</th>
+        <th>Controls
       </tr>
+    </thead>
+
+    <tbody>
+      <% @articles.each do |article| %>
+        <tr>
+          <td><%= article.title %> <br/> Tags: <%= show_tags(article) %></td>
+          <td><%= article.pub_date %>
+          <% if article.show %>
+            <span class="label label-success">pub</span>
+          <% else %>
+            <span class="label label-danger">priv</span>
+          <% end %>
+          </td>
+          <td>
+            <div class="btn-group btn-group-sm" role="group" >
+              <%= link_to 'Show', article, class: 'btn btn-info' %>
+              <%= link_to 'Edit', edit_article_path(article), class: 'btn btn-warning' %>
+              <%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+
+  <div class="col-sm-12 blog-main">
+    <% @articles.each do |article| %>
+      <h2 class="blog-post-title"><%= article.title %></h2>
+      <%= image_tag article.image.url(:original), class: 'img-responsive', alt: "#{article.title}" %>
+      <%= article.content.html_safe if article.content %>
+      <p class="blog-post-meta"><%= time_ago_in_words(article.pub_date) %>. <%= t(:tags) %>:
+        <%= show_tags(article) %>
+      </p>
+      <hr/>
+      <br/><br/><br/><br/><br/><br/>
     <% end %>
-  </tbody>
-</table>
+  </div>
+
+<% end %>
+
 
 <br>
-
+<% if user_signed_in?  %>
 <%= link_to 'New Article', new_article_path, class: 'btn btn-default' %>
+<% end %>

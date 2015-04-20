@@ -1,4 +1,7 @@
 class Article < ActiveRecord::Base
+  acts_as_taggable
+  translates :title, :content, :fallbacks_for_empty_translations => true
+
   has_attached_file(:image, :styles => {:original => "768>", :thumb => "100x100>"},
                     default_url: '/images/:style/missing.png',
                     storage: :s3,
@@ -8,11 +11,8 @@ class Article < ActiveRecord::Base
   )
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
   validates_attachment :image, :content_type => {content_type: ['image/jpeg', 'image/gif', 'image/png']}
-
-  translates :title, :content, :fallbacks_for_empty_translations => true
-
-  acts_as_taggable
   validates :image, :attachment_presence => true
+
   validates :title, length: { maximum: 100, minimum: 1}
   validates :content, :pub_date, presence: true
 end
