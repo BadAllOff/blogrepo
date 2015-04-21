@@ -20,7 +20,14 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  work_link: 'Projects'
+  about: 'About'
+  follow_links: 'Follow the links below <i class="fa fa-arrow-down"></i>'
+  elsewhere: Elsewhere
+  linkedin: my skills and education. <em> (I'm a big fan of computer science, machine learning <i class="fa fa-connectdevelop"></i> and science in general <i class="fa fa-rocket"></i> ). </em>
+  facebook: you can contact me here. Just add as a friend.
+  twitter:
+  github:
+
   articles_link: 'Articles'
   sign_up: 'Sign Up'
   sign_in: 'Sign In'
@@ -30,8 +37,9 @@ en:
   tags: 'Tags'
   welcome:
     index:
-      blog_title: 'The Rails-ninja Blog'
-      blog-description: 'The officially personal blog of Rails-way. Follow me!'
+    blog_header:
+       blog_title: 'The Rails-ninja Blog'
+       blog-description: 'Snippets and Algorithms of success.'
   activerecord:
     article:
       pub_date: 'Publication Date'

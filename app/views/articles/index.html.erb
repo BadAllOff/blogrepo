@@ -35,14 +35,16 @@
 
   <div class="col-sm-12 blog-main">
     <% @articles.each do |article| %>
-      <h2 class="blog-post-title"><%= article.title %></h2>
+      <h3 class="blog-post-title">
+        <%= link_to article.title, article_path(article) %>
+      </h3>
       <%= image_tag article.image.url(:original), class: 'img-responsive', alt: "#{article.title}" %>
-      <%= article.content.html_safe if article.content %>
+      <%= article.preview.html_safe if article.preview %>
       <p class="blog-post-meta"><%= time_ago_in_words(article.pub_date) %>. <%= t(:tags) %>:
         <%= show_tags(article) %>
       </p>
       <hr/>
-      <br/><br/><br/><br/><br/><br/>
+      <br/><br/><br/>
     <% end %>
   </div>
 

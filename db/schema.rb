@@ -11,18 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150417235118) do
+ActiveRecord::Schema.define(version: 20150421015026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "article_translations", force: :cascade do |t|
-    t.integer  "article_id",                                 null: false
-    t.string   "locale",                                     null: false
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
+    t.integer  "article_id",                                    null: false
+    t.string   "locale",                                        null: false
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
     t.string   "title"
-    t.text     "content",    default: "No content ... yet!", null: false
+    t.text     "content",    default: "No content ... yet!",    null: false
+    t.text     "preview",    default: "No translation... yet!", null: false
   end
 
   add_index "article_translations", ["article_id"], name: "index_article_translations_on_article_id", using: :btree
@@ -39,6 +40,7 @@ ActiveRecord::Schema.define(version: 20150417235118) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.text     "preview"
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|

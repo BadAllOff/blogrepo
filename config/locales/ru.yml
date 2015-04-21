@@ -1,6 +1,10 @@
 ---
 ru:
-  work_link: 'Проекты'
+  about: 'ПРО меня'
+  follow_links: 'По ссылкам ниже <i class="fa fa-arrow-down"></i>'
+  elsewhere: Где-то ещё
+  linkedin: некоторая инфа про образование. <em>(Дико интересна computer science, машинное обучение <i class="fa fa-connectdevelop"></i> и естественная наука в целом <i class="fa fa-rocket"></i> ). </em>
+  facebook: связаться со мной можно и тут. Если нет каких-либо комплексов можете просто постучаться в друзья. Будем знакомы.
   articles_link: 'Статьи'
   sign_up: 'Регистрация'
   sign_in: 'Войти'
@@ -10,8 +14,9 @@ ru:
   tags: 'Теги'
   welcome:
     index:
+    blog_header:
       blog_title: 'Блог сэнсэя Rails'
-      blog-description: 'Официально личный блог Rails-way. Смотри и учись!'
+      blog-description: 'Сниппеты и Алгоритмы успеха.'
   activerecord:
     attributes:
       user:
@@ -22,6 +27,7 @@ ru:
       article:
         title: 'Заголовок'
         image: 'Картинка'
+        preview: 'Анонс'
         content: 'Контент'
         pub_date: 'Дата публикации'
         tag_list: 'Теги'

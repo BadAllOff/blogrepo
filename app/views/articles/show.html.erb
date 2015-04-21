@@ -1,18 +1,16 @@
 <p id="notice"><%= notice %></p>
 
-  <h1><%= @article.title %></h1>
-<p>Tags: <%= show_tags(@article) %></p>
-  <%= image_tag @article.image.url(:original), class: 'img-responsive' %>
+<div class="col-sm-12 blog-main">
+    <h1><%= @article.title %></h1>
+    <%= image_tag @article.image.url(:original), class: 'img-responsive', alt: "#{@article.title}" %>
+    <%= @article.content.html_safe if @article.content %>
+    <p class="blog-post-meta"><%= time_ago_in_words(@article.pub_date) %>. <%= t(:tags) %>:
+      <%= show_tags(@article) %>
+    </p>
+    <hr/>
+  <% if user_signed_in? %>
+    <%= link_to 'Edit', edit_article_path(@article), class: 'btn btn-default' %> |
+    <%= link_to 'Back', articles_path, class: 'btn btn-default' %>
+  <% end %>
+</div>
 
-<p>
-  <strong>Content:</strong>
-  <%= @article.content.html_safe if @article.content %>
-</p>
-
-<p>
-  <strong>Pub date:</strong>
-  <%= @article.pub_date %>
-</p>
-
-<%= link_to 'Edit', edit_article_path(@article), class: 'btn btn-default' %> |
-<%= link_to 'Back', articles_path, class: 'btn btn-default' %>

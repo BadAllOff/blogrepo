@@ -1,69 +1,68 @@
 
-<div class="blog-header">
-  <h1 class="blog-title"><%= t '.blog_title' %></h1>
-  <p class="lead blog-description"><%= t '.blog-description' %></p>
+<%= render 'welcome/blog_header' %>
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-8 blog-main">
+      <% @articles.each do |article| %>
+        <h3 class="blog-post-title">
+          <%= link_to article.title, article_path(article) %>
+        </h3>
+        <p class="blog-post-meta"><%= time_ago_in_words(article.pub_date) %>. <%= t(:tags) %>:
+          <%= show_tags(article) %>
+        </p>
+        <%= image_tag article.image.url(:original), class: 'img-responsive', alt: "#{article.title}" %>
+        <%= article.preview.html_safe if article.preview %>
+        <hr/>
+      <% end %>
+
+      <nav>
+        <!--<ul class="pager">
+          <li><a href="#">Previous</a></li>
+          <li><a href="#">Next</a></li>
+        </ul>-->
+      </nav>
+
+    </div><!-- /.blog-main -->
+
+    <div class="col-sm-3 col-sm-offset-1 blog-sidebar"> <!-- About section -->
+      <div class="sidebar-module sidebar-module-inset">
+        <h4><%= t('about') %></h4>
+        <p><%= t('follow_links').html_safe %></p>
+      </div>
+      <div class="sidebar-module">
+        <h4><%= t('elsewhere') %></h4>
+        <ol class="list-unstyled">
+          <li><a href="https://www.linkedin.com/profile/view?id=123807632" target="_blank"><%= fa_icon 'linkedin-square' %> LinkedIn</a> <%= t('linkedin').html_safe %></li>
+          <li></li>
+          <li><a href="https://www.facebook.com/badalloff" target="_blank"><%= fa_icon 'facebook-official' %> Facebook</a>
+            <%= t('facebook').html_safe %></li>
+          <li></li>
+          <li><a href="https://twitter.com/ShamilBadalov" target="_blank"><%= fa_icon 'twitter-square' %> Twitter</a></li>
+          <li></li>
+          <li><a href="https://github.com/RebelioUS" target="_blank"><%= fa_icon 'github-square' %> GitHub</a></li>
+        </ol>
+      </div>
+      <div class="sidebar-module sidebar-module">
+        <h4><%= t('tags') %></h4>
+        <p>
+          <% tag_cloud Article.tag_counts, %w[tag1 tag2 tag3 tag4] do |tag, css_class|  %>
+            <%= link_to  "#{tag.name}(#{tag.taggings_count})", tag_path(tag.name), class: css_class %>
+          <% end %>
+        </p>
+      </div>
+
+      <!-- / About section -->
+
+      <!--<div class="sidebar-module">
+        <h4>Archives</h4>
+        <ol class="list-unstyled">
+          <li><a href="#">March 2015</a></li>
+          <li><a href="#">February 2015</a></li>
+        </ol>
+      </div>-->
+
+    </div><!-- /.blog-sidebar -->
+
+  </div><!-- /.row -->
 </div>
-
-<div class="row">
-
-  <div class="col-sm-8 blog-main">
-    <% @articles.each do |article| %>
-      <h2 class="blog-post-title"><%= article.title %></h2>
-      <p class="blog-post-meta"><%= time_ago_in_words(article.pub_date) %>. <%= t(:tags) %>:
-        <%= show_tags(article) %>
-      </p>
-      <%= image_tag article.image.url(:original), class: 'img-responsive', alt: "#{article.title}" %>
-      <%= article.content.html_safe if article.content %>
-      <hr/>
-    <% end %>
-
-    <nav>
-      <!--<ul class="pager">
-        <li><a href="#">Previous</a></li>
-        <li><a href="#">Next</a></li>
-      </ul>-->
-    </nav>
-
-  </div><!-- /.blog-main -->
-
-  <div class="col-sm-3 col-sm-offset-1 blog-sidebar"> <!-- About section -->
-    <div class="sidebar-module sidebar-module-inset">
-      <h4>About</h4>
-      <p>Follow the links below <%= fa_icon 'arrow-down' %></p>
-    </div>
-    <div class="sidebar-module">
-      <h4>Elsewhere</h4>
-      <ol class="list-unstyled">
-        <li><a href="https://www.linkedin.com/profile/view?id=123807632" target="_blank"><%= fa_icon 'linkedin-square' %> LinkedIn</a> my skills and education. <em>
-          (I'm a big fan of computer science <%= fa_icon'connectdevelop' %> and science in general <%= fa_icon'rocket' %> )</em></li>
-        <li><hr/></li>
-        <li><a href="https://www.facebook.com/badalloff" target="_blank"><%= fa_icon 'facebook-official' %> Facebook</a>
-          you can contact me here. Just add as a friend.</li>
-        <li><hr/></li>
-        <li><a href="https://twitter.com/ShamilBadalov" target="_blank"><%= fa_icon 'twitter-square' %> Twitter</a></li>
-        <li><hr/></li>
-        <li><a href="https://github.com/RebelioUS" target="_blank"><%= fa_icon 'github-square' %> GitHub</a></li>
-      </ol>
-    </div>
-    <div class="sidebar-module sidebar-module">
-      <h4>Tags</h4>
-      <p>
-        <% tag_cloud Article.tag_counts, %w[tag1 tag2 tag3 tag4] do |tag, css_class|  %>
-          <%= link_to  "#{tag.name}(#{tag.taggings_count})", tag_path(tag.name), class: css_class %>
-        <% end %>
-      </p>
-    </div>
-
-    <!-- / About section -->
-
-    <!--<div class="sidebar-module">
-      <h4>Archives</h4>
-      <ol class="list-unstyled">
-        <li><a href="#">March 2015</a></li>
-        <li><a href="#">February 2015</a></li>
-      </ol>
-    </div>-->
-
-  </div><!-- /.blog-sidebar -->
-
-</div><!-- /.row -->

@@ -25,7 +25,7 @@
 /*
  * Globals
  */
-body { padding-top: 70px; }
+body { padding-top: 50px; }
 
 body {
   font-family: Georgia, "Times New Roman", Times, serif;
@@ -62,14 +62,17 @@ h6, .h6 {
 
 .blog-masthead {
   background-color: #428bca;
-  -webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
-  box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+/*  -webkit-box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);
+  box-shadow: inset 0 -2px 5px rgba(0,0,0,.1);*/
+  border: none;
 }
 
 /*
  * Blog name and description
  */
-
+.blog-header-bg{
+  margin-bottom: 30px;
+}
 .blog-header {
   padding-top: 20px;
   padding-bottom: 20px;
@@ -139,7 +142,7 @@ navigations
 }
 .blog-post-title {
   margin-bottom: 5px;
-  font-size: 40px;
+  /*font-size: 40px;*/
 }
 .blog-post-meta {
   margin-bottom: 20px;

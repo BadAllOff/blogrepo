@@ -1,0 +1,14 @@
+<footer class="blog-footer">
+  <p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>. And copied by
+    <a href="<%= root_path %>">me</a>! :)</p>
+  <p>
+    <a href="#">Back to top</a>
+  </p>
+  <p>
+    <% if user_signed_in?  %>
+    <li><%= link_to t('sign_out'), destroy_user_session_path, method: :delete %></li>
+  <% else %>
+    <li><%= link_to t('sign_in'), new_user_session_path %></li>
+  <% end %>
+  </p>
+</footer>

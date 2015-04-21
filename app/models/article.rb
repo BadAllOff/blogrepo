@@ -1,6 +1,6 @@
 class Article < ActiveRecord::Base
   acts_as_taggable
-  translates :title, :content, :fallbacks_for_empty_translations => true
+  translates :title, :content, :preview, :fallbacks_for_empty_translations => true
 
   has_attached_file(:image, :styles => {:original => "768>", :thumb => "100x100>"},
                     default_url: '/images/:style/missing.png',
@@ -14,5 +14,5 @@ class Article < ActiveRecord::Base
   validates :image, :attachment_presence => true
 
   validates :title, length: { maximum: 100, minimum: 1}
-  validates :content, :pub_date, presence: true
+  validates :content, :pub_date, :preview, presence: true
 end
