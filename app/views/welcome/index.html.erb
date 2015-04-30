@@ -46,9 +46,14 @@
       <div class="sidebar-module sidebar-module">
         <h4><%= t('tags') %></h4>
         <p>
-          <% tag_cloud Article.tag_counts, %w[tag1 tag2 tag3 tag4] do |tag, css_class|  %>
-            <%= link_to  "#{tag.name}(#{tag.taggings_count})", tag_path(tag.name), class: css_class %>
+          <ul class="list-group" >
+            <% tag_cloud Article.tag_counts, %w[tag1 tag2 tag3 tag4] do |tag, css_class|  %>
+              <li class="list-group-item" >
+                <span class="badge"><%= tag.taggings_count %></span>
+                <%= link_to  "#{tag.name}", tag_path(tag.name), class: css_class %>
+              </li>
           <% end %>
+          </ul>
         </p>
       </div>
 

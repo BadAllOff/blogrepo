@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.2.2'
 gem 'bootstrap-sass', '3.3.4.1'
 gem 'font-awesome-rails', '4.3.0.0'
 gem 'rmagick', require: 'RMagick'
