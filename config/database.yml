@@ -25,3 +25,5 @@ test:
 production:
   <<: *default
   database: badblog_production
+#  username: deploy
+#  password: <%= ENV['TESTAPP_DATABASE_PASSWORD'] %>
