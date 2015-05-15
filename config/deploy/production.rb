@@ -6,9 +6,9 @@
 # server 'example.com', user: 'deploy', roles: %w{app db web}, my_property: :my_value
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
 # server 'db.example.com', user: 'deploy', roles: %w{db}
-role :app, %w{deploy@88.166.104.93}
-role :web, %w{deploy@88.166.104.93} # Управляет asset pipeline
-role :db,  %w{deploy@88.166.104.93} # Работает с БД
+role :app, %w{deploy@188.166.104.93}
+role :web, %w{deploy@188.166.104.93} # Управляет asset pipeline
+role :db,  %w{deploy@188.166.104.93} # Работает с БД
 
 
 # role-based syntax
