@@ -27,5 +27,7 @@ module Badblog5
     config.active_record.raise_in_transactional_callbacks = true
 
     config.i18n.fallbacks = true
+    config.i18n.fallbacks = [:ru]
+
   end
 end
