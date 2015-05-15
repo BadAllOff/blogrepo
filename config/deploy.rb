@@ -2,7 +2,9 @@
 lock '3.4.0'
 
 set :application, 'badblog'
-set :repo_url, 'https://github.com/RebelioUS/badblog5.git' # repo address
+set :repo_url, "https://#{ENV['GITHUB_USERNAME']}:#{ENV['GITHUB_PASSWORD']}@github.com/RebelioUS/badblog5.git" # repo address
+# set :git_https_username, ENV['GITHUB_USERNAME']
+# set :git_https_password, ENV['GITHUB_PASSWORD']
 set :deploy_to, '/opt/www/badblog'
 set :user, 'deploy'
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets}
