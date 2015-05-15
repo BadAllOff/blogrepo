@@ -16,7 +16,7 @@ ru:
     index:
     blog_header:
       blog_title: 'Блог сэнсэя Rails'
-      blog-description: 'Сниппеты и Алгоритмы успеха.'
+      blog-description: 'Сниппеты и Алгоритмы качества.'
   activerecord:
     attributes:
       user:
