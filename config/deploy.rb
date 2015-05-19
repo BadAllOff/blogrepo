@@ -7,7 +7,8 @@ set :repo_url, "https://#{ENV['GITHUB_USERNAME']}:#{ENV['GITHUB_PASSWORD']}@gith
 # set :git_https_password, ENV['GITHUB_PASSWORD']
 set :deploy_to, '/opt/www/badblog'
 set :user, 'deploy'
-set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+set :linked_files, %w{public/assets/ckeditor/config.js assets/javascript/ckeditor/contents.css}
+set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle}
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
