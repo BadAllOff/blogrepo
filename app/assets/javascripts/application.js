@@ -17,6 +17,7 @@
 //= require turbolinks
 //= require_tree .
 
+
 var ready;
 ready = function() {
 
