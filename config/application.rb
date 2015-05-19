@@ -29,5 +29,7 @@ module Badblog5
     config.i18n.fallbacks = true
     config.i18n.fallbacks = [:ru]
 
+    config.assets.precompile += Ckeditor.assets
+
   end
 end
