@@ -15,7 +15,6 @@
 /log/*
 !/log/.keep
 /tmp
-config/s3.yml
 /.idea
 Procfile # про него я еще расскажу
 config/deploy/ # файлы Capistrano

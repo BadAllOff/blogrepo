@@ -9,7 +9,7 @@ default: &default
   encoding: unicode
   pool: 5
   timeout: 5000
-  host: /var/run/postgresql
+  host: localhost
   port: 5432
   username: <%= Rails.application.secrets.db_user %>
   password: <%= Rails.application.secrets.db_pass %>
@@ -24,6 +24,5 @@ test:
 
 production:
   <<: *default
+  host: /var/run/postgresql
   database: badblog_production
-#  username: deploy
-#  password: <%= ENV['TESTAPP_DATABASE_PASSWORD'] %>
