@@ -15,7 +15,7 @@ public/assets/ckeditor/styles.js
 public/assets/ckeditor/contents.css
 public/assets/ckeditor/skins/moono/icons.png
 }
-set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle}
+set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/assets/ckeditor}
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
