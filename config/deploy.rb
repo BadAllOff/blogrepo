@@ -7,7 +7,14 @@ set :repo_url, "https://#{ENV['GITHUB_USERNAME']}:#{ENV['GITHUB_PASSWORD']}@gith
 # set :git_https_password, ENV['GITHUB_PASSWORD']
 set :deploy_to, '/opt/www/badblog'
 set :user, 'deploy'
-set :linked_files, %w{assets/ckeditor/config.js assets/ckeditor/skins/moono/editor_gecko.css assets/ckeditor/lang/ru.js}
+set :linked_files, %w{
+public/assets/ckeditor/config.js
+public/assets/ckeditor/skins/moono/editor_gecko.css
+public/assets/ckeditor/lang/ru.js
+public/assets/ckeditor/styles.js
+public/assets/ckeditor/contents.css
+public/assets/ckeditor/skins/moono/icons.png
+}
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle}
 
 # Default branch is :master
