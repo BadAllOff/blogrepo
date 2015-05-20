@@ -2,6 +2,7 @@ require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
 
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -31,7 +32,7 @@ module Badblog5
 
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
     config.assets.precompile += Ckeditor.assets
-    # config.assets.precompile += %w(ckeditor/*)
+    config.assets.precompile += %w(ckeditor/*)
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
 
 

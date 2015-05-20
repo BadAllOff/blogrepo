@@ -1,10 +1,10 @@
 class Ckeditor::Picture < Ckeditor::Asset
   has_attached_file :data, styles: { :content => '800>', :thumb => '118x100#' },
                     default_url: '/images/:style/missing.png',
-                    storage: :s3,
-                    s3_credentials: "#{Rails.root}/config/s3.yml",
-                    s3_protocol: 'https',
-                    s3_host_name: 's3-eu-west-1.amazonaws.com',
+                    # storage: :s3,
+                    # s3_credentials: "#{Rails.root}/config/s3.yml",
+                    # s3_protocol: 'https',
+                    # s3_host_name: 's3-eu-west-1.amazonaws.com',
                     :url  => "/ckeditor/pictures/:id/:style_:basename.:extension",
                     :path => "ckeditor/pictures/:id/:style_:basename.:extension"
 
