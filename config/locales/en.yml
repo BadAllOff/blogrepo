@@ -43,3 +43,16 @@ en:
   activerecord:
     article:
       pub_date: 'Publication Date'
+    attributes:
+      user:
+        password: 'Password'
+        password_confirmation: 'Password confirm'
+        remember_me: 'Remember me'
+        current_password: 'Current password'
+      article:
+        title: 'Title'
+        image: 'Image'
+        preview: 'Preview'
+        content: 'Content'
+        pub_date: 'Publication date'
+        tag_list: 'Tags'
