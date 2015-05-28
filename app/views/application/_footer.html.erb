@@ -5,10 +5,13 @@
     <a href="#">Back to top</a>
   </p>
   <p>
+  <ul>
     <% if user_signed_in?  %>
-    <li><%= link_to t('sign_out'), destroy_user_session_path, method: :delete %></li>
-  <% else %>
-    <li><%= link_to t('sign_in'), new_user_session_path %></li>
-  <% end %>
+      <li><%= link_to t('sign_out'), destroy_user_session_path, method: :delete %></li>
+    <% else %>
+      <li><%= link_to t('sign_in'), new_user_session_path %></li>
+    <% end %>
+  </ul>
   </p>
 </footer>
+<%= render 'application/ga' unless user_signed_in? %>
