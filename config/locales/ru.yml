@@ -17,6 +17,18 @@ ru:
     blog_header:
       blog_title: 'Блог сэнсэя Rails'
       blog-description: 'Сниппеты и Алгоритмы качества.'
+  articles:
+    index:
+      title: 'Заголовок'
+      pub_date: 'Дата публикации'
+      controls: 'Управление'
+      new_article: 'Создать статью'
+    create:
+      article_created: 'Статья создана успешно.'
+    update:
+      article_updated: 'Статья обновлена успешно.'
+    destroy:
+      article_destroyed: 'Статья удалена.'
   activerecord:
     attributes:
       user:

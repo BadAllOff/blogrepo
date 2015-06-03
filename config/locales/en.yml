@@ -40,6 +40,18 @@ en:
     blog_header:
        blog_title: 'The Rails-ninja Blog'
        blog-description: 'Snippets and Algorithms of success.'
+  articles:
+    index:
+      title: 'Title'
+      pub_date: 'Pub Date'
+      controls: 'Controls'
+      new_article: 'New Article'
+    create:
+      article_created: 'Article was successfully created.'
+    update:
+      article_updated: 'Article was successfully updated.'
+    destroy:
+      article_destroyed: 'Article was successfully destroyed.'
   activerecord:
     article:
       pub_date: 'Publication Date'
