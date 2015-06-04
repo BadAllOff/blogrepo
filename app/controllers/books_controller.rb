@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  # TODO Добавить комментарии к книгам.
   before_action :authenticate_user!, only: [ :new, :edit, :create, :update, :destroy]
   before_action :set_book, only: [:show, :edit, :update, :destroy]
   before_action :get_genres, only: [:show, :index]
@@ -7,8 +8,10 @@ class BooksController < ApplicationController
 
   def index
     if user_signed_in?
+      return @books = Book.tagged_with(params[:tag]).order('updated_at DESC') if params[:tag]
       @books = Book.all.order('updated_at DESC')
     else
+      return @books = Book.tagged_with(params[:tag]).where(draft: false).order('updated_at DESC')if params[:tag]
       @books = Book.all.where(draft: false).order('updated_at DESC')
     end
     respond_with(@books)
