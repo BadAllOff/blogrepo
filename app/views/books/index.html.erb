@@ -9,59 +9,70 @@
 
 
 <div class="col-sm-8">
-  <table class="table table-striped table-hover">
-    <thead>
-    <tr>
-      <th><%= t('.author') %></th>
-      <th><%= t('.title') %></th>
-      <th><%= t('.draft') %></th>
-      <th colspan="3"></th>
-    </tr>
-    </thead>
-
-    <tbody>
-    <% @books.each do |book| %>
+  <% if user_signed_in? %>
+    <%= link_to t('.add_book'), new_book_path, class: 'btn btn-primary pull-right hidden-xs' %>
+    <%= link_to t('.add_book'), new_book_path, class: 'btn btn-primary visible-xs' %>
+    <br/><br/>
+    <table class="table table-striped table-hover">
+      <thead>
       <tr>
-        <td><%= book.author %></td>
-        <td><%= book.title %></td>
-        <td><%= book.draft==true ? t('.draft') : t('.published') %></td>
-        <td>
-          <div class="btn-group btn-group-sm" role="group" >
-            <%= link_to book, title: t('show'), class: 'btn btn-info' do  %>
-              <%= fa_icon 'eye' %>
-            <% end %>
-            <%= link_to edit_book_path(book), title: t('edit'), class: 'btn btn-warning' do %>
-              <%= fa_icon 'edit' %>
-            <% end %>
-            <%= link_to book, title: t('destroy'), method: :delete, data: { confirm: t('are_you_shure') }, class: 'btn btn-danger' do %>
-              <%= fa_icon 'trash' %>
-            <% end %>
-          </div>
-        </td>
+        <th><%= t('.author') %></th>
+        <th><%= t('.title') %></th>
+        <th><%= t('.draft') %></th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-    </tbody>
-  </table>
+      </thead>
 
-  <div class="row">
-    <% @books.each do |book| %>
-      <div class="col-xs-6 col-md-4">
-        <div class="thumbnail">
-          <img src="<%= book.book_cover.url(:medium) %>" alt="...">
-          <div class="caption">
-            <p class="text-muted"><%= book.author %></p>
-            <p><%= book.title %></p>
+      <tbody>
+      <% @books.each do |book| %>
+        <tr>
+          <td><%= book.author %></td>
+          <td><%= book.title %></td>
+          <td><%= book.draft==true ? t('.draft') : t('.published') %></td>
+          <td>
             <div class="btn-group btn-group-sm" role="group" >
-              <%= link_to book, title: t('show'), class: 'btn btn-info' do  %>
+              <%= link_to book, title: t(:show), class: 'btn btn-info' do  %>
                 <%= fa_icon 'eye' %>
               <% end %>
-              <%= link_to edit_book_path(book), title: t('edit'), class: 'btn btn-warning' do %>
+              <%= link_to edit_book_path(book), title: t(:edit), class: 'btn btn-warning' do %>
                 <%= fa_icon 'edit' %>
               <% end %>
-              <%= link_to book, title: t('destroy'), method: :delete, data: { confirm: t('are_you_shure') }, class: 'btn btn-danger' do %>
+              <%= link_to book, title: t(:destroy), method: :delete, data: { confirm: t('are_you_shure') }, class: 'btn btn-danger' do %>
                 <%= fa_icon 'trash' %>
               <% end %>
             </div>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  <%end %>
+  <div class="row">
+    <% @books.each do |book| %>
+      <div class="col-xs-12">
+        <div class="media">
+          <div class="media-left media-middle col-xs-6 col-md-4">
+            <%= link_to book, title: t(:show), class: 'thumbnail' do %>
+              <img src="<%= book.book_cover.url(:medium) %>" class="media-object img-rounded" alt="<%= book.title %>">
+            <% end %>
+          </div>
+          <div class="media-body">
+            <p class="text-muted"><%= book.author %></p>
+            <h4 class="media-heading"><%= book.title %></h4>
+            <p><%= t(:tags) %>: <%= show_book_tags(book) %></p>
+            <% if user_signed_in? %>
+              <div class="btn-group btn-group-sm" role="group" >
+                <%= link_to book, title: t(:show), class: 'btn btn-info' do  %>
+                  <%= fa_icon 'eye' %>
+                <% end %>
+                <%= link_to edit_book_path(book), title: t(:edit), class: 'btn btn-warning' do %>
+                  <%= fa_icon 'edit' %>
+                <% end %>
+                <%= link_to book, title: t(:destroy), method: :delete, data: { confirm: t('are_you_shure') }, class: 'btn btn-danger' do %>
+                  <%= fa_icon 'trash' %>
+                <% end %>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
@@ -89,16 +100,16 @@
     </ol>
   </div>
   <div class="sidebar-module sidebar-module">
-    <h4><%= t('tags') %></h4> <!--TODO сортировка книг а не теги, добавить переводы локали-->
+    <h4><%= t('tags') %></h4>
     <p>
-    <ul class="list-group" >
-      <% tag_cloud Book.tag_counts, %w[tag1 tag2 tag3 tag4] do |tag, css_class|  %>
-        <li class="list-group-item" >
-          <span class="badge"><%= tag.taggings_count %></span>
-          <%= link_to  "#{tag.name}", tag_path(tag.name), class: css_class %>
-        </li>
-      <% end %>
-    </ul>
+      <ul class="list-group" >
+        <% tag_cloud Book.tag_counts, %w[tag1 tag2 tag3 tag4] do |tag, css_class|  %>
+          <li class="list-group-item" >
+            <span class="badge"><%= tag.taggings_count %></span>
+            <%= link_to  "#{tag.name}", books_tag_path(tag.name), class: css_class %>
+          </li>
+        <% end %>
+      </ul>
     </p>
   </div>
 
@@ -114,7 +125,3 @@
 
 </div><!-- /.blog-sidebar -->
 
-<br>
-<% if user_signed_in?  %>
-  <%= link_to t('.add_book'), new_book_path, class: 'btn btn-default' %>
-<% end %>

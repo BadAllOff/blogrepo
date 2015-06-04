@@ -18,7 +18,7 @@
     <tbody>
       <% @articles.each do |article| %>
         <tr>
-          <td><%= article.title %> <br/> Tags: <%= show_tags(article) %></td>
+          <td><%= article.title %> <br/> Tags: <%= show_article_tags(article) %></td>
           <td><%= article.pub_date %>
           <% if article.show %>
             <span class="label label-success">pub</span>
@@ -47,7 +47,7 @@
       <%= image_tag article.image.url(:original), class: 'img-responsive', alt: "#{article.title}" %>
       <%= article.preview.html_safe if article.preview %>
       <p class="blog-post-meta"><%= time_ago_in_words(article.pub_date) %>. <%= t(:tags) %>:
-        <%= show_tags(article) %>
+        <%= show_article_tags(article) %>
       </p>
       <hr/>
       <br/><br/><br/>

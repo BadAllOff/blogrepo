@@ -7,8 +7,10 @@ class BooksController < ApplicationController
 
   def index
     if user_signed_in?
+      return @books = Book.tagged_with(params[:tag]).order('updated_at DESC') if params[:tag]
       @books = Book.all.order('updated_at DESC')
     else
+      return @books = Book.tagged_with(params[:tag]).where(draft: false).order('updated_at DESC')if params[:tag]
       @books = Book.all.where(draft: false).order('updated_at DESC')
     end
     respond_with(@books)

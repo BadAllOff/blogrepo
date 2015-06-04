@@ -9,7 +9,7 @@
           <%= link_to article.title, article_path(article) %>
         </h3>
         <p class="blog-post-meta"><%= time_ago_in_words(article.pub_date) %>. <%= t(:tags) %>:
-          <%= show_tags(article) %>
+          <%= show_article_tags(article) %>
         </p>
         <%= image_tag article.image.url(:original), class: 'img-responsive', alt: "#{article.title}" %>
         <%= article.preview.html_safe if article.preview %>
@@ -50,7 +50,7 @@
             <% tag_cloud Article.tag_counts, %w[tag1 tag2 tag3 tag4] do |tag, css_class|  %>
               <li class="list-group-item" >
                 <span class="badge"><%= tag.taggings_count %></span>
-                <%= link_to  "#{tag.name}", tag_path(tag.name), class: css_class %>
+                <%= link_to  "#{tag.name}", articles_tag_path(tag.name), class: css_class %>
               </li>
           <% end %>
           </ul>
