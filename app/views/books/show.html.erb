@@ -1,0 +1,26 @@
+<% if notice %>
+  <div class="alert alert-success alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <%= notice %>
+  </div>
+<% end %>
+<div class="col-xs-12 col-sm-6">
+  <%= image_tag @book.book_cover, class: 'img-responsive' %>
+</div>
+<div class="col-xs-12 col-sm-6">
+<p>
+  <strong><%= @book.author %></strong>
+</p>
+
+<p>
+  <strong><%= @book.title %></strong>
+</p>
+
+<p>
+  <%= raw @book.description %>
+</p>
+</div>
+<% if user_signed_in?  %>
+  <%= link_to t('edit'), edit_book_path(@book), class: 'btn btn-default' %> |
+<% end %>
+<%= link_to 'Back', books_path, class: 'btn btn-default' %>

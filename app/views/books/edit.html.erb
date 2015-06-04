@@ -1,0 +1,6 @@
+<h1><%= t('.editing_book') %></h1>
+
+<%= render 'form' %>
+
+<%= link_to t('show'), @book, class: 'btn btn-default' %> |
+<%= link_to 'Back', books_path, class: 'btn btn-default' %>

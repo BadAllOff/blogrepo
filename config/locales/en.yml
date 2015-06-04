@@ -20,6 +20,14 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  helpers:
+    submit:
+      article:
+        create: "Create %{model}"
+        update: "Update %{model}"
+      book:
+        create: "Create %{model}"
+        update: "Update %{model}"
   about: 'About'
   follow_links: 'Follow the links below <i class="fa fa-arrow-down"></i>'
   elsewhere: Elsewhere
@@ -27,8 +35,12 @@ en:
   facebook: you can contact me here. Just add as a friend.
   twitter:
   github:
-
   articles_link: 'Articles'
+  books_link: 'Books'
+  show: 'Show'
+  edit: 'Edit'
+  destroy: 'Destroy'
+  are_you_shure: 'Delete. Are you sure?'
   sign_up: 'Sign Up'
   sign_in: 'Sign In'
   sign_out: 'Sign Out'
@@ -45,13 +57,32 @@ en:
       title: 'Title'
       pub_date: 'Pub Date'
       controls: 'Controls'
-      new_article: 'New Article'
+      add_article: 'New Article'
     create:
       article_created: 'Article was successfully created.'
     update:
       article_updated: 'Article was successfully updated.'
     destroy:
       article_destroyed: 'Article was successfully destroyed.'
+  books:
+    index:
+      listing_books: 'Listing Books'
+      author: 'Author'
+      title: 'Title'
+      description: 'Description'
+      draft: 'Draft'
+      add_book: 'Add Book'
+      published: 'Published'
+    new:
+      new_book: 'New Book'
+    create:
+      book_created: 'Book was successfully created.'
+    edit:
+      editing_book: 'Editing Book'
+    update:
+      book_updated: 'Book was successfully updated.'
+    destroy:
+      book_destroyed: 'Book was successfully destroyed.'
   activerecord:
     article:
       pub_date: 'Publication Date'
@@ -67,4 +98,11 @@ en:
         preview: 'Preview'
         content: 'Content'
         pub_date: 'Publication date'
+        tag_list: 'Tags'
+      book:
+        author: 'Author'
+        book_cover: 'Book cover'
+        title: 'Title'
+        description: 'Description'
+        draft: 'Draft'
         tag_list: 'Tags'

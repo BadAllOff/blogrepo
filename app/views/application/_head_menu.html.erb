@@ -12,9 +12,10 @@
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="navbar-right">
+    <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><%= link_to t('articles_link'), articles_path, class: 'blog-header-nav-item' %></li>
+        <li><%= link_to t('books_link'), books_path, class: 'blog-header-nav-item' %></li>
       </ul>
       <form class="navbar-form navbar-right" role="">
         <!--<div class="form-group">

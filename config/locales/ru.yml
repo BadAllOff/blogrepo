@@ -6,6 +6,12 @@ ru:
   linkedin: некая инфа про образование. <em>(Дико интересна computer science, машинное обучение <i class="fa fa-connectdevelop"></i> и естественная наука в целом <i class="fa fa-rocket"></i> ). </em>
   facebook: связаться со мной можно и тут. Если нет каких-либо комплексов можете просто постучаться в друзья. Будем знакомы.
   articles_link: 'Статьи'
+  books_link: 'Книги'
+  show: 'Просмотр'
+  edit: 'Редакт.'
+  destroy: 'Удалить'
+  are_you_shure: 'Удалить. Вы уверены?'
+  back: 'Назад'
   sign_up: 'Регистрация'
   sign_in: 'Войти'
   sign_out: 'Выйти'
@@ -22,13 +28,32 @@ ru:
       title: 'Заголовок'
       pub_date: 'Дата публикации'
       controls: 'Управление'
-      new_article: 'Создать статью'
+      add_article: 'Создать статью'
     create:
       article_created: 'Статья создана успешно.'
     update:
       article_updated: 'Статья обновлена успешно.'
     destroy:
       article_destroyed: 'Статья удалена.'
+  books:
+    index:
+      listing_books: 'Список Книг'
+      author: 'Автор'
+      title: 'Название'
+      description: 'Описание'
+      draft: 'Черновик'
+      add_book: 'Добавить книгу'
+      published: 'Опубликован'
+    new:
+      new_book: 'Новая Книга'
+    create:
+      article_created: 'Книга создана успешно.'
+    edit:
+      editing_book: 'Редатировать Книгу'
+    update:
+      article_updated: 'Книга обновлена успешно.'
+    destroy:
+      article_destroyed: 'Книга удалена.'
   activerecord:
     attributes:
       user:
@@ -42,6 +67,13 @@ ru:
         preview: 'Анонс'
         content: 'Контент'
         pub_date: 'Дата публикации'
+        tag_list: 'Теги'
+      book:
+        author: 'Автор'
+        book_cover: 'Обложка книги'
+        title: 'Заголовок'
+        description: 'Описание книги'
+        draft: 'Черновик'
         tag_list: 'Теги'
 
   date:
@@ -214,6 +246,12 @@ ru:
     select:
       prompt: 'Выберите: '
     submit:
+      article:
+        create: "Создать статью"
+        update: "Обновить статью"
+      book:
+        create: "Добавить книгу"
+        update: "Обновить описание книги"
       create: Создать %{model}
       submit: Сохранить %{model}
       update: Сохранить %{model}
