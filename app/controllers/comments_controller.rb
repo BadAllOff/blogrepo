@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  # todo create methods edit destroy update
+  before_action :authenticate_user!, only: [ :new, :create, :update, :destroy, :edit, ]
   before_filter :load_commentable
   def index
     @comments = @commentable.comments
@@ -15,6 +17,18 @@ class CommentsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def update
+
+  end
+
+  def edit
+
+  end
+
+  def destroy
+
   end
 
   private

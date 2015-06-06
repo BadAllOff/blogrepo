@@ -10,10 +10,11 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.text_area :content, rows: 8 %>
+  <div class="field form-group">
+    <%= f.label Article.human_attribute_name(:content) %>
+    <%= f.text_area :content, class: 'form-control', placeholder: 'Write your comment.' %> <!--todo localize-->
   </div>
   <div class="actions">
-    <%= f.submit %> <!--todo locale submit button -->
+    <%= f.submit class: 'btn btn-primary' %> <!--todo locale submit button -->
   </div>
 <% end %>
