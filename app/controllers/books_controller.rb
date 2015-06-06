@@ -17,6 +17,9 @@ class BooksController < ApplicationController
   end
 
   def show
+    @commentable = @book
+    @comments = @commentable.comments
+    @comment = Comment.new
     respond_with(@book)
   end
 
