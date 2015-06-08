@@ -8,13 +8,15 @@ ru:
   articles_link: 'Статьи'
   books_link: 'Книги'
   show: 'Просмотр'
-  edit: 'Редакт.'
+  edit: 'Редактировать'
   destroy: 'Удалить'
   are_you_shure: 'Удалить. Вы уверены?'
   back: 'Назад'
   sign_up: 'Регистрация'
   sign_in: 'Войти'
   sign_out: 'Выйти'
+  edit_user: 'Аккаунт'
+  current_password_explanation: 'укажите текуший пароль для сохранения изменений'
   pub_now: 'Опубликовать?'
   forgot_your_password?: 'Забыли пароль?'
   tags: 'Теги'
@@ -31,6 +33,8 @@ ru:
       add_article: 'Создать статью'
     create:
       article_created: 'Статья создана успешно.'
+    show:
+      article_comments: 'Комментарии'
     update:
       article_updated: 'Статья обновлена успешно.'
     destroy:
@@ -47,20 +51,44 @@ ru:
     new:
       new_book: 'Новая Книга'
     create:
-      article_created: 'Книга создана успешно.'
+      book_created: 'Книга создана успешно.'
+    show:
+      book_comments: 'Комментарии'
+    edit:
+      book_editing: 'Редатировать Книгу'
+    update:
+      book_updated: 'Книга обновлена успешно.'
+    destroy:
+      book_destroyed: 'Книга удалена.'
+  comments:
+    index:
+      all_comments: 'Комментарии'
+    new:
+      new_comment: 'Оставить комментарий'
+      comment_placeholder: 'Впишите ваш отзыв или комментарий сюда.'
+    create:
+      comment_created: 'Спасибо за Ваш комментарий.'
     edit:
       editing_book: 'Редатировать Книгу'
     update:
       article_updated: 'Книга обновлена успешно.'
     destroy:
       article_destroyed: 'Книга удалена.'
+  user:
   activerecord:
+    errors:
+          models:
+            user: # or namespace/model_name
+              attributes:
+                username:
+                  bad_username: 'только буквы (латинские/кириллические) и цифры'
     attributes:
       user:
         password: 'Пароль'
         password_confirmation: 'Подтвердите пароль'
         remember_me: 'Запомнить меня'
         current_password: 'Текущий пароль'
+        username: 'Имя пользователя'
       article:
         title: 'Заголовок'
         image: 'Картинка'
@@ -75,7 +103,8 @@ ru:
         description: 'Описание книги'
         draft: 'Черновик'
         tag_list: 'Теги'
-
+      comment:
+        content: 'Ваш комментарий'
   date:
     abbr_day_names:
     - Вс
@@ -252,6 +281,12 @@ ru:
       book:
         create: "Добавить книгу"
         update: "Обновить описание книги"
+      user:
+        create: "Создать"
+        update: "Обновить"
+      comment:
+        create: "Оставить комментарий"
+        update: "Обновить комменатрий"
       create: Создать %{model}
       submit: Сохранить %{model}
       update: Сохранить %{model}

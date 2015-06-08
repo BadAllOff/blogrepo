@@ -18,7 +18,7 @@
 #
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
-
+# todo localize like there http://guides.rubyonrails.org/i18n.html#organization-of-locale-files
 en:
   helpers:
     submit:
@@ -28,6 +28,12 @@ en:
       book:
         create: "Create %{model}"
         update: "Update %{model}"
+      user:
+        create: "Create"
+        update: "Update"
+      comment:
+        create: "Comment"
+        update: "Edit comment"
   about: 'About'
   follow_links: 'Follow the links below <i class="fa fa-arrow-down"></i>'
   elsewhere: Elsewhere
@@ -44,6 +50,8 @@ en:
   sign_up: 'Sign Up'
   sign_in: 'Sign In'
   sign_out: 'Sign Out'
+  edit_user: 'Edit Account'
+  current_password_explanation: 'we need your current password to confirm your changes'
   pub_now: 'Publish article now.'
   forgot_your_password?: 'Forgot your password?'
   tags: 'Tags'
@@ -60,6 +68,8 @@ en:
       add_article: 'New Article'
     create:
       article_created: 'Article was successfully created.'
+    show:
+      article_comments: 'Comments'
     update:
       article_updated: 'Article was successfully updated.'
     destroy:
@@ -77,13 +87,36 @@ en:
       new_book: 'New Book'
     create:
       book_created: 'Book was successfully created.'
+    show:
+      book_comments: 'Comments'
     edit:
-      editing_book: 'Editing Book'
+      book_editing: 'Editing Book'
     update:
       book_updated: 'Book was successfully updated.'
     destroy:
       book_destroyed: 'Book was successfully destroyed.'
+  comments:
+    index:
+      all_comments: 'Comments'
+    new:
+      new_comment: 'New comment'
+      comment_placeholder: 'Write your comment here.'
+    create:
+      comment_created: 'Thank you for your comment.'
+    edit:
+      editing_book: 'Редатировать Книгу'
+    update:
+      article_updated: 'Книга обновлена успешно.'
+    destroy:
+      article_destroyed: 'Книга удалена.'
+  user:
   activerecord:
+    errors:
+      models:
+        user: # or namespace/model_name
+          attributes:
+            username:
+              bad_username: 'only allows letters (Latin/Cyrillic) and numbers'
     article:
       pub_date: 'Publication Date'
     attributes:
@@ -92,6 +125,7 @@ en:
         password_confirmation: 'Password confirm'
         remember_me: 'Remember me'
         current_password: 'Current password'
+        username: 'Username'
       article:
         title: 'Title'
         image: 'Image'
@@ -106,3 +140,5 @@ en:
         description: 'Description'
         draft: 'Draft'
         tag_list: 'Tags'
+      comment:
+        content: 'Leave a comment'
