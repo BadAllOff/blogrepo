@@ -1,4 +1,6 @@
 class Book < ActiveRecord::Base
+  has_many :comments, as: :commentable
+
   acts_as_taggable
   acts_as_taggable_on :tags_for_books
   has_attached_file :book_cover, :styles => { :medium => "320x470#"}, :default_url => "/images/:style/missing.png"

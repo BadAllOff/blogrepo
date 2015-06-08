@@ -1,21 +1,29 @@
 <% if notice %>
   <div class="alert alert-success alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span>
+    </button>
     <%= notice %>
   </div>
 <% end %>
 
 <div class="col-sm-12 blog-main">
-    <h1><%= @article.title %></h1>
-    <%= image_tag @article.image.url(:original), class: 'img-responsive', alt: "#{@article.title}" %>
-    <%= @article.content.html_safe if @article.content %>
-    <p class="blog-post-meta"><%= time_ago_in_words(@article.pub_date) %>. <%= t(:tags) %>:
-      <%= show_tags(@article) %>
-    </p>
+  <h1><%= @article.title %></h1>
+  <%= image_tag @article.image.url(:original), class: 'img-responsive', alt: "#{@article.title}" %>
+  <%= @article.content.html_safe if @article.content %>
+  <p class="blog-post-meta"><%= time_ago_in_words(@article.pub_date) %>. <%= t(:tags) %>:
+    <%= show_article_tags(@article) %>
+  </p>
+  <hr>
+  <div class="col-xs-12">
+    <h2><%= t('.article_comments') %></h2>
+    <%= render 'comments/comments' %>
+    <%= render 'comments/form' %>
     <hr/>
+  </div>
+
   <% if user_signed_in? %>
     <%= link_to 'Edit', edit_article_path(@article), class: 'btn btn-default' %> |
-    <%= link_to 'Back', articles_path, class: 'btn btn-default' %>
   <% end %>
+  <%= link_to 'Back', articles_path, class: 'btn btn-default' %>
 </div>
 

@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
 
-
   scope '(:locale)', locale: /#{I18n.available_locales.join('|')}/ do
     get 'articles_tags/:tag', to: 'articles#index', as: :articles_tag
     get 'books_tags/:tag', to: 'books#index', as: :books_tag
     devise_for :users
     mount Ckeditor::Engine => '/ckeditor'
-    resources :books
-    resources :articles
+    resources :books do
+      resources :comments
+    end
+    resources :articles do
+      resources :comments
+    end
   end
 
   # match '*path', to: redirect("/#{I18n.default_locale}/%{path}"), via: :all

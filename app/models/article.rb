@@ -1,4 +1,6 @@
 class Article < ActiveRecord::Base
+  has_many :comments, as: :commentable
+
   acts_as_taggable
   translates :title, :content, :preview, :fallbacks_for_empty_translations => true
 

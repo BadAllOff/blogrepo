@@ -1,0 +1,13 @@
+<h2><%= t('.all_comments') %></h2>
+
+<p><%= link_to t('comments.new.new_comment'), [:new, @commentable, :comment]%></p><!--TODO мультиязычность для New Comment-->
+
+
+<div class="row">
+  <div class="col-md-8">
+    <h2 class="page-header"><%= t('.all_comments') %></h2><!-- todo localize-->
+    <section class="comment-list">
+      <%= render 'comments' %>
+    </section>
+  </div>
+</div>
