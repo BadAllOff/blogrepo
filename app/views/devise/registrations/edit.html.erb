@@ -22,7 +22,7 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label User.human_attribute_name(:password), class: 'col-sm-2 control-label' %> <i>(leave blank if you don't want to change it)</i><!--todo locale-->
+    <%= f.label User.human_attribute_name(:password), class: 'col-sm-2 control-label' %> <i>(<%= t('blank_password_explanation') %>)</i><!--todo locale-->
     <div class="col-sm-10">
       <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
     </div>
@@ -48,7 +48,7 @@
     </div>
   </div>
 <% end %>
-<!--todo localization-->
+<!--todo localization cancelation-->
 <div class="panel panel-default">
   <div class="panel-heading">Cancel my account</div>
   <div class="panel-body">

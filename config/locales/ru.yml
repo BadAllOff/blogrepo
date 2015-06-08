@@ -17,6 +17,7 @@ ru:
   sign_out: 'Выйти'
   edit_user: 'Аккаунт'
   current_password_explanation: 'укажите текуший пароль для сохранения изменений'
+  blank_password_explanation: 'оставьте пустым, если не хотите менять его'
   pub_now: 'Опубликовать?'
   forgot_your_password?: 'Забыли пароль?'
   tags: 'Теги'
@@ -61,11 +62,14 @@ ru:
     destroy:
       book_destroyed: 'Книга удалена.'
   comments:
+    form:
+      correct_folowing_errors: 'Пожалуйста исправьте следующие ошибки.'
+      comment_placeholder: 'Пожалуйста, впишите ваш отзыв или комментарий сюда.'
+      hello_username: 'Здравствуйте'
     index:
       all_comments: 'Комментарии'
     new:
       new_comment: 'Оставить комментарий'
-      comment_placeholder: 'Впишите ваш отзыв или комментарий сюда.'
     create:
       comment_created: 'Спасибо за Ваш комментарий.'
     edit:
@@ -104,7 +108,7 @@ ru:
         draft: 'Черновик'
         tag_list: 'Теги'
       comment:
-        content: 'Ваш комментарий'
+        content: 'Оставить комментарий'
   date:
     abbr_day_names:
     - Вс

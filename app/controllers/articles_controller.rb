@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
-  # TODO Добавить комментарии к статьям.
+  # TODO Добавить Аутентификацию
+  # TODO Добавить счётчик комментариев и просмотров к статьям
   before_action :authenticate_user!, only: [ :new, :edit, :create, :update, :destroy]
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
@@ -19,7 +20,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1.json
   def show
     @commentable = @article
-    @comments = @commentable.comments
+    @comments = @commentable.comments.order('created_at DESC')
     @comment = Comment.new
   end
 
