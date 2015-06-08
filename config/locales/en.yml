@@ -52,6 +52,7 @@ en:
   sign_out: 'Sign Out'
   edit_user: 'Edit Account'
   current_password_explanation: 'we need your current password to confirm your changes'
+  blank_password_explanation: "leave blank if you don't want to change it"
   pub_now: 'Publish article now.'
   forgot_your_password?: 'Forgot your password?'
   tags: 'Tags'
@@ -96,11 +97,14 @@ en:
     destroy:
       book_destroyed: 'Book was successfully destroyed.'
   comments:
+    form:
+      correct_folowing_errors: 'Please correct the following errors.'
+      comment_placeholder: 'Please, write your comment here.'
+      hello_username: 'Hello'
     index:
       all_comments: 'Comments'
     new:
       new_comment: 'New comment'
-      comment_placeholder: 'Write your comment here.'
     create:
       comment_created: 'Thank you for your comment.'
     edit:

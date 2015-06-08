@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  # TODO Добавить комментарии к книгам.
+  # TODO Добавить счётчик комментариев и просмотров к книгам.
   before_action :authenticate_user!, only: [ :new, :edit, :create, :update, :destroy]
   before_action :set_book, only: [:show, :edit, :update, :destroy]
   before_action :get_genres, only: [:show, :index]
@@ -19,7 +19,7 @@ class BooksController < ApplicationController
 
   def show
     @commentable = @book
-    @comments = @commentable.comments
+    @comments = @commentable.comments.order('created_at DESC')
     @comment = Comment.new
     respond_with(@book)
   end

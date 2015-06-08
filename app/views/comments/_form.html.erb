@@ -1,20 +1,28 @@
-<%= form_for [@commentable, @comment] do |f| %>
-  <% if @comment.errors.any? %>
-    <div class="error_messages">
-      <h2>Please correct the following errors.</h2><!--todo localize-->
-      <ul>
-        <% @comment.errors.full_messages.each  do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<div class="well">
+  <% if user_signed_in? %>
+    <%= form_for [@commentable, @comment] do |f| %>
+      <% if @comment.errors.any? %>
+        <div class="error_messages">
+          <h2><%= t('.correct_folowing_errors') %></h2>
+          <ul>
+            <% @comment.errors.full_messages.each  do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-  <div class="field form-group">
-    <%= f.label Comment.human_attribute_name(:content) %>
-    <%= f.text_area :content, class: 'form-control', placeholder:t('comments.new.comment_placeholder')%>
-  </div>
-  <div class="actions">
-    <%= f.submit class: 'btn btn-primary' %>
-  </div>
+      <div class="field form-group">
+        <%= f.label :content do %>
+          <%= t('.hello_username') %> <%= current_user.username %>
+        <% end %>
+        <%= f.text_area :content, class: 'form-control', placeholder:t('.comment_placeholder')%>
+      </div>
+      <div class="actions">
+        <%= f.submit class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  <% else %>
+    <%= Comment.human_attribute_name(:content) %>.  <%= link_to t('sign_in'), new_user_session_path %>
 <% end %>
+</div>
