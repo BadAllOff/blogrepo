@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   # todo create methods edit destroy update for each users there own comments +moderator
   before_action :authenticate_user!, only: [ :new, :create, :update, :destroy, :edit, ]
   before_action :load_commentable # before_filter is just a new syntax for before_action
+  load_and_authorize_resource
   def index
     @comments = @commentable.comments
   end

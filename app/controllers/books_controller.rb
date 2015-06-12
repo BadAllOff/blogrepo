@@ -1,8 +1,9 @@
 class BooksController < ApplicationController
   # TODO Добавить счётчик комментариев и просмотров к книгам.
   before_action :authenticate_user!, only: [ :new, :edit, :create, :update, :destroy]
-  before_action :set_book, only: [:show, :edit, :update, :destroy]
+  # before_action :set_book, only: [:show, :edit, :update, :destroy]
   before_action :get_genres, only: [:show, :index]
+  load_and_authorize_resource
 
   respond_to :html
 
@@ -30,6 +31,7 @@ class BooksController < ApplicationController
   end
 
   def edit
+
   end
 
   def create
@@ -54,9 +56,9 @@ class BooksController < ApplicationController
       @tags = Book.tag_counts_on(:genres)
     end
 
-    def set_book
-      @book = Book.find(params[:id])
-    end
+    # def set_book
+    #   @book = Book.find(params[:id])
+    # end
 
     def book_params
       params.require(:book).permit(:author, :title, :description, :draft, :book_cover, :tag_list)
