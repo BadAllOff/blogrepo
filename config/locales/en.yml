@@ -48,8 +48,8 @@ en:
   destroy: 'Destroy'
   are_you_shure: 'Delete. Are you sure?'
   sign_up: 'Sign Up'
-  sign_in: 'Sign In'
-  sign_out: 'Sign Out'
+  sign_in: 'Log In'
+  sign_out: 'Log Out'
   edit_user: 'Edit Account'
   current_password_explanation: 'we need your current password to confirm your changes'
   blank_password_explanation: "leave blank if you don't want to change it"
@@ -67,6 +67,8 @@ en:
       pub_date: 'Pub Date'
       controls: 'Controls'
       add_article: 'New Article'
+      new:
+        new_article: 'New Article'
     create:
       article_created: 'Article was successfully created.'
     show:

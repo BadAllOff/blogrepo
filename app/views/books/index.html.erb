@@ -9,7 +9,7 @@
 
 
 <div class="col-sm-8">
-  <% if user_signed_in? %>
+  <% if can? :destroy, @book %>
     <%= link_to t('.add_book'), new_book_path, class: 'btn btn-primary pull-right hidden-xs' %>
     <%= link_to t('.add_book'), new_book_path, class: 'btn btn-primary visible-xs' %>
     <br/><br/>
@@ -60,19 +60,21 @@
             <p class="text-muted"><%= book.author %></p>
             <h4 class="media-heading"><%= book.title %></h4>
             <p><%= t(:tags) %>: <%= show_book_tags(book) %></p>
-            <% if user_signed_in? %>
               <div class="btn-group btn-group-sm" role="group" >
                 <%= link_to book, title: t(:show), class: 'btn btn-info' do  %>
                   <%= fa_icon 'eye' %>
                 <% end %>
-                <%= link_to edit_book_path(book), title: t(:edit), class: 'btn btn-warning' do %>
-                  <%= fa_icon 'edit' %>
+                <% if can? :update, @book %>
+                  <%= link_to edit_book_path(book), title: t(:edit), class: 'btn btn-warning' do %>
+                    <%= fa_icon 'edit' %>
+                  <% end %>
                 <% end %>
-                <%= link_to book, title: t(:destroy), method: :delete, data: { confirm: t('are_you_shure') }, class: 'btn btn-danger' do %>
-                  <%= fa_icon 'trash' %>
+                <% if can? :destroy, @book %>
+                  <%= link_to book, title: t(:destroy), method: :delete, data: { confirm: t('are_you_shure') }, class: 'btn btn-danger' do %>
+                    <%= fa_icon 'trash' %>
+                  <% end %>
                 <% end %>
               </div>
-            <% end %>
           </div>
         </div>
       </div>

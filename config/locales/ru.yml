@@ -32,6 +32,8 @@ ru:
       pub_date: 'Дата публикации'
       controls: 'Управление'
       add_article: 'Создать статью'
+    new:
+      new_article: 'Новая статья'
     create:
       article_created: 'Статья создана успешно.'
     show:
@@ -81,11 +83,11 @@ ru:
   user:
   activerecord:
     errors:
-          models:
-            user: # or namespace/model_name
-              attributes:
-                username:
-                  bad_username: 'только буквы (латинские/кириллические) и цифры'
+      models:
+        user: # or namespace/model_name
+          attributes:
+            username:
+              bad_username: 'только буквы (латинские/кириллические) и цифры'
     attributes:
       user:
         password: 'Пароль'
