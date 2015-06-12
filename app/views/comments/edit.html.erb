@@ -1,0 +1,6 @@
+<h1><%= t('.editing_comment') %></h1> <!--todo locale -->
+
+<%= render 'form' %>
+
+<%= link_to t('show'),[@commentable, @comment], class: 'btn btn-default' %> |
+<%= link_to t('back'), [@commentable, @comment], class: 'btn btn-default' %>

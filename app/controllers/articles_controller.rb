@@ -51,7 +51,7 @@ class ArticlesController < ApplicationController
 
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
-  def update
+  def update #todo проверка параметра в пост запросе :show - только для админа
     @article.tag_list.add(params[:tag_list], parse: true)
     respond_to do |format|
       if @article.update(article_params)

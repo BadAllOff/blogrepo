@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  # todo create methods edit destroy update for each users there own comments +moderator
+  # todo добавить показ комментариев только после модерации
   before_action :authenticate_user!, only: [ :new, :create, :update, :destroy, :edit, ]
   before_action :load_commentable # before_filter is just a new syntax for before_action
   load_and_authorize_resource
@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    # todo добавить показ только после модерации
+
     @comment = @commentable.comments.new(comment_params)
     @comment.commentator_id = current_user.id
     @comment.commentator_name = current_user.username
@@ -26,16 +26,22 @@ class CommentsController < ApplicationController
     end
   end
 
-  def edit # todo only for admin, let other people think before comment - at least checking grammar rules in message will make them more meaningful
-    redirect_to root_path
+  def edit
   end
 
   def update
-    redirect_to root_path
+    if @comment.update(comment_params)
+      respond_to do |format|
+        format.html { redirect_to @commentable, notice: t('.comment_updated') }
+      end
+    else
+      format.html { render :edit }
+    end
   end
 
   def destroy
-    redirect_to root_path
+    @comment.destroy
+    respond_with(@commentable, notice: t('.comment_destroyed'))
   end
 
   private
