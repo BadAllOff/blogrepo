@@ -1,7 +1,7 @@
 class Article < ActiveRecord::Base
   has_many :comments, as: :commentable
 
-  acts_as_taggable
+  acts_as_taggable # act as taggable не должно быть точек
   translates :title, :content, :preview, :fallbacks_for_empty_translations => true
 
   has_attached_file(:image, :styles => {:original => "768>", :thumb => "100x100>"},

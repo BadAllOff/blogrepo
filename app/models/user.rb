@@ -26,6 +26,9 @@ class User < ActiveRecord::Base
   def user?
     self.role.name == 'User'
   end
+  def guest?
+    self.role.name == 'Guest'
+  end
 
 
 end

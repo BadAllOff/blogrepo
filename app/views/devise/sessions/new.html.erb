@@ -1,10 +1,11 @@
-
+<!--TODO Ошибки не отображаються -->
 
 <div class="card card-container">
   <%= image_tag 'avatar_2x.png', id: 'profile-img', class: 'profile-img-card'  %>
   <p id="profile-name" class="profile-name-card"></p>
   <h2 class=""><%= t('sign_in') %></h2>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-signin'}) do |f| %>
+    <%= devise_error_messages! %>
     <span id="reauth-email" class="reauth-email"></span>
     <%= f.email_field :email, id: 'inputEmail', class: 'form-control', placeholder:  User.human_attribute_name(:email), required: true,  autofocus: true %>
     <%= f.password_field :password, id: "inputPassword", class: 'form-control', placeholder: User.human_attribute_name(:password), required: true, autocomplete: "off" %>
