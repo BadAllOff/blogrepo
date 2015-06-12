@@ -21,9 +21,9 @@
     <hr/>
   </div>
 
-  <% if user_signed_in? %>
-    <%= link_to 'Edit', edit_article_path(@article), class: 'btn btn-default' %> |
+  <% if can? :edit, @article %>
+    <%= link_to t('helpers.submit.article.update'), edit_article_path(@article), class: 'btn btn-default' %> | <!--todo locale-->
   <% end %>
-  <%= link_to 'Back', articles_path, class: 'btn btn-default' %>
+  <%= link_to t('back'), articles_path, class: 'btn btn-default' %>
 </div>
 

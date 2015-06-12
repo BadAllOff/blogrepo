@@ -14,9 +14,9 @@ class Ability
       elsif user.author?
         can :read, :all
         can :create, Comment
-        can :update, Book do |book|
-          book.try(:user_id) == user.id
-        end
+        # can :update, Book do |book|
+        #   book.try(:user_id) == user.id
+        # end
       elsif user.user?
         can :read, :all
         can :create, Comment

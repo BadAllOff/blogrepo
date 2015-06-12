@@ -1,11 +1,12 @@
 # todo Админка для управления пользователями
 # todo Добваить галочку "Мы знакомы?" или  "Я Вас знаю?"
+# TODO rename uploaded images if avatar
 class User < ActiveRecord::Base
   belongs_to :role
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   # :registerable, :recoverable,
-  devise :database_authenticatable, :rememberable, :trackable, :validatable #, :registerable
+  devise :database_authenticatable, :rememberable, :trackable, :validatable #, :registerable, :confirmable
   validates :username,
             length: {maximum: 40 },
             uniqueness: { case_sensitive: false },

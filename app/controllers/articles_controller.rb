@@ -1,5 +1,6 @@
 class ArticlesController < ApplicationController
   # TODO Добавить счётчик комментариев и просмотров к статьям
+  # TODO rename uploaded images
   before_action :authenticate_user!, only: [ :new, :edit, :create, :update, :destroy]
   # before_action :set_article, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
@@ -51,7 +52,7 @@ class ArticlesController < ApplicationController
 
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
-  def update
+  def update #todo проверка параметра в пост запросе :show - только для админа
     @article.tag_list.add(params[:tag_list], parse: true)
     respond_to do |format|
       if @article.update(article_params)

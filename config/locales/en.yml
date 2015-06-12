@@ -101,7 +101,7 @@ en:
   comments:
     form:
       correct_folowing_errors: 'Please correct the following errors.'
-      comment_placeholder: 'Please, write your comment here.'
+      comment_placeholder: 'Please, write your comment here. Be careful, because comment cannot be edited or deleted.'
       hello_username: 'Hello'
     index:
       all_comments: 'Comments'
@@ -110,11 +110,11 @@ en:
     create:
       comment_created: 'Thank you for your comment.'
     edit:
-      editing_book: 'Редатировать Книгу'
+      editing_comment: 'Edit Comment'
     update:
-      article_updated: 'Книга обновлена успешно.'
+      comment_updated: 'Comment updated.'
     destroy:
-      article_destroyed: 'Книга удалена.'
+      comment_destroyed: 'Comment destroyed.'
   user:
   activerecord:
     errors:
