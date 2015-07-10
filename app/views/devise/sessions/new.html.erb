@@ -8,7 +8,7 @@
     <%= devise_error_messages! %>
     <span id="reauth-email" class="reauth-email"></span>
     <%= f.email_field :email, id: 'inputEmail', class: 'form-control', placeholder:  User.human_attribute_name(:email), required: true,  autofocus: true %>
-    <%= f.password_field :password, id: "inputPassword", class: 'form-control', placeholder: User.human_attribute_name(:password), required: true, autocomplete: "off" %>
+    <%= f.password_field :password, id: "inputPassword", class: 'form-control col-sm-10', placeholder: User.human_attribute_name(:password), required: true, autocomplete: "off" %>
 
 
     <% if devise_mapping.rememberable? -%>
@@ -52,9 +52,8 @@
           <%= f.check_box :remember_me %>
             <%= f.label :remember_me, User.human_attribute_name(:remember_me) %>
           </label>
-
         </div>
-  </div>
+      </div>
     </div>
   <% end -%>
   <div class="form-group">

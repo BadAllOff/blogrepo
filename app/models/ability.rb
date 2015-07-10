@@ -12,16 +12,16 @@ class Ability
         can :create, Comment
         can :update, Comment
       elsif user.author?
-        can :read, :all
+        can :read, [Article, Comment, Book]
         can :create, Comment
         # can :update, Book do |book|
         #   book.try(:user_id) == user.id
         # end
       elsif user.user?
-        can :read, :all
+        can :read, [Article, Comment, Book]
         can :create, Comment
       elsif user.guest?
-        can :read, :all
+        can :read, [Article, Comment, Book]
       end
     else
       can :read, [Article, Comment, Book]

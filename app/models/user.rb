@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   # :registerable, :recoverable,
-  devise :database_authenticatable, :rememberable, :trackable, :validatable #, :registerable, :confirmable
+  devise :database_authenticatable, :rememberable, :trackable, :validatable, :registerable, :confirmable, :recoverable
   validates :username,
             length: {maximum: 40 },
             uniqueness: { case_sensitive: false },
