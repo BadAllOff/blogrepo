@@ -85,8 +85,12 @@ Rails.application.configure do
   config.action_mailer.default_url_options = {:host => "http://badalloff.ninja" }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      :address => 'localhost',
-      :port    => '25',
-      :domain  => 'badalloff.ninja'
+      address:              'smtp.gmail.com',
+      port:                 587,
+      domain:               'gmail.com',
+      user_name:            ENV['BLOG_GMAIL_ACCOUNT'],
+      password:             ENV['BLOG_GMAIL_PASS'],
+      authentication:       'plain',
+      enable_starttls_auto: true
   }
 end
