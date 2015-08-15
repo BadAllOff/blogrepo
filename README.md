@@ -1,2 +1,2 @@
-# badblog
-My blog stuff
+# blogrepo
+my blog repo
