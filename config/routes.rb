@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
   scope '(:locale)', locale: /#{I18n.available_locales.join('|')}/ do
+    get 'feeds', to: 'welcome#feed', format: 'rss'
     get 'articles_tags/:tag', to: 'articles#index', as: :articles_tag
     get 'books_tags/:tag', to: 'books#index', as: :books_tag
     devise_for :users, path_names: {
@@ -18,14 +19,14 @@ Rails.application.routes.draw do
     end
     resources :roles
   end
-
+  root 'welcome#index'
   # match '*path', to: redirect("/#{I18n.default_locale}/%{path}"), via: :all
   # match '', to: redirect("/#{I18n.default_locale}"), via: :all
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
