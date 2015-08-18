@@ -17,7 +17,7 @@ gem 'globalize', '~> 5.0.0'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'newrelic_rpm'
 gem 'cancancan', '~> 1.10'
-
+gem 'dynamic_sitemaps'
 
 gem 'unicorn'
 gem 'capistrano-rails', group: :development

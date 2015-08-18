@@ -2,8 +2,6 @@ Rails.application.routes.draw do
 
 
   scope '(:locale)', locale: /#{I18n.available_locales.join('|')}/ do
-    get 'feed', to: 'welcome#feed', format: 'rss'
-    get 'robots' => 'welcome#robots', format: :text
     get 'articles_tags/:tag', to: 'articles#index', as: :articles_tag
     get 'books_tags/:tag', to: 'books#index', as: :books_tag
     devise_for :users, path_names: {
@@ -20,6 +18,9 @@ Rails.application.routes.draw do
     end
     resources :roles
   end
+  get 'sitemap' => 'welcome#sitemap'
+  get 'feed', to: 'welcome#feed', format: 'rss'
+  get 'robots' => 'welcome#robots', format: :text
 
   root 'welcome#index'
   # match '*path', to: redirect("/#{I18n.default_locale}/%{path}"), via: :all

@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
-  layout 'welcome'
+  layout 'welcome', except: [:sitemap, :robots, :feed]
   def index
     get_public_articles
     @tags = Article.tag_counts_on(:tags)
@@ -8,7 +8,6 @@ class WelcomeController < ApplicationController
 
   def feed
     get_public_articles
-    render layout: false;
   end
 
 
@@ -17,6 +16,13 @@ class WelcomeController < ApplicationController
     @urls = [edit_user_registration_path, ckeditor_path, roles_path]
   end
 
+
+  def sitemap
+    respond_to do |format|
+      format.xml { render file: 'public/sitemaps/sitemap.xml' }
+      format.html { redirect_to root_url }
+    end
+  end
   private
 
   def get_public_articles
