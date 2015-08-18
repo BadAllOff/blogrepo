@@ -18,6 +18,7 @@ gem 'acts-as-taggable-on', '~> 3.4'
 gem 'newrelic_rpm'
 gem 'cancancan', '~> 1.10'
 gem 'dynamic_sitemaps'
+gem 'whenever', require: false
 
 gem 'unicorn'
 gem 'capistrano-rails', group: :development

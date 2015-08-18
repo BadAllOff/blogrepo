@@ -15,7 +15,7 @@
 /log/*
 !/log/.keep
 /tmp
-/.idea
+.idea/
 /public/system # если установлен Paperclip
 Procfile # про него я еще расскажу
 config/deploy/ # файлы Capistrano
