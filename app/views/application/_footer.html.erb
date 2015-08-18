@@ -8,7 +8,7 @@
     <a class="btn btn-default" href="#">Back to top</a>
   </p>
     <div class="btn-group" role="group" >
-      <%= link_to 'RSS', feeds_path, class: 'btn btn-warning' %>
+      <%= link_to 'RSS', feed_path, class: 'btn btn-warning' %>
       <% if user_signed_in?  %>
         <%= link_to t('sign_out'), destroy_user_session_path, method: :delete, class: 'btn btn-default' %>
         <%= # link_to t('edit_user'), edit_user_registration_path if edit_user_registration_path

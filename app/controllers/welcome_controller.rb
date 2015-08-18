@@ -6,11 +6,11 @@ class WelcomeController < ApplicationController
   end
 
 
-
   def feed
     get_public_articles
     render layout: false;
   end
+
 
   def robots
     @articles = []
