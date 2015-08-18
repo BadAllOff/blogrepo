@@ -5,7 +5,7 @@ set :application, 'badblog'
 set :repo_url, "https://#{ENV['GITHUB_USERNAME']}:#{ENV['GITHUB_PASSWORD']}@github.com/BadAllOff/blogrepo.git" # repo address
 set :deploy_to, '/opt/www/badblog'
 set :user, 'deploy'
-set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/assets/ckeditor}
+set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/sitemaps public/assets/ckeditor }
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
