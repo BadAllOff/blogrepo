@@ -5,7 +5,7 @@ xml.rss version: '2.0', 'xmlns:atom' => 'http://www.w3.org/2005/Atom' do
     xml.title t('welcome.blog_header.blog_title')
     xml.description t('welcome.blog_header.blog-description')
     xml.link root_url
-    xml.language locale
+    xml.language I18n.locale
     xml.tag! 'atom:link', rel: 'self', type: 'application/rss+xml', href: 'home/rss'
 
     for article in @articles
