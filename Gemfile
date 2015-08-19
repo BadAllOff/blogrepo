@@ -22,8 +22,8 @@ gem 'whenever', require: false
 
 gem 'unicorn'
 gem 'capistrano-rails', group: :development
-gem 'capistrano-bundler', group: :development
-gem 'capistrano-rvm', group: :development
+# gem 'capistrano-bundler', group: :development
+# gem 'capistrano-rvm', group: :development
 
 
 

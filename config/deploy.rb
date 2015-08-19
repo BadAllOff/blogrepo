@@ -7,7 +7,7 @@ set :deploy_to, '/opt/www/badblog'
 set :user, 'deploy'
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/sitemaps public/assets/ckeditor }
 set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
-set :whenever_command, 'bundle exec whenever'
+set :whenever_command, '~/.rbenv/versions/2.2.2/bin/bundle whenever exec whenever' # TODO - убрать бандл, заупстить просто веневер
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
