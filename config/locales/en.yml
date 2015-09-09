@@ -23,11 +23,11 @@ en:
   helpers:
     submit:
       article:
-        create: "Create %{model}"
-        update: "Update %{model}"
+        create: "Create article"
+        update: "Update article"
       book:
-        create: "Create %{model}"
-        update: "Update %{model}"
+        create: "Create book"
+        update: "Update book"
       user:
         create: "Create"
         update: "Update"

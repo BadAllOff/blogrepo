@@ -57,9 +57,10 @@
             <% end %>
           </div>
           <div class="media-body">
-            <p class="text-muted"><%= book.author %></p>
+            <p class="text-muted"><em><%= book.author %></em></p>
             <h4 class="media-heading"><%= book.title %></h4>
             <p><%= t(:tags) %>: <%= show_book_tags(book) %></p>
+            <p><%= book.description.html_safe %></p>
               <div class="btn-group btn-group-sm" role="group" >
                 <%= link_to book, title: t(:show), class: 'btn btn-info' do  %>
                   <%= fa_icon 'eye' %>
