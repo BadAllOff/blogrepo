@@ -37,7 +37,7 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
-    @book.tag_list.add(params[:tag_list], parse: true)
+    @book.tags_for_book_list.add(params[:tags_for_book_list], parse: true)
     @book.save
     respond_with(@book)
   end
@@ -54,7 +54,7 @@ class BooksController < ApplicationController
 
   private
     def get_genres
-      @tags = Book.tag_counts_on(:genres)
+      @tags = Book.tag_counts_on(:tags_for_books)
     end
 
     # def set_book
@@ -62,6 +62,6 @@ class BooksController < ApplicationController
     # end
 
     def book_params
-      params.require(:book).permit(:author, :title, :description, :draft, :book_cover, :tag_list)
+      params.require(:book).permit(:author, :title, :description, :draft, :book_cover, :tags_for_book_list)
     end
 end

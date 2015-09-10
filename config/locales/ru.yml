@@ -32,6 +32,7 @@ ru:
       pub_date: 'Дата публикации'
       controls: 'Управление'
       add_article: 'Создать статью'
+      tags_for_article_list: 'Теги для статьи'
     new:
       new_article: 'Новая статья'
     create:
@@ -51,6 +52,7 @@ ru:
       draft: 'Черновик'
       add_book: 'Добавить книгу'
       published: 'Опубликован'
+      tags_for_book_list: 'Теги для книги'
     new:
       new_book: 'Новая Книга'
     create:

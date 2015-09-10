@@ -37,7 +37,7 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article = Article.new(article_params)
-    @article.tag_list.add(params[:tag_list], parse: true)
+    @article.tags_for_article_list.add(params[:tags_for_article_list], parse: true)
 
     respond_to do |format|
       if @article.save
@@ -53,7 +53,7 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update #todo проверка параметра в пост запросе :show - только для админа
-    @article.tag_list.add(params[:tag_list], parse: true)
+    @article.tags_for_article_list.add(params[:tags_for_article_list], parse: true)
     respond_to do |format|
       if @article.update(article_params)
         format.html { redirect_to @article, notice: t('.article_updated') }
@@ -83,6 +83,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :preview, :content, :pub_date, :show, :image, :tag_list, :content)
+      params.require(:article).permit(:title, :preview, :content, :pub_date, :show, :image, :tags_for_article_list)
     end
 end

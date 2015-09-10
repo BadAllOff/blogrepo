@@ -67,8 +67,9 @@ en:
       pub_date: 'Pub Date'
       controls: 'Controls'
       add_article: 'New Article'
-      new:
-        new_article: 'New Article'
+      tags_for_article_list: 'Tags for article'
+    new:
+      new_article: 'New Article'
     create:
       article_created: 'Article was successfully created.'
     show:
@@ -86,6 +87,7 @@ en:
       draft: 'Draft'
       add_book: 'Add Book'
       published: 'Published'
+      tags_for_book_list: 'Tags for book'
     new:
       new_book: 'New Book'
     create:

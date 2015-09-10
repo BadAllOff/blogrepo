@@ -2,6 +2,7 @@ class Article < ActiveRecord::Base
   has_many :comments, as: :commentable
 
   acts_as_taggable # act as taggable не должно быть точек
+  acts_as_taggable_on :tags_for_articles
   translates :title, :content, :preview, :fallbacks_for_empty_translations => true
 
   has_attached_file(:image, :styles => {:original => "768>", :thumb => "100x100>"},
@@ -16,5 +17,5 @@ class Article < ActiveRecord::Base
   validates :image, :attachment_presence => true
 
   validates :title, length: { maximum: 100, minimum: 1}
-  validates :content, :pub_date, :preview, :tag_list, presence: true
+  validates :content, :pub_date, :preview, :tags_for_article_list, presence: true
 end

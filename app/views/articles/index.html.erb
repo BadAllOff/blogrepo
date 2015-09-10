@@ -97,7 +97,7 @@
     <h4><%= t('tags') %></h4>
     <p>
     <ul class="list-group" >
-      <% tag_cloud Article.tag_counts, %w[tag1 tag2 tag3 tag4] do |tag, css_class|  %>
+      <% tag_cloud (Article.tag_counts_on :tags_for_articles), %w[tag1 tag2 tag3 tag4] do |tag, css_class|  %>
         <li class="list-group-item" >
           <span class="badge"><%= tag.taggings_count %></span>
           <%= link_to  "#{tag.name}", articles_tag_path(tag.name), class: css_class %>
