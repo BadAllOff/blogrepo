@@ -46,6 +46,9 @@ h6, .h6 {
 /*
  * Override Bootstrap's default modal.
  */
+.modal-dialog{
+  width: 765px;
+}
 .modal-footer{
   clear:both;
 }

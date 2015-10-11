@@ -16,6 +16,7 @@
 !/log/.keep
 /tmp
 .idea
+public/assets
 public/sitemaps
 public/system
 # если установлен Paperclip
