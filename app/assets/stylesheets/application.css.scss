@@ -63,15 +63,22 @@ h6, .h6 {
  */
 
 @media (min-width: 1200px) {
+
   .container {
     width: 970px;
   }
 }
 
+@media (min-width: 768px) {
+  .modal-dialog{
+    width: auto;
+  }
+}
 
-/*
- * Masthead for nav
- */
+
+  /*
+   * Masthead for nav
+   */
 
 .blog-masthead {
   background-color: #428bca;
