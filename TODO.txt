@@ -1,2 +1,3 @@
 Chek - http://sendgrid.com/ for emails
 Do modals for books
+TEST assets precompiling

@@ -18,12 +18,8 @@
         <li><%= link_to t('books_link'), books_path, class: 'blog-header-nav-item' %></li>
       </ul>
       <form class="navbar-form navbar-right" role="">
-        <!--<div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
-          </div>
-          <button type="submit" class="btn btn-default"><%= fa_icon 'search'  %></button>-->
-        <%= link_to_unless_current("<img src='/flags/en_14.png'> En".html_safe, { locale: 'en' }, { class: 'btn btn-success' }) do
-          link_to("<img src='/flags/ru_14.png'> Ru".html_safe, { locale: 'ru' }, { class: 'btn btn-success' })
+        <%= link_to_unless_current("<img src='/flags/en_14.png'> En".html_safe, { locale: 'en' }, { class: 'btn btn-info' }) do
+          link_to("<img src='/flags/ru_14.png'> Ru".html_safe, { locale: 'ru' }, { class: 'btn btn-info' })
         end %>
       </form>
     </div><!-- /.navbar-collapse -->

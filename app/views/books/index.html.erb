@@ -47,42 +47,69 @@
       </tbody>
     </table>
   <%end %>
+
   <div class="row">
+    <ul class="list-unstyled">
     <% @books.each do |book| %>
-      <div class="col-xs-12">
-        <div class="media">
-          <div class="media-left media-middle col-xs-6 col-md-4">
-            <%= link_to book, title: t(:show), class: 'thumbnail' do %>
-              <img src="<%= book.book_cover.url(:medium) %>" class="media-object img-rounded" alt="<%= book.title %>">
+        <li class="thumbnail col-sm-3 col-xs-6">
+          <div>
+            <%= link_to "#book-#{book.id}", data: {toggle: "modal"}, title: t(:show) do %>
+              <img src="<%= book.book_cover.url(:medium) %>" class="img-responsive" alt="<%= book.title %>">
+            <% end %>
+            <%= link_to book, title: t(:show), class: 'btn btn-block' do  %>
+            <div class="caption text-center">
+                <%= fa_icon 'eye' %>
+                <%= t(:show) %>
+            </div>
             <% end %>
           </div>
-          <div class="media-body">
-            <p class="text-muted"><em><%= book.author %></em></p>
-            <h4 class="media-heading"><%= book.title %></h4>
-            <p><%= t(:tags) %>: <%= show_book_tags(book) %></p>
-            <p><%= book.description.html_safe %></p>
-              <div class="btn-group btn-group-sm" role="group" >
-                <%= link_to book, title: t(:show), class: 'btn btn-info' do  %>
-                  <%= fa_icon 'eye' %>
-                <% end %>
-                <% if can? :update, @book %>
-                  <%= link_to edit_book_path(book), title: t(:edit), class: 'btn btn-warning' do %>
-                    <%= fa_icon 'edit' %>
-                  <% end %>
-                <% end %>
-                <% if can? :destroy, @book %>
-                  <%= link_to book, title: t(:destroy), method: :delete, data: { confirm: t('are_you_shure') }, class: 'btn btn-danger' do %>
-                    <%= fa_icon 'trash' %>
-                  <% end %>
-                <% end %>
-              </div>
-          </div>
-        </div>
-      </div>
+        </li>
     <% end %>
+    </ul>
   </div>
 
 </div>
+
+
+<% @books.each do |book| %> <!--Modals for books -->
+  <div id="book-<%= book.id %>" class="modal fade" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close glyphicon glyphicon-remove" data-dismiss="modal"></button>
+          <h3><%= book.title %></h3>
+          <p class="text-muted"><em><%= book.author %></em></p>
+          <p><%= t(:tags) %>: <%= show_book_tags(book) %></p>
+        </div>
+        <div class="modal-body">
+          <div>
+            <img src="<%= book.book_cover.url(:medium) %>" alt="<%= book.title %>" class="img-responsive thumbnail modal-image pull-left">
+            <%= book.description.html_safe %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="btn-group btn-group-sm" role="group" >
+            <%= link_to book, title: t(:show), class: 'btn btn-default' do  %>
+              <%= fa_icon 'eye' %>
+              <%= t(:show) %>
+            <% end %>
+            <% if can? :update, @book %>
+              <%= link_to edit_book_path(book), title: t(:edit), class: 'btn btn-warning' do %>
+                <%= fa_icon 'edit' %>
+                <% end %>
+              <% end %>
+            <% if can? :destroy, @book %>
+              <%= link_to book, title: t(:destroy), method: :delete, data: { confirm: t('are_you_shure') }, class: 'btn btn-danger' do %>
+                <%= fa_icon 'trash' %>
+              <% end %>
+            <% end %>
+          </div>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %> <!-- / Modals for books -->
 
 <div class="col-sm-3 col-sm-offset-1 blog-sidebar"> <!-- About section -->
   <div class="sidebar-module sidebar-module-inset">

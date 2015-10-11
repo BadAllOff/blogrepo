@@ -43,8 +43,18 @@ h6, .h6 {
   font-weight: normal;
   color: #333;
 }
-
-
+/*
+ * Override Bootstrap's default modal.
+ */
+.modal-footer{
+  clear:both;
+}
+.modal-body .pull-left{
+  margin-right: 1em;
+}
+.modal-body .pull-right{
+  margin-left: 1em;
+}
 /*
  * Override Bootstrap's default container.
  */
@@ -170,4 +180,6 @@ navigations
 .tag2 { font-size: 0.7em; }
 .tag3 { font-size: 0.9em; }
 .tag4 { font-size: 1.2em; }
+
+
 
