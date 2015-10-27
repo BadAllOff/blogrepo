@@ -25,3 +25,9 @@ set :output, "#{path}/log/cron.log"
 every 6.hours do ||
   rake 'sitemap:generate'
 end
+
+every 168.hours do ||
+  command "> /opt/www/badblog/shared/log/cron.log"
+  command "> /opt/www/badblog/shared/log/production.log"
+  command "> /opt/www/badblog/shared/log/unicorn.log"
+end
