@@ -8,11 +8,11 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     if user_signed_in?
-      return @articles = Article.tagged_with(params[:tag]).order('pub_date DESC').page(params[:page]).per(10) if params[:tag]
-      @articles = Article.order('pub_date DESC').page(params[:page]).per(10)
+      return @articles = Article.tagged_with(params[:tag]).order('pub_date DESC').page(params[:page]).per(5) if params[:tag]
+      @articles = Article.order('pub_date DESC').page(params[:page]).per(5)
     else
-      return @articles = Article.tagged_with(params[:tag]).where(show: true).order('pub_date DESC').page(params[:page]).per(10) if params[:tag]
-      @articles = Article.where(show: true).order('pub_date DESC').page(params[:page]).per(10)
+      return @articles = Article.tagged_with(params[:tag]).where(show: true).order('pub_date DESC').page(params[:page]).per(5) if params[:tag]
+      @articles = Article.where(show: true).order('pub_date DESC').page(params[:page]).per(5)
     end
   end
 

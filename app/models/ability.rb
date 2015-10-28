@@ -1,3 +1,4 @@
+#TODO Refactor this to ablities
 class Ability
   include CanCan::Ability
 
