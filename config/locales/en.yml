@@ -20,6 +20,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 # todo localize like there http://guides.rubyonrails.org/i18n.html#organization-of-locale-files
 en:
+  views:
+    pagination:
+      previous: ' ‹ Prev'
+      next: 'Next › '
   helpers:
     submit:
       article:

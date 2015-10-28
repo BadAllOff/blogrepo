@@ -20,11 +20,10 @@ gem 'newrelic_rpm'
 gem 'cancancan', '~> 1.10'
 gem 'dynamic_sitemaps'
 gem 'whenever', require: false
+gem 'kaminari'
 
 gem 'unicorn'
 gem 'capistrano-rails', group: :development
-# gem 'capistrano-bundler', group: :development
-# gem 'capistrano-rvm', group: :development
 
 
 gem 'sqlite3'
