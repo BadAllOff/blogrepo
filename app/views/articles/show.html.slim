@@ -9,8 +9,8 @@
   = @article.content.html_safe if @article.content
   p.blog-post-meta
     = time_ago_in_words(@article.pub_date)
-    | \. #{t(:tags)}:
-    | \#{show_article_tags(@article)}
+    | &nbsp #{t(:tags)}:
+    | &nbsp #{show_article_tags(article)}
   hr/
   .col-xs-12
     h2= t('.article_comments')

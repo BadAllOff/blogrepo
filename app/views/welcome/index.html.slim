@@ -7,8 +7,8 @@
           = link_to article.title, article_path(article)
         p.blog-post-meta
           = time_ago_in_words(article.pub_date)
-          | \. #{t(:tags)}:
-          | \#{show_article_tags(article)}
+          | &nbsp #{t(:tags)}:
+          | &nbsp #{show_article_tags(article)}
         = image_tag article.image.url(:original), class: 'img-responsive', alt: "#{article.title}"
         = article.preview.html_safe if article.preview
         hr/
