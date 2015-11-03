@@ -1,0 +1,38 @@
+- if notice
+  .alert.alert-success.alert-dismissible role="alert" 
+    button.close aria-label="Close" data-dismiss="alert" type="button" 
+      span aria-hidden="true"  ×
+    = notice
+.col-xs-12.col-sm-6
+  = image_tag @book.book_cover, class: 'img-responsive'
+.col-xs-12.col-sm-6
+  p
+    strong= @book.author
+  p
+    strong= @book.title
+  p
+    = raw @book.description
+.col-xs-12
+  hr/
+  h2= t('.book_comments')
+  /! TODO render Disgus view
+  #disqus_thread
+  javascript:
+    /!* * * CONFIGURATION VARIABLES * * */
+    | var disqus_shortname = 'badalloffninja';
+    | var disqus_identifier = 'article_#{@book.id.to_s}';
+    /!* * * DON'T EDIT BELOW THIS LINE * * */
+    | (function() {
+      | var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      | dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      | (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    | })();
+  noscript
+    | Please enable JavaScript to view the
+    a href="https://disqus.com/?ref_noscript" rel="nofollow"  comments powered by Disqus.
+  = render 'comments/comments'
+  = render 'comments/form'
+- if can? :edit, @book
+  = link_to t('edit'), edit_book_path(@book), class: 'btn btn-default'
+  | \
+= link_to t('back'), books_path, class: 'btn btn-default'

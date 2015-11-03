@@ -1,0 +1,42 @@
+= form_for(@article, html: { :multipart => true, class: 'form-horizontal'}) do |f|
+  - if @article.errors.any?
+    #error_explanation
+      h2
+        = pluralize(@article.errors.count, "error")
+        | prohibited this article from being saved:
+      ul
+        - @article.errors.full_messages.each do |message|
+          li= message
+  .form-group
+    = f.label Article.human_attribute_name(:title), class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :title, class: 'form-control', maxlength: 100
+  .form-group
+    = f.label t('articles.index.tags_for_article_list'), class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :tags_for_article_list, class: 'form-control', value: @article.tags_for_article_list.to_s
+  .form-group
+    = f.label Article.human_attribute_name(:image), class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.file_field :image
+  .form-group
+    = f.label Article.human_attribute_name(:preview), class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.cktext_area :preview, class: 'form-control',:ckeditor => {:language => 'ru'}
+  .form-group
+    = f.label Article.human_attribute_name(:content), class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.cktext_area :content, class: 'form-control',:ckeditor => {:language => 'ru'}
+  .form-group
+    = f.label Article.human_attribute_name(:pub_date), class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.datetime_select :pub_date, class: 'form-control'
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      .checkbox
+        label
+          = f.check_box :show
+          = t('pub_now')
+  .form-group
+    .actions.col-sm-offset-2.col-sm-10
+      = f.submit class: 'btn btn-primary'

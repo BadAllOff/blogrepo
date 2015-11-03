@@ -1,0 +1,11 @@
+h2 Resend confirmation instructions
+= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post, class: 'form-horizontal' }) do |f|
+  = devise_error_messages!
+  .form-group.field
+    = f.label User.human_attribute_name(:email), class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.email_field :email, autofocus: true
+  .form-group
+    .actions.col-sm-offset-2.col-sm-10
+      = f.submit "Resend confirmation instructions", class: 'btn btn-default'
+= render "devise/shared/links"

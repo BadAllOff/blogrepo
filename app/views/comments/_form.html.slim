@@ -1,0 +1,19 @@
+.well
+  - if user_signed_in?
+    = form_for [@commentable, @comment] do |f|
+      - if @comment.errors.any?
+        .error_messages
+          h2= t('.correct_folowing_errors')
+          ul
+            - @comment.errors.full_messages.each  do |msg|
+              li= msg
+      .field.form-group
+        = f.label :content do
+          = t('.hello_username')
+          = current_user.username
+        = f.text_area :content, class: 'form-control', placeholder:t('.comment_placeholder')
+      .actions
+        = f.submit class: 'btn btn-primary'
+  - else
+    = Comment.human_attribute_name(:content)
+    | \.  #{link_to t('sign_in'), new_user_session_path}
