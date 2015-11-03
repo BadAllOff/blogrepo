@@ -1,0 +1,38 @@
+= form_for(@book, html: { :multipart => true, class: 'form-horizontal'}) do |f|
+  - if @book.errors.any?
+    #error_explanation
+      h2
+        = pluralize(@book.errors.count, "error")
+        | prohibited this book from being saved:
+      ul
+        - @book.errors.full_messages.each do |message|
+          li= message
+  .form-group
+    = f.label Book.human_attribute_name(:author), class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :author, class: 'form-control', maxlength: 160
+  .form-group
+    = f.label Book.human_attribute_name(:book_cover), class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.file_field :book_cover
+  .form-group
+    = f.label Book.human_attribute_name(:title), class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :title, class: 'form-control', maxlength: 160
+  .form-group
+    = f.label t('books.index.tags_for_book_list'), class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :tags_for_book_list, class: 'form-control', value: @book.tags_for_book_list.to_s
+  .form-group
+    = f.label Book.human_attribute_name(:description), class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.cktext_area :description, class: 'form-control', maxlength: 160
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      .checkbox
+        label
+          = f.check_box :draft
+          = Book.human_attribute_name(:draft)
+  .form-group
+    .actions.col-sm-offset-2.col-sm-10
+      = f.submit class: 'btn btn-primary'

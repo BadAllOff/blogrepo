@@ -1,9 +1,0 @@
-User-agent: *
-<% @articles.each do |a| %>
-  Disallow: <%= article_url(a) %>
-<% end %>
-Disallow: <%= edit_user_registration_path %>
-Disallow: <%= ckeditor_path %>
-Disallow: <%= roles_path %>
-
-Sitemap: <%= root_url %>/sitemap.xml

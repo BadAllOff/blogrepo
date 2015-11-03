@@ -1,0 +1,8 @@
+h2= t('.all_comments')
+p= link_to t('comments.new.new_comment'), [:new, @commentable, :comment]
+/! todo а вот и решение для встроенной ссылки и элементов [:new, @commentable, :comment]
+.row
+  .col-md-8
+    h2.page-header= t('.all_comments')
+    section.comment-list
+      = render 'comments'

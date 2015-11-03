@@ -1,0 +1,16 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    title= t('welcome.blog_header.blog_title')
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    = auto_discovery_link_tag(:rss, feed_path, {title: 'RSS feed'})
+  body
+    = render 'application/head_menu'
+    .container style=("padding-top: 30px") 
+      .row
+        = yield
+    /! /.container
+    = render 'application/footer'
