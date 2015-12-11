@@ -4,6 +4,7 @@
       span aria-hidden="true"  ×
     = notice
 .col-sm-12.blog-main
+  = render 'application/adsense_article_top_adaptive'
   h1= @article.title
   = image_tag @article.image.url(:original), class: 'img-responsive', alt: "#{@article.title}"
   = @article.content.html_safe if @article.content
