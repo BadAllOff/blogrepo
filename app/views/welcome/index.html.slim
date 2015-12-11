@@ -2,6 +2,7 @@
 .container
   .row
     .col-sm-8.blog-main
+      = render 'application/_adsense_article_top_adaptive'
       - @articles.each do |article|
         h3.blog-post-title
           = link_to article.title, article_path(article)
