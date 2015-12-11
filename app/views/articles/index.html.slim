@@ -35,6 +35,7 @@
                 = link_to article, title: t('destroy'), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do
                   = fa_icon 'trash'
 .col-sm-8.blog-main
+  = render 'application/adsense_article_top_adaptive'
   - @articles.each do |article|
     h3.blog-post-title
       = link_to article.title, article_path(article)
