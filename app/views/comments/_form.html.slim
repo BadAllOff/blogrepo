@@ -16,4 +16,4 @@
         = f.submit class: 'btn btn-primary'
   - else
     = Comment.human_attribute_name(:content)
-    | \.  #{link_to t('sign_in'), new_user_session_path}
+    | #{link_to t('sign_in'), new_user_session_path}

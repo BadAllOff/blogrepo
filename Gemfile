@@ -18,7 +18,6 @@ gem 'newrelic_rpm'
 gem 'cancancan', '~> 1.10'
 gem 'dynamic_sitemaps'
 gem 'whenever', require: false
-gem 'kaminari'
 gem 'thin'
 gem 'slim'
 gem 'unicorn'
@@ -30,6 +29,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'kaminari'
 
 group :development, :test do
   gem 'binding_of_caller'

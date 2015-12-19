@@ -27,6 +27,6 @@ class WelcomeController < ApplicationController
   private
 
   def get_public_articles
-    @articles = Article.where(show: true).order('pub_date DESC').page(params[:page]).per(5)
+    @articles = Article.where(show: true).order('pub_date DESC').page(params[:page]).per(1)
   end
 end
