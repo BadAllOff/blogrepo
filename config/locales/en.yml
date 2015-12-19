@@ -51,6 +51,7 @@ en:
   edit: 'Edit'
   destroy: 'Destroy'
   are_you_shure: 'Delete. Are you sure?'
+  back: 'Back'
   sign_up: 'Sign Up'
   sign_in: 'Log In'
   sign_out: 'Log Out'
@@ -82,6 +83,7 @@ en:
       article_updated: 'Article was successfully updated.'
     destroy:
       article_destroyed: 'Article was successfully destroyed.'
+    back: 'Back'
   books:
     index:
       listing_books: 'Listing Books'
