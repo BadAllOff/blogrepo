@@ -16,6 +16,6 @@ class Article < ActiveRecord::Base
   validates_attachment :image, :content_type => {content_type: ['image/jpeg', 'image/gif', 'image/png']}
   validates :image, :attachment_presence => true
 
-  validates :title, length: { maximum: 100, minimum: 1}
+  validates :title, length: { maximum: 140, minimum: 1}
   validates :content, :pub_date, :preview, :tags_for_article_list, presence: true
 end

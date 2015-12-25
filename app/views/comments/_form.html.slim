@@ -9,8 +9,7 @@
               li= msg
       .field.form-group
         = f.label :content do
-          = t('.hello_username')
-          = current_user.username
+          ' #{t('.hello_username')} #{current_user.username}
         = f.text_area :content, class: 'form-control', placeholder:t('.comment_placeholder')
       .actions
         = f.submit class: 'btn btn-primary'
