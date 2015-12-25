@@ -10,7 +10,7 @@
   .form-group
     = f.label Article.human_attribute_name(:title), class: 'col-sm-2 control-label'
     .col-sm-10
-      = f.text_field :title, class: 'form-control', maxlength: 100
+      = f.text_field :title, class: 'form-control', maxlength: 140
   .form-group
     = f.label t('articles.index.tags_for_article_list'), class: 'col-sm-2 control-label'
     .col-sm-10
