@@ -37,6 +37,7 @@
                 - if can? :destroy, @article
                   = link_to article, title: t('destroy'), method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger' do
                     = fa_icon 'trash'
+    = paginate @articles
   = render 'application/adsense_article_top_adaptive'
   - @articles.each do |article|
     h3.blog-post-title
