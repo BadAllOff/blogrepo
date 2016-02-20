@@ -27,6 +27,7 @@ ru:
   pub_now: 'Опубликовать?'
   forgot_your_password?: 'Забыли пароль?'
   tags: 'Теги'
+  show_full_article: 'Посмотреть всю статью'
   welcome:
     index:
     blog_header:

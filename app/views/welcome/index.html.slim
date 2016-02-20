@@ -4,52 +4,7 @@
     .col-sm-8.blog-main
       = render 'application/adsense_article_top_adaptive'
       - @articles.each do |article|
-        h3.blog-post-title
-          = link_to article.title, article_path(article)
-        p.blog-post-meta
-          = time_ago_in_words(article.pub_date)
-          | &nbsp #{t(:tags)}:
-          | &nbsp #{show_article_tags(article)}
-        = image_tag article.image.url(:original), class: 'img-responsive', alt: "#{article.title}"
-        = article.preview.html_safe if article.preview
-        hr/
+        = render partial: 'articles/article_preview', locals: { article: article }
       = paginate @articles
       nav
-    .col-sm-3.col-sm-offset-1.blog-sidebar
-      /! About section
-      .sidebar-module.sidebar-module-inset
-        h4= t('about')
-        p= t('follow_links').html_safe
-      .sidebar-module
-        h4= t('elsewhere')
-        ol.list-unstyled
-          li
-            a href="https://www.facebook.com/badalloff" target="_blank" 
-              = fa_icon 'facebook-official'
-              | Facebook
-            '
-            = t('facebook').html_safe
-          li
-          li
-            a href="https://github.com/BadAllOff" target="_blank" 
-              = fa_icon 'github-square'
-              | GitHub
-          li
-          li
-            a href="https://www.linkedin.com/profile/view?id=123807632" target="_blank" 
-              = fa_icon 'linkedin-square'
-              | LinkedIn
-            '
-            = t('linkedin').html_safe
-          li
-            a href="https://twitter.com/ShamilBadalov" target="_blank" 
-              = fa_icon 'twitter-square'
-              | Twitter
-      .sidebar-module.sidebar-module
-        h4= t('tags')
-        p
-        ul.list-group
-          - tag_cloud (Article.tag_counts_on :tags_for_articles), %w[tag1 tag2 tag3 tag4] do |tag, css_class|
-            li.list-group-item
-              span.badge= tag.taggings_count
-              = link_to  "#{tag.name}", articles_tag_path(tag.name), class: css_class
+    = render 'application/sidebar'

@@ -1,0 +1,26 @@
+h3.blog-post-title
+  = link_to article.title, article_path(article)
+p.blog-post-meta
+  = time_ago_in_words(article.pub_date)
+  | &nbsp #{t(:tags)}:
+  | &nbsp #{show_article_tags(article)}
+= image_tag article.image.url(:original), class: 'img-responsive', alt: "#{article.title}"
+p
+  /= truncate(strip_tags(article.preview), :length => 180, :omission => ' ... ') if article.preview
+  = (strip_tags(article.preview)).split[0...20].join(' ') if article.preview
+  |  ...
+button.btn.btn-block data-toggle='collapse' data-target="#article-collapse-#{article.id}"
+  | #{t(:show_full_article)}
+.collapse id="article-collapse-#{article.id}" data-toggle='collapse'
+  = article.preview.html_safe if article.preview
+p.blog-post-meta
+  = time_ago_in_words(article.pub_date)
+  | #{t(:tags)}:
+  | #{show_article_tags(article)}
+- if can? :update, @article
+  = link_to edit_article_path(article), title: t('edit'), class: 'btn btn-warning' do
+    = fa_icon 'edit'
+- if can? :destroy, @article
+  = link_to article, title: t('destroy'), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do
+    = fa_icon 'trash'
+hr/

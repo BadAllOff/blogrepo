@@ -2,6 +2,7 @@ class ArticlesController < ApplicationController
   # TODO Добавить счётчик комментариев и просмотров к статьям
   # TODO rename uploaded images
   before_action :authenticate_user!, only: [ :new, :edit, :create, :update, :destroy]
+  before_action :load_tags, only: [:index]
   # before_action :set_article, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
   # GET /articles
@@ -82,7 +83,11 @@ class ArticlesController < ApplicationController
     # end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def article_params
-      params.require(:article).permit(:title, :preview, :content, :pub_date, :show, :image, :tags_for_article_list)
-    end
+  def article_params
+    params.require(:article).permit(:title, :preview, :content, :pub_date, :show, :image, :tags_for_article_list)
+  end
+
+  def load_tags
+    @tags = Article.tag_counts_on :tags_for_articles
+  end
 end

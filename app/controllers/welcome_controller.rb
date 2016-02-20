@@ -1,8 +1,9 @@
 class WelcomeController < ApplicationController
   layout 'welcome', except: [:sitemap, :robots, :feed]
+  before_action :load_tags, only: [:index]
+
   def index
     get_public_articles
-    @tags = Article.tag_counts_on(:tags)
   end
 
 
@@ -28,5 +29,9 @@ class WelcomeController < ApplicationController
 
   def get_public_articles
     @articles = Article.where(show: true).order('pub_date DESC').page(params[:page]).per(5)
+  end
+
+  def load_tags
+    @tags = Article.tag_counts_on :tags_for_articles
   end
 end

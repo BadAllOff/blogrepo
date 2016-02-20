@@ -40,71 +40,9 @@
     = paginate @articles
   = render 'application/adsense_article_top_adaptive'
   - @articles.each do |article|
-    h3.blog-post-title
-      = link_to article.title, article_path(article)
-    = image_tag article.image.url(:original), class: 'img-responsive', alt: "#{article.title}"
-    = article.preview.html_safe if article.preview
-    p.blog-post-meta
-      = time_ago_in_words(article.pub_date)
-      | &nbsp #{t(:tags)}:
-      | &nbsp #{show_article_tags(article)}
-    - if can? :update, @article
-      = link_to edit_article_path(article), title: t('edit'), class: 'btn btn-warning' do
-        = fa_icon 'edit'
-    - if can? :destroy, @article
-      = link_to article, title: t('destroy'), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do
-        = fa_icon 'trash'
-    hr/
+    = render partial: 'articles/article_preview', locals: { article: article }
     br/
     br/
     br/
   = paginate @articles
-.col-sm-3.col-sm-offset-1.blog-sidebar
-  /! About section
-  .sidebar-module.sidebar-module-inset
-    h4= t('about')
-    p= t('follow_links').html_safe
-  .sidebar-module
-    h4= t('elsewhere')
-    ol.list-unstyled
-      li
-        a href="https://www.facebook.com/badalloff" target="_blank" 
-          = fa_icon 'facebook-official'
-          | Facebook
-        '
-        = t('facebook').html_safe
-      li
-      li
-        a href="https://github.com/BadAllOff" target="_blank" 
-          = fa_icon 'github-square'
-          | GitHub
-      li
-      li
-        a href="https://www.linkedin.com/profile/view?id=123807632" target="_blank" 
-          = fa_icon 'linkedin-square'
-          | LinkedIn
-        '
-        = t('linkedin').html_safe
-      li
-      li
-        a href="https://twitter.com/ShamilBadalov" target="_blank" 
-          = fa_icon 'twitter-square'
-          | Twitter
-  .sidebar-module.sidebar-module
-    h4= t('tags')
-    p
-    ul.list-group
-      - tag_cloud (Article.tag_counts_on :tags_for_articles), %w[tag1 tag2 tag3 tag4] do |tag, css_class|
-        li.list-group-item
-          span.badge= tag.taggings_count
-          = link_to  "#{tag.name}", articles_tag_path(tag.name), class: css_class
-  /! / About section
-  /!
-    | <div class="sidebar-module"
-    | <h4>Archives</h4
-    | <ol class="list-unstyled"
-    | <li><a href="#">March 2015</a></li
-    | <li><a href="#">February 2015</a></li
-    | </ol
-    | </div
-/! /.blog-sidebar
+=render 'application/sidebar'

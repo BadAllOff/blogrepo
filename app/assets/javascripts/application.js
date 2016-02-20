@@ -28,7 +28,7 @@ ready = function() {
         $('.alert').fadeOut('slow', function(){
             //$(this).remove();
         });
-    }, 3500);
+    }, 2500);
 };
 
 $(document).ready(ready);

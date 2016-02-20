@@ -3,7 +3,7 @@ class BooksController < ApplicationController
   # TODO rename uploaded images
   before_action :authenticate_user!, only: [ :new, :edit, :create, :update, :destroy]
   # before_action :set_book, only: [:show, :edit, :update, :destroy]
-  before_action :get_genres, only: [:show, :index]
+  before_action :load_tags, only: [:show, :index]
   load_and_authorize_resource
 
   respond_to :html
@@ -53,7 +53,7 @@ class BooksController < ApplicationController
   end
 
   private
-    def get_genres
+    def load_tags
       @tags = Book.tag_counts_on(:tags_for_books)
     end
 
