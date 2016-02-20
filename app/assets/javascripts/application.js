@@ -19,11 +19,18 @@
 
 
 var ready;
+
 ready = function() {
 
     $('.dropdown-toggle').dropdown();
 
+    setTimeout(function(){
+        $('.alert').fadeOut('slow', function(){
+            //$(this).remove();
+        });
+    }, 3500);
 };
 
 $(document).ready(ready);
 $(document).on('page:load', ready);
+$(document).on('page:update', ready);

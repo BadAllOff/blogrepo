@@ -8,6 +8,7 @@ html
     = csrf_meta_tags
     = auto_discovery_link_tag(:rss, feed_path, {title: 'RSS feed'})
   body
+    = flash_messages
     = render 'application/head_menu'
     = yield
     = render 'application/footer'
