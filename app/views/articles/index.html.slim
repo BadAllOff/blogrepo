@@ -1,3 +1,8 @@
+- if notice
+  .alert.alert-success.alert-dismissible role="alert"
+    button.close aria-label="Close" data-dismiss="alert" type="button"
+      span aria-hidden="true"  ×
+    = notice
 .col-sm-8.blog-main
   - if can? :update, @article
     - if can? :create, @article
@@ -49,10 +54,10 @@
     - if can? :destroy, @article
       = link_to article, title: t('destroy'), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do
         = fa_icon 'trash'
-    hr
-    br
-    br
-    br
+    hr/
+    br/
+    br/
+    br/
   = paginate @articles
 .col-sm-3.col-sm-offset-1.blog-sidebar
   /! About section

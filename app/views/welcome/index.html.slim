@@ -49,7 +49,7 @@
         h4= t('tags')
         p
         ul.list-group
-          - tag_cloud Article.tag_counts, %w[tag1 tag2 tag3 tag4] do |tag, css_class|
+          - tag_cloud (Article.tag_counts_on :tags_for_articles), %w[tag1 tag2 tag3 tag4] do |tag, css_class|
             li.list-group-item
               span.badge= tag.taggings_count
               = link_to  "#{tag.name}", articles_tag_path(tag.name), class: css_class
