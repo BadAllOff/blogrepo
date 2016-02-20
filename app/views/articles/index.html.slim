@@ -54,10 +54,10 @@
     - if can? :destroy, @article
       = link_to article, title: t('destroy'), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do
         = fa_icon 'trash'
-    hr/
-    br/
-    br/
-    br/
+    hr
+    br
+    br
+    br
   = paginate @articles
 .col-sm-3.col-sm-offset-1.blog-sidebar
   /! About section
