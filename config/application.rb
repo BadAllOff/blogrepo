@@ -30,6 +30,17 @@ module Badblog5
     config.i18n.fallbacks = true
     config.i18n.fallbacks = [:ru]
 
+    config.generators do |g|
+      g.test_framework :rspec,
+      fixtures: true,
+      view_spec: false,
+      helper_specs: false,
+      routing_specs: false,
+      request_specs: false,
+      controller_specs: true
+      g.fixtures_replacement :factory_girl, dir: 'spec/factory'
+    end
+
     # config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
     # config.assets.precompile += Ckeditor.assets
     # config.assets.precompile += %w(ckeditor/*)

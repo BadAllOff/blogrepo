@@ -7,8 +7,7 @@ p.blog-post-meta
 = image_tag article.image.url(:original), class: 'img-responsive', alt: "#{article.title}"
 p
   /= truncate(strip_tags(article.preview), :length => 180, :omission => ' ... ') if article.preview
-  = (strip_tags(article.preview)).split[0...20].join(' ') if article.preview
-  |  ...
+  = truncate(strip_tags(article.preview), length: 170, separator: ' ') if article.preview
   a.btn.pull-right data-toggle='collapse' data-target="#article-collapse-#{article.id}"
     | #{t(:show_full_article)}
 .collapse id="article-collapse-#{article.id}" data-toggle='collapse'

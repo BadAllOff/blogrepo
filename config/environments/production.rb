@@ -94,4 +94,14 @@ Rails.application.configure do
       authentication:       'login',
       enable_starttls_auto: true
   }
+
+  PAPERCLIP_STORAGE_OPTS = {
+      styles: {original: "768>", thumb: "100x100>"},
+      convert_options: { all: '-quality 92' },
+      default_url: '/images/:style/missing.png',
+      storage: :s3,
+      s3_credentials: "#{Rails.root}/config/s3.yml",
+      s3_protocol: 'https',
+      s3_host_name: 's3-eu-west-1.amazonaws.com'
+  }
 end

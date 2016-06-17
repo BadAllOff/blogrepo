@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20151005044202) do
     t.string   "locale",                                        null: false
     t.datetime "created_at",                                    null: false
     t.datetime "updated_at",                                    null: false
-    t.string   "title"
+    t.string   "title",      default: "No translation... yet!", null: false
     t.text     "content",    default: "No content ... yet!",    null: false
     t.text     "preview",    default: "No translation... yet!", null: false
   end
