@@ -15,7 +15,7 @@
 /log/*
 !/log/.keep
 /tmp
-.idea
+.idea/
 public/assets
 public/sitemaps
 public/system

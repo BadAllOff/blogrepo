@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby '2.3.0'
+ruby '2.3.1'
 
-gem 'rails', '4.2.4'
+gem 'rails', '~> 4.2'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'bootstrap-sass', '3.3.4.1'
 gem 'font-awesome-rails', '4.3.0.0'
@@ -31,11 +31,13 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'kaminari'
 
+
 group :development do
   gem 'capistrano-rails'
   gem 'quiet_assets'
   gem 'rubocop'
   gem 'derailed'
+  gem 'web-console', '~> 2.0'
 end
 
 group :test do
@@ -47,7 +49,6 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors', '2.1.1'
   gem 'byebug'
-  gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'erb2haml'
   gem 'haml2slim'

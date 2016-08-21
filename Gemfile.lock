@@ -336,7 +336,7 @@ DEPENDENCIES
   paperclip
   pg (= 0.18.1)
   quiet_assets
-  rails (= 4.2.4)
+  rails (~> 4.2)
   responders (~> 2.0)
   rmagick
   rspec-rails
@@ -354,5 +354,8 @@ DEPENDENCIES
   web-console (~> 2.0)
   whenever
 
+RUBY VERSION
+   ruby 2.3.1p112
+
 BUNDLED WITH
-   1.10.6
+   1.12.5

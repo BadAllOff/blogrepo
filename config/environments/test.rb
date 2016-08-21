@@ -39,4 +39,18 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  config.action_mailer.default_options = {
+      from: "my_address@example.com"
+  }
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {:address => 'localhost', :port => '1025'}
+
+  PAPERCLIP_STORAGE_OPTS = {
+      styles: {original: "768>", thumb: "100x100>"},
+      convert_options: { all: '-quality 92' },
+      default_url: '/images/:style/missing.png',
+      :processor       => [ :cropper ]
+  }
 end
