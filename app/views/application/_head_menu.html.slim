@@ -13,7 +13,8 @@ nav.navbar.navbar-default.navbar-fixed-top.blog-masthead
       ul.nav.navbar-nav
         li= link_to t('articles_link'), articles_path, class: 'blog-header-nav-item'
         li= link_to t('books_link'), books_path, class: 'blog-header-nav-item'
-      form.navbar-form.navbar-right role="" 
+        li= link_to t('books_link'), pages_about_me_path, class: 'blog-header-nav-item'
+      form.navbar-form.navbar-right role=""
         = link_to_unless_current("<img src='/flags/en_14.png'> En".html_safe, { locale: 'en' }, { class: 'btn btn-info' }) do \
             link_to("<img src='/flags/ru_14.png'> Ru".html_safe, { locale: 'ru' }, { class: 'btn btn-info' })                 \
           end

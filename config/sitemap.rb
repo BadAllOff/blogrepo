@@ -12,6 +12,9 @@ sitemap :site do
     url book_path(:id => book[:id], :locale => 'ru'), last_mod: book.updated_at, change_freq: "daily", priority: 1.0
     url book_path(:id => book[:id], :locale => 'en'), last_mod: book.updated_at, change_freq: "daily", priority: 1.0
   end
+  HighVoltage.page_ids.each do |page|
+    add page, changefreq: 'monthly'
+  end
 end
 
 # You can have multiple sitemaps like the above – just make sure their names are different.

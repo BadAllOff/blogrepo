@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   get 'sitemap' => 'welcome#sitemap'
   get 'feed', to: 'welcome#feed', format: 'rss'
   get 'robots' => 'welcome#robots', format: :text
+  get 'pages/about_me' => 'high_voltage/pages#show', id: 'about_me'
 
   root 'welcome#index'
   # match '*path', to: redirect("/#{I18n.default_locale}/%{path}"), via: :all
