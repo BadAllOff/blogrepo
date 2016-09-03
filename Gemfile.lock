@@ -140,6 +140,7 @@ GEM
       nokogiri
       ruby_parser
     heapy (0.1.2)
+    high_voltage (3.0.0)
     html2haml (2.0.0)
       erubis (~> 2.7.0)
       haml (~> 4.0.0)
@@ -174,6 +175,8 @@ GEM
     newrelic_rpm (3.15.0.314)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
+    nyan-cat-formatter (0.11)
+      rspec (>= 2.99, >= 2.14.2, < 4)
     orm_adapter (0.5.0)
     paperclip (4.3.5)
       activemodel (>= 3.2.0)
@@ -222,6 +225,10 @@ GEM
     responders (2.1.1)
       railties (>= 4.2.0, < 5.1)
     rmagick (2.15.4)
+    rspec (3.4.0)
+      rspec-core (~> 3.4.0)
+      rspec-expectations (~> 3.4.0)
+      rspec-mocks (~> 3.4.0)
     rspec-core (3.4.2)
       rspec-support (~> 3.4.0)
     rspec-expectations (3.4.0)
@@ -238,6 +245,8 @@ GEM
       rspec-expectations (~> 3.4.0)
       rspec-mocks (~> 3.4.0)
       rspec-support (~> 3.4.0)
+    rspec-retry (0.5.0)
+      rspec-core (~> 3.3)
     rspec-support (3.4.1)
     rubocop (0.37.1)
       parser (>= 2.3.0.4, < 3.0)
@@ -329,10 +338,12 @@ DEPENDENCIES
   font-awesome-rails (= 4.3.0.0)
   globalize (~> 5.0.0)
   haml2slim
+  high_voltage (~> 3.0.0)
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
   newrelic_rpm
+  nyan-cat-formatter
   paperclip
   pg (= 0.18.1)
   quiet_assets
@@ -340,6 +351,7 @@ DEPENDENCIES
   responders (~> 2.0)
   rmagick
   rspec-rails
+  rspec-retry (~> 0.5.0)
   rubocop
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

@@ -30,6 +30,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'kaminari'
+gem 'high_voltage', '~> 3.0.0'
 
 
 group :development do
@@ -43,6 +44,8 @@ end
 group :test do
   gem 'shoulda-matchers'
   gem 'database_cleaner'
+  gem 'nyan-cat-formatter'
+  gem 'rspec-retry', '~> 0.5.0'
 end
 
 group :development, :test do
