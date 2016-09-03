@@ -1,5 +1,8 @@
 ---
 ru:
+  pages:
+    about_me:
+      hello: 'Привет!'
   views:
       pagination:
         previous: ' ‹ Назад '

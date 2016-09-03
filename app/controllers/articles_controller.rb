@@ -1,6 +1,5 @@
 class ArticlesController < ApplicationController
   # TODO Добавить счётчик комментариев и просмотров к статьям
-  # TODO rename uploaded images
   before_action :authenticate_user!, only: [ :new, :edit, :create, :update, :destroy]
   before_action :load_tags, only: [:index]
   # before_action :set_article, only: [:show, :edit, :update, :destroy]

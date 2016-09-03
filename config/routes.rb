@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   scope '(:locale)', locale: /#{I18n.available_locales.join('|')}/ do
     get 'articles_tags/:tag', to: 'articles#index', as: :articles_tag
     get 'books_tags/:tag', to: 'books#index', as: :books_tag
+    get "/pages/*id" => 'pages#show', as: :page, format: false
+
     devise_for :users, path_names: {
                          sign_up: 'register',
                          sign_in: 'log_in',
@@ -21,7 +23,6 @@ Rails.application.routes.draw do
   get 'sitemap' => 'welcome#sitemap'
   get 'feed', to: 'welcome#feed', format: 'rss'
   get 'robots' => 'welcome#robots', format: :text
-  get 'pages/about_me' => 'high_voltage/pages#show', id: 'about_me'
 
   root 'welcome#index'
   # match '*path', to: redirect("/#{I18n.default_locale}/%{path}"), via: :all
