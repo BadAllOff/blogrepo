@@ -8,7 +8,7 @@ class PagesController < ApplicationController
   def layout_for_page
     case params[:id]
       when 'about_me'
-        'application'
+        'about_me'
       else
         'application'
     end

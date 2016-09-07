@@ -15,20 +15,24 @@
 //= require ckeditor/init
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require_tree ./general
 
 
 var ready;
 
 ready = function() {
 
-    $('.dropdown-toggle').dropdown();
+  $('a.show_full_article').unbind().bind('click', function(){
+    var article_id = $(this).data('article-id');
+    console.log($(this).text());
+    return $('#preview-article-'+article_id).slideToggle();
+  });
 
-    setTimeout(function(){
-        $('.alert').fadeOut('slow', function(){
-            //$(this).remove();
-        });
-    }, 2500);
+  setTimeout(function(){
+      $('.alert').fadeOut('slow', function(){
+          //$(this).remove();
+      });
+  }, 2500);
 };
 
 $(document).ready(ready);

@@ -2,7 +2,9 @@
 ru:
   pages:
     about_me:
+      page_title: 'Ruby On Rails разработчик.'
       hello: 'Привет!'
+
   views:
       pagination:
         previous: ' ‹ Назад '
@@ -16,6 +18,7 @@ ru:
   facebook: связаться со мной можно и тут. Если нет каких-либо комплексов можете просто постучаться в друзья. Будем знакомы.
   articles_link: 'Статьи'
   books_link: 'Книги'
+  about_me_link: 'Об авторе'
   show: 'Просмотр'
   edit: 'Редактировать'
   destroy: 'Удалить'
@@ -31,6 +34,7 @@ ru:
   forgot_your_password?: 'Забыли пароль?'
   tags: 'Теги'
   show_full_article: 'Посмотреть всю статью'
+  show_preview_article: 'Показать только превью'
   welcome:
     index:
     blog_header:
