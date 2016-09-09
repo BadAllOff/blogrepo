@@ -1,6 +1,156 @@
 = content_for :page_title, t('pages.about_me.page_title')
 = stylesheet_link_tag 'high_voltage/about_me', media: 'all', 'data-turbolinks-track' => true
 = javascript_include_tag 'high_voltage/about_me', 'data-turbolinks-track' => true
-
-h1
-  = t('.hello');
+.jumbotron.header
+  .container
+    h1 = t('.hello');
+    p
+      | С удовольствием замараю ручки.
+    a class="btn btn-info btn-lg" href="#" role="button"
+      | Пиши мне прямо сейчас!
+.container
+  .container.col-lg-4
+    h4.header_background
+      i.fa.fa-user.fa-2x.col-xs-2
+      span.col-xs-10
+        |  Обо мне
+    hr
+    p
+      | Привет! Меня зовут Шамиль и я фулл-стек Ruby on Rails разработчик! Я могу создать, разместить в сети и оптимизировать до некоторого критического уровня нагрузки приложения любой сложности с нуля.
+    p
+      | Я горячё приветствую тебя если у тебя есть какие либо предложения по этому поводу.
+      br
+      | С удовольствием замараю ручки.
+  .container.col-md-4
+    h4.header_background
+      i.fa.fa-mortar-board.fa-2x.col-xs-2
+      span.col-xs-10
+        |  Образование
+    hr
+    p
+      span.text-muted
+        | 2002 – 2006
+      |  Азербайджанский Государственный Экономичексий Университет
+      a href="http://unec.edu.az/en/"
+        |  (АГЭУ)
+      | , на факультете Экономическая Кибернетика
+    p
+      | Принимал активное участие в организации и проведении мероприятий с участием представителей министерства образования и министерства спорта и туризма.
+    p
+      span.text-muted
+        | До 2016
+      '  Из за огромного интереса к веб-разработкам, изучил большое количество онлайн курсов и упражнений по всему спектру веб-разработки, включая теоретические знания об устройстве высоконагруженных проектов. Множество экспериментальных проектов включая
+      a href="https://github.com/BadAllOff/conversation" target="_blank"
+        | MVP проекта по поиску партнёров для развития иностранной разговорной речи.
+    p
+      span.text-muted
+        | 2016
+      |  Прошёл интенсивный онлайн курс "Профессиональная разработка на Ruby On Rails"
+  .container.col-md-4
+    h4.header_background
+      i.fa.fa-heart.fa-2x.col-xs-2
+      span.col-xs-10
+        |  Интересы
+    hr
+    p
+      | Дико интересны computer science, машинное обучение  и естественные науки в целом. Уверен что ближайшее будущее за технологиями для умного дома и интернетом вещей. Для меня это более чем интересная сфера, так как там сплетаютеться всё что я люблю (последние достижения науки, продвинутая практическая психология, передовые технологии и программные продукты). Соответственно ориентируюсь именно в это направлении. предсказываю расцвет "С" программистов, снова)
+    p
+      | Конечно же тема саморазвития каждый день выступает на первый план. Собственно так и должно быть, считаю что это одно из моих достижение.
+    p
+      | Психология и Философия меня интересуют из практических соображений. Все мы живём вместе, на нашей планете. Надо научиться понимать   и любить друг друга. В конце концов Земля, это всего лишь большой космический корабль в огромном устращающем космосе. Это наш единственный дом.
+  .clearfix style="padding-bottom:50px;"
+.jumbotron.middle_separator
+.container
+  .container.col-lg-4
+    h4.header_background
+      i.fa.fa-briefcase.fa-2x.col-xs-2
+      span.col-xs-10
+        |  Профессиональные навыки
+    hr
+    ul id="skill" style='list-style: none; padding-left: 0px;'
+      li
+        span class="bar bar_html"
+        p
+          | HTML / CSS
+          span.skill-bar-percent
+            | 80%
+      li
+        span class="bar bar_javascript_jquery"
+        p
+          | Javascript / jQuery
+          span.skill-bar-percent
+            | 71%
+      li
+        span class="bar bar_ruby_rails"
+        p
+          | Ruby / Rails
+          span.skill-bar-percent
+            | 80%
+      li
+        span class="bar bar_linux"
+        p
+          | Linux
+          span.skill-bar-percent
+            | 54%
+      li
+        span class="bar bar_postgresql"
+        p
+          | PostgreSQL
+          span.skill-bar-percent
+            | 60%
+      li
+        span class="bar bar_git"
+        p
+          | Git
+          span.skill-bar-percent
+            | 60%
+      li
+        span class="bar bar_photoshop"
+        p
+          | Photoshop
+          span.skill-bar-percent
+            | 54%
+  .container.col-md-4
+    h4.header_background
+      i.fa.fa-users.fa-2x.col-xs-2
+      span.col-xs-10
+        |  Персональные навыки
+    hr
+    ul id="skill" style='list-style: none; padding-left: 0px;'
+      li
+        span class="bar bar_can_do"
+        p style="color: black;"
+          | "Can do" attitude
+          span.skill-bar-percent
+            | 100%
+  .container.col-lg-4
+    h4.header_background
+      i.fa.fa-comments.fa-2x.col-xs-2
+      span.col-xs-10
+        |  Языковые навыки
+    hr
+    ul id="skill" style='list-style: none; padding-left: 0px;'
+      li
+        span class="bar lang_russian"
+        p
+          | Русский
+          span.skill-bar-percent
+            | 100%
+      li
+        span class="bar lang_english"
+        p
+          | Английский
+          span.skill-bar-percent
+            | 80%
+      li
+        span class="bar lang_azeri"
+        p
+          | Азербайджанский
+          span.skill-bar-percent
+            | 95%
+      li
+        span class="bar lang_turkish"
+        p
+          | Турецкий
+          span.skill-bar-percent
+            | 70%

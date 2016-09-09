@@ -22,7 +22,7 @@
 en:
   pages:
     about_me:
-      hello: 'Hello!'
+      hello: 'Hello World!'
       page_title: 'About Us - Custom page title'
   views:
     pagination:
@@ -51,7 +51,7 @@ en:
   github:
   articles_link: 'Articles'
   books_link: 'Books'
-  about_me_link: 'Hire me'
+  about_me_link: 'About me'
   show: 'Show'
   edit: 'Edit'
   destroy: 'Destroy'

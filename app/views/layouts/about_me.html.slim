@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    title= yield(:page_title)
+    = csrf_meta_tags
+    = auto_discovery_link_tag(:rss, feed_path, {title: 'RSS feed'})
+  body
+    = flash_messages
+    = render 'pages/shared/header_menu'
+    div
+      = yield
+    = render 'pages/shared/footer'

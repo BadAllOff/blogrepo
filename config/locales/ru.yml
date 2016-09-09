@@ -3,7 +3,7 @@ ru:
   pages:
     about_me:
       page_title: 'Ruby On Rails разработчик.'
-      hello: 'Привет!'
+      hello: 'Привет мир!'
 
   views:
       pagination:
