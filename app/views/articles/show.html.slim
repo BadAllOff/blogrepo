@@ -11,20 +11,7 @@
   .col-xs-12
     h2= t('.article_comments')
     /! TODO render Disgus view
-    #disqus_thread
-    javascript:
-      /!* * * CONFIGURATION VARIABLES * * */
-      | var disqus_shortname = 'badalloffninja';
-      | var disqus_identifier = 'article_#{@article.id.to_s}';
-      /!* * * DON'T EDIT BELOW THIS LINE * * */
-      | (function() {
-        | var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        | dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        | (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-      | })();
-    noscript
-      | Please enable JavaScript to view the
-      a href="https://disqus.com/?ref_noscript" rel="nofollow"  comments powered by Disqus.
+    = render partial: 'comments/disqus_comments', locals: {obj: @article}
     = render 'comments/comments'
     = render 'comments/form'
     hr/

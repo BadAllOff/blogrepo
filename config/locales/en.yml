@@ -23,7 +23,7 @@ en:
   pages:
     about_me:
       hello: 'Hello World!'
-      page_title: 'About Us - Custom page title'
+      page_title: 'Full-Stack Ruby On Rails developer. Hire me!'
   views:
     pagination:
       previous: ' ‹ Prev'
@@ -121,7 +121,7 @@ en:
     index:
       all_comments: 'Comments'
     new:
-      new_comment: 'New comment'
+      new_comment: 'Leave a comment'
     create:
       comment_created: 'Thank you for your comment.'
     edit:
