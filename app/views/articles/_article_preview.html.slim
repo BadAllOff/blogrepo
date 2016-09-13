@@ -7,15 +7,24 @@ p.blog-post-meta
 = image_tag article.image.url(:original), class: 'img-responsive img-thumbnail', alt: "#{article.title}"
 .collapse.in id="preview-article-#{article.id}" data-toggle='collapse'
   = truncate(strip_tags(article.preview), length: 170, separator: ' ') if article.preview
-  a.btn.btn-block.show_full_article data-article-id="#{article.id}" data-toggle='collapse' data-target="#article-collapse-#{article.id}"
-    | #{t(:show_full_article)}
+  .clearfix
+  a.btn.pull-right.show_full_article data-article-id="#{article.id}" data-toggle='collapse' data-target="#article-collapse-#{article.id}"
+    = fa_icon 'eye'
+    '
+    = t(:show_full_article)
 .collapse id="article-collapse-#{article.id}" data-toggle='collapse'
   = article.preview.html_safe if article.preview
   .collapse id="article-comments-collapse-#{article.id}" data-toggle='collapse'
     = render partial: "comments/disqus_comments", locals: {obj: article}
-  a.btn.btn-block.show_full_article data-article-id="#{article.id}" data-toggle='collapse' data-target="#article-collapse-#{article.id}"
+  a.btn.pull-right.show_full_article data-article-id="#{article.id}" data-toggle='collapse' data-target="#article-collapse-#{article.id}"
+    = fa_icon 'eye-slash'
+    '
     | #{t(:show_preview_article)}
-= link_to t('comments.new.new_comment'), article_path(article), class: 'btn'
+= link_to article_path(article), class: 'btn pull-right' do
+  = fa_icon 'comment-o'
+  '
+  = t('comments.new.new_comment')
+.clearfix
 - if can? :update, @article
   = link_to edit_article_path(article), title: t('edit'), class: 'btn btn-warning' do
     = fa_icon 'edit'

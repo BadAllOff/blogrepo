@@ -28,6 +28,8 @@ en:
     pagination:
       previous: ' ‹ Prev'
       next: 'Next › '
+      first: "‹‹ Back"
+      last: "Frwd ››"
   helpers:
     submit:
       article:
