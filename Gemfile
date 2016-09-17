@@ -42,7 +42,10 @@ group :development do
 end
 
 group :test do
-  gem 'shoulda-matchers'
+  gem 'capybara-webkit', '~> 1.11.1'
+  gem 'shoulda-matchers', '~> 3.1.1'
+  gem 'capybara', '~> 2.7.1'
+  gem "launchy"
   gem 'database_cleaner'
   gem 'nyan-cat-formatter'
   gem 'rspec-retry', '~> 0.5.0'

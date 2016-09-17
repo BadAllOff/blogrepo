@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Role.find_or_create_by(id: 1, name: 'Administrator', description: 'Administrator have all the rights.')
+Role.find_or_create_by(id: 2, name: 'User', description: 'User can leave a comments, edit his own comments, but not delete them.')
+Role.find_or_create_by(id: 5, name: 'Guest', description: 'Guest must act like guest, be polite and modest. Can only be a observer.')

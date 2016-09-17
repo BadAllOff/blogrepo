@@ -109,11 +109,27 @@ navigations
 }
 
 .header{
-  min-height:550px;
-  background-image: asset_url("bg3.jpg");
-  background-attachment: fixed;
+  min-height:800px;
+  background-image: asset_url("bg5.png");
+  //background-attachment: fixed;
   background-position: center;
   background-size: cover;
+  padding-top: 10%;
+
+  h1{
+    font-size: 100px;
+  }
+
+  p{
+    font-size: 30px;
+  }
+
+  .btn{
+    font-size: 30px;
+    color: #555;
+    background: none;
+  }
+
 }
 
 .middle_separator{
