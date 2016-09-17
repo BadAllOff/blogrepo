@@ -10,7 +10,6 @@
   hr/
   .col-xs-12
     h2= t('.article_comments')
-    /! TODO render Disgus view
     = render partial: 'comments/disqus_comments', locals: {obj: @article}
     = render 'comments/comments'
     = render 'comments/form'

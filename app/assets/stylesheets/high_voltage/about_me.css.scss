@@ -108,6 +108,12 @@ navigations
   }
 }
 
+.preposition {
+  text-shadow: 1px 1px 12px white, 0 0 0em white;
+  font-weight: bolder;
+  padding: 50px;
+}
+
 .header{
   min-height:800px;
   background-image: asset_url("bg5.png");
@@ -118,6 +124,7 @@ navigations
 
   h1{
     font-size: 100px;
+    margin-bottom: 30px;
   }
 
   p{

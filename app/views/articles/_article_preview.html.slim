@@ -13,7 +13,7 @@ p.blog-post-meta
     '
     = t(:show_full_article)
 .collapse id="article-collapse-#{article.id}" data-toggle='collapse'
-  = article.preview.html_safe if article.preview
+  = article.content.html_safe if article.content
   .collapse id="article-comments-collapse-#{article.id}" data-toggle='collapse'
     = render partial: "comments/disqus_comments", locals: {obj: article}
   a.btn.pull-right.show_full_article data-article-id="#{article.id}" data-toggle='collapse' data-target="#article-collapse-#{article.id}"

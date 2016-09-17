@@ -1,5 +1,4 @@
 # config valid only for current version of Capistrano
-# TODO deploy without necessary precompile
 lock '3.4.0'
 
 set :application, 'badblog'
