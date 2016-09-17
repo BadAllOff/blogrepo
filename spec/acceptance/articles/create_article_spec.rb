@@ -6,28 +6,29 @@ feature 'Create Article', '
 
   given!(:admin_user) { create(:admin_user) }
   describe 'Authenticated user' do
+
     before do
       sign_in(admin_user)
       visit articles_path
     end
 
     scenario '- creates article' do
-      save_and_open_page
       click_on 'New Article'
-      fill_in 'Title', with: 'Test article la la la la la l al al al a'
-      fill_in 'Tags for article', with: 'Test, tags, 4ever, question body'
-      fill_in 'Preview', with: 'Preview Preview PreviewPreviewPreviewPreviewPreview Preview'
-      fill_in 'Content', with: 'Content Content Content Content Content Content'
+      fill_in 'article_title', with: 'Test article'
+      fill_in 'article_tags_for_article_list', with: 'Test, tags, 4ever, question body'
+      attach_file 'article_image', "#{Rails.root}/spec/fixtures/css3.jpg"
+      fill_in 'article_preview', with: 'Preview Preview'
+      fill_in 'article_content', with: 'Content Content Content Content Content Content'
       check 'article_show'
-      click_on 'Create Article'
+      click_on 'Create article'
+      click_on 'Log Out'
 
-      expect(page).to have_content 'Test article la la la la la l al al al a'
-      expect(page).to have_content 'Content Content Content Content Content Content'
+      expect(page).to have_content 'Test article'
+      expect(page).to have_content 'Preview Preview'
     end
   end
 
   describe 'Non-Authenticated user' do
-
     scenario '- fails to create question and redirected to sign in page' do
       visit articles_path
 
