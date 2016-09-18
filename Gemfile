@@ -39,6 +39,7 @@ group :development do
   gem 'derailed'
   gem 'web-console'
   gem 'annotate'
+  gem 'rubocop'
 end
 
 group :test do

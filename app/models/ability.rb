@@ -1,4 +1,4 @@
-#TODO Refactor this to ablities
+# TODO Refactor this to ablities
 class Ability
   include CanCan::Ability
 
@@ -7,7 +7,7 @@ class Ability
 
     if user != nil
       if user.admin?
-      can :manage, :all
+        can :manage, :all
       elsif user.moderator?
         can :read, :all
         can :create, Comment

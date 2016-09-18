@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
   # :registerable, :recoverable,
   devise :database_authenticatable, :rememberable, :trackable, :validatable, :registerable, :confirmable, :recoverable
   validates :username,
-            length: {maximum: 40 },
+            length: { maximum: 40 },
             uniqueness: { case_sensitive: false },
             format: { with: /\A[а-яА-ЯёЁa-zA-Z0-9]+\Z/,
                       message: :bad_username
@@ -40,19 +40,23 @@ class User < ActiveRecord::Base
             presence: true
 
   def admin?
-    self.role.name == 'Administrator'
+    role.name == 'Administrator'
   end
+
   def author?
-    self.role.name == 'Author'
+    role.name == 'Author'
   end
+
   def moderator?
-    self.role.name == 'Moderator'
+    role.name == 'Moderator'
   end
+
   def user?
-    self.role.name == 'User'
+    role.name == 'User'
   end
+
   def guest?
-    self.role.name == 'Guest'
+    role.name == 'Guest'
   end
 
 

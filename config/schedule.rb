@@ -27,7 +27,7 @@ every 6.hours do ||
 end
 
 every 168.hours do ||
-  command "> /opt/www/badblog/shared/log/cron.log"
-  command "> /opt/www/badblog/shared/log/production.log"
-  command "> /opt/www/badblog/shared/log/unicorn.log"
+  command '> /opt/www/badblog/shared/log/cron.log'
+  command '> /opt/www/badblog/shared/log/production.log'
+  command '> /opt/www/badblog/shared/log/unicorn.log'
 end

@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   # TODO Добавить счётчик комментариев и просмотров к статьям
-  before_action :authenticate_user!, only: [ :new, :edit, :create, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
   before_action :load_tags, only: [:index]
 
   respond_to :html
@@ -50,7 +50,7 @@ class ArticlesController < ApplicationController
 
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
-  def update #todo проверка параметра в пост запросе :show - только для админа
+  def update # todo проверка параметра в пост запросе :show - только для админа
     @article.tags_for_article_list.add(params[:tags_for_article_list], parse: true)
     respond_to do |format|
       if @article.update(article_params)

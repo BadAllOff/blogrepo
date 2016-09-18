@@ -4,6 +4,6 @@ class AddRoleToUser < ActiveRecord::Migration
   end
 
   def self.down
-    remove_reference(:users, :role, {:index=>true, :foreign_key=>true, :default=>2})
+    remove_reference(:users, :role, { index: true, foreign_key: true, default: 2 })
   end
 end

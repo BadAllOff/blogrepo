@@ -18,7 +18,7 @@ feature 'Delete Article', '
     end
 
     scenario '- can delete article' do
-      first(".btn-danger").click
+      first('.btn-danger').click
 
       expect(page).to_not have_content 'This is Test article'
       expect(page).to_not have_content 'This is Test article preview'

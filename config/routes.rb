@@ -4,12 +4,12 @@ Rails.application.routes.draw do
   scope '(:locale)', locale: /#{I18n.available_locales.join('|')}/ do
     get 'articles_tags/:tag', to: 'articles#index', as: :articles_tag
     get 'books_tags/:tag', to: 'books#index', as: :books_tag
-    get "/pages/*id" => 'pages#show', as: :page, format: false
+    get '/pages/*id' => 'pages#show', as: :page, format: false
 
     devise_for :users, path_names: {
                          sign_up: 'register',
                          sign_in: 'log_in',
-                         sign_out: 'log_out',
+                         sign_out: 'log_out'
                      }
     mount Ckeditor::Engine => '/ckeditor'
     resources :books do

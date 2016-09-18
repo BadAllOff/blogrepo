@@ -4,6 +4,6 @@ class AddUserToBook < ActiveRecord::Migration
   end
 
   def self.down
-    remove_reference(:books, :user, {:index=>true, :foreign_key=>true})
+    remove_reference(:books, :user, { index: true, foreign_key: true })
   end
 end

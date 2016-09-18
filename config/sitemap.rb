@@ -1,16 +1,16 @@
 # Change this to your host. See the readme at https://github.com/lassebunk/dynamic_sitemaps
 # for examples of multiple hosts and folders.
-host "badblog.ninja"
+host 'badblog.ninja'
 
 sitemap :site do
-  url root_url, last_mod: Time.now, change_freq: "daily", priority: 1.0
+  url root_url, last_mod: Time.now, change_freq: 'daily', priority: 1.0
   Article.all.each do |article|
-    url article_path(:id => article[:id], :locale => 'ru'), last_mod: article.updated_at, change_freq: "weekly", priority: 1.0
-    url article_path(:id => article[:id], :locale => 'en'), last_mod: article.updated_at, change_freq: "weekly", priority: 1.0
+    url article_path(id: article[:id], locale: 'ru'), last_mod: article.updated_at, change_freq: 'weekly', priority: 1.0
+    url article_path(id: article[:id], locale: 'en'), last_mod: article.updated_at, change_freq: 'weekly', priority: 1.0
   end
   Book.all.each do |book|
-    url book_path(:id => book[:id], :locale => 'ru'), last_mod: book.updated_at, change_freq: "daily", priority: 1.0
-    url book_path(:id => book[:id], :locale => 'en'), last_mod: book.updated_at, change_freq: "daily", priority: 1.0
+    url book_path(id: book[:id], locale: 'ru'), last_mod: book.updated_at, change_freq: 'daily', priority: 1.0
+    url book_path(id: book[:id], locale: 'en'), last_mod: book.updated_at, change_freq: 'daily', priority: 1.0
   end
   HighVoltage.page_ids.each do |page|
     add page, changefreq: 'monthly'
@@ -34,15 +34,15 @@ end
 
 # If you want to generate multiple sitemaps in different folders (for example if you have
 # more than one domain, you can specify a folder before the sitemap definitions:
-# 
+#
 #   Site.all.each do |site|
 #     folder "sitemaps/#{site.domain}"
 #     host site.domain
-#     
+#
 #     sitemap :site do
 #       url root_url
 #     end
-# 
+#
 #     sitemap_for site.products.scoped
 #   end
 

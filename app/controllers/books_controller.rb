@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
   # TODO Добавить счётчик комментариев и просмотров к книгам.
   # TODO rename uploaded images
-  before_action :authenticate_user!, only: [ :new, :edit, :create, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
   # before_action :set_book, only: [:show, :edit, :update, :destroy]
   before_action :load_tags, only: [:show, :index]
   load_and_authorize_resource

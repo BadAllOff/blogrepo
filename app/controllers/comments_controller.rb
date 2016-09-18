@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   # todo добавить показ комментариев только после модерации
-  before_action :authenticate_user!, only: [ :new, :create, :update, :destroy, :edit, ]
+  before_action :authenticate_user!, only: [:new, :create, :update, :destroy, :edit]
   before_action :load_commentable # before_filter is just a new syntax for before_action
   load_and_authorize_resource
   def index
@@ -47,7 +47,7 @@ class CommentsController < ApplicationController
   private
 
   def load_commentable
-    resource, id = request.path.split('/')[2,3]
+    resource, id = request.path.split('/')[2, 3]
     @commentable = resource.singularize.classify.constantize.find(id)
   end
   # Ещё один метод если пути настроены по своему.

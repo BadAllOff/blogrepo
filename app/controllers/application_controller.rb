@@ -1,4 +1,4 @@
-require "application_responder"
+require 'application_responder'
 
 class ApplicationController < ActionController::Base
   self.responder = ApplicationResponder
@@ -11,13 +11,13 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  #cancancan Handle Unauthorized Access
+  # cancancan Handle Unauthorized Access
   rescue_from CanCan::AccessDenied do |exception|
-      begin
-        redirect_to :back, :notice => exception.message
-      rescue ActionController::RedirectBackError
-        redirect_to root_path
-      end
+    begin
+      redirect_to :back, notice: exception.message
+    rescue ActionController::RedirectBackError
+      redirect_to root_path
+    end
   end
 
   private
@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
     if params[:locale].present?
       I18n.locale = params[:locale]
     elsif
-      request.env["HTTP_ACCEPT_LANGUAGE"] == 'ru'
+      request.env['HTTP_ACCEPT_LANGUAGE'] == 'ru'
       I18n.locale = 'ru'
     end
     # Можно использовать для установленных пользователем языков в настройках Аккаунта
@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
   end
 
   def default_url_options(options = {})
-    {locale: I18n.locale}
+    { locale: I18n.locale }
   end
 
 
