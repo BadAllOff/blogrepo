@@ -32,13 +32,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'kaminari'
 gem 'high_voltage', '~> 3.0.0'
 
-
 group :development do
   gem 'capistrano-rails'
   gem 'quiet_assets'
   gem 'rubocop'
   gem 'derailed'
   gem 'web-console'
+  gem 'annotate'
 end
 
 group :test do

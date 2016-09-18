@@ -26,7 +26,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
-    @article = Article.new
+    respond_with(@article = Article.new)
   end
 
   # GET /articles/1/edit

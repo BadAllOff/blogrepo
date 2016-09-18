@@ -1,3 +1,21 @@
+# == Schema Information
+#
+# Table name: articles
+#
+#  id                 :integer          not null, primary key
+#  title              :string
+#  content            :text
+#  pub_date           :datetime
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  show               :boolean
+#  image_file_name    :string
+#  image_content_type :string
+#  image_file_size    :integer
+#  image_updated_at   :datetime
+#  preview            :text
+#
+
 class Article < ActiveRecord::Base
   has_many :comments, as: :commentable
 

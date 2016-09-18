@@ -1,3 +1,21 @@
+# == Schema Information
+#
+# Table name: books
+#
+#  id                      :integer          not null, primary key
+#  author                  :string
+#  title                   :string
+#  description             :text
+#  draft                   :boolean
+#  created_at              :datetime         not null
+#  updated_at              :datetime         not null
+#  book_cover_file_name    :string
+#  book_cover_content_type :string
+#  book_cover_file_size    :integer
+#  book_cover_updated_at   :datetime
+#  user_id                 :integer
+#
+
 class Book < ActiveRecord::Base
   has_many :comments, as: :commentable
 
