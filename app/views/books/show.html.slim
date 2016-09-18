@@ -14,7 +14,7 @@
   javascript:
     /!* * * CONFIGURATION VARIABLES * * */
     | var disqus_shortname = 'badalloffninja';
-    | var disqus_identifier = 'article_#{@book.id.to_s}';
+    | var disqus_identifier = 'book_#{@book.id.to_s}';
     /!* * * DON'T EDIT BELOW THIS LINE * * */
     | (function() {
       | var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
@@ -24,8 +24,8 @@
   noscript
     | Please enable JavaScript to view the
     a href="https://disqus.com/?ref_noscript" rel="nofollow"  comments powered by Disqus.
-  = render 'comments/comments'
-  = render 'comments/form'
+  = render partial: 'comments/comments', locals: { comments: @comments, commentable: @book }
+  = render partial: 'comments/form', locals: { commentable: @book }
 - if can? :edit, @book
   = link_to t('edit'), edit_book_path(@book), class: 'btn btn-default'
   | \

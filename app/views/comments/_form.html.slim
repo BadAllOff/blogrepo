@@ -1,6 +1,6 @@
 .well
   - if user_signed_in?
-    = form_for [@commentable, @comment] do |f|
+    = form_for [commentable, @comment] do |f|
       - if @comment.errors.any?
         .error_messages
           h2= t('.correct_folowing_errors')

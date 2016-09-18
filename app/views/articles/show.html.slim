@@ -11,8 +11,8 @@
   .col-xs-12
     h2= t('.article_comments')
     = render partial: 'comments/disqus_comments', locals: {obj: @article}
-    = render 'comments/comments'
-    = render 'comments/form'
+    = render partial: 'comments/comments', locals: { comments: @comments, commentable: @article }
+    = render partial: 'comments/form', locals: { commentable: @article }
     hr/
   - if can? :edit, @article
     = link_to t('helpers.submit.article.update'), edit_article_path(@article), class: 'btn btn-warning'

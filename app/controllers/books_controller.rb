@@ -9,14 +9,7 @@ class BooksController < ApplicationController
   respond_to :html
 
   def index
-    if user_signed_in?
-      return @books = Book.tagged_with(params[:tag]).order('updated_at DESC') if params[:tag]
-      @books = Book.all.order('updated_at DESC')
-    else
-      return @books = Book.tagged_with(params[:tag]).where(draft: false).order('updated_at DESC')if params[:tag]
-      @books = Book.all.where(draft: false).order('updated_at DESC')
-    end
-    respond_with(@books)
+    load_books
   end
 
   def show
@@ -63,5 +56,15 @@ class BooksController < ApplicationController
 
     def book_params
       params.require(:book).permit(:author, :title, :description, :draft, :book_cover, :tags_for_book_list)
+    end
+
+    def load_books
+      if user_signed_in?
+        return @books = Book.tagged_with(params[:tag]).order('updated_at DESC') if params[:tag]
+        @books = Book.all.order('updated_at DESC')
+      else
+        return @books = Book.tagged_with(params[:tag]).where(draft: false).order('updated_at DESC')if params[:tag]
+        @books = Book.all.where(draft: false).order('updated_at DESC')
+      end
     end
 end

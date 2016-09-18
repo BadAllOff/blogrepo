@@ -1,6 +1,6 @@
 h1= t('.editing_comment')
 /! todo locale
-= render 'form'
+= render partial: 'form', locals: {commentable: @commentable}
 = link_to t('show'),[@commentable, @comment], class: 'btn btn-default'
 | \
 = link_to t('back'), [@commentable, @comment], class: 'btn btn-default'

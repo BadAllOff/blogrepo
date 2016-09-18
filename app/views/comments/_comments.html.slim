@@ -1,5 +1,5 @@
 body
-  - @comments.each do |comment|
+  - comments.each do |comment|
     article.row
       .col-xs-12
         .panel.panel-default.arrow.left
@@ -14,9 +14,8 @@ body
             .comment-post
               p= simple_format strip_tags(comment.content)
             - if can? :update, comment
-              /! <p class="text-right"><a href="#" class="btn btn-default btn-sm"><i class="fa fa-reply"></i> reply</a></p
-              = link_to [:edit, @commentable, comment], class: 'btn btn-warning' do
+              = link_to [:edit, commentable, comment], class: 'btn btn-warning' do
                 = fa_icon 'edit'
             - if can? :destroy, comment
-              = link_to [@commentable, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do
+              = link_to [commentable, comment], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do
                 = fa_icon 'trash'
