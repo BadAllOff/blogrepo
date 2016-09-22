@@ -40,6 +40,10 @@ Rails.application.configure do
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 
+  # STOP sending emails
+  config.action_mailer.perform_deliveries = false
+
+
   config.action_mailer.default_options = {
       from: 'my_address@example.com'
   }

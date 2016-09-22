@@ -2,9 +2,6 @@ h1= t('.listing_books')
 .col-sm-8
   - if can? :destroy, @book
     = link_to t('.add_book'), new_book_path, class: 'btn btn-primary pull-right hidden-xs'
-    = link_to t('.add_book'), new_book_path, class: 'btn btn-primary visible-xs'
-    br/
-    br/
     table.table.table-striped.table-hover
       thead
         tr
