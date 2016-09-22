@@ -45,7 +45,7 @@ ru:
       title: 'Заголовок'
       pub_date: 'Дата публикации'
       controls: 'Управление'
-      add_article: 'Создать статью'
+      add_article: 'Добавить статью'
       tags_for_article_list: 'Теги для статьи'
     new:
       new_article: 'Новая статья'

@@ -35,11 +35,13 @@ gem 'high_voltage', '~> 3.0.0'
 group :development do
   gem 'capistrano-rails'
   gem 'quiet_assets'
-  gem 'rubocop'
   gem 'derailed'
   gem 'web-console'
   gem 'annotate'
   gem 'rubocop'
+  gem 'guard-rspec', require: false
+  gem 'guard-bundler', require: false
+  gem 'guard-rails', require: false
 end
 
 group :test do

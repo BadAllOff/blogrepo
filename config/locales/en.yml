@@ -100,7 +100,7 @@ en:
       title: 'Title'
       description: 'Description'
       draft: 'Draft'
-      add_book: 'Add Book'
+      add_book: 'New Book'
       published: 'Published'
       tags_for_book_list: 'Tags for book'
     new:
