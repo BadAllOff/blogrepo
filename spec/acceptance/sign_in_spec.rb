@@ -62,8 +62,6 @@ feature 'Register', '
       fill_in 'user_password_confirmation', with: '12345678'
       click_on 'Sign Up'
 
-      save_and_open_page
-
       expect(page).to have_content 'A message with a confirmation link has been sent to your email address.'
       expect(current_path).to eq root_path
     end
