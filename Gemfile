@@ -52,6 +52,7 @@ group :test do
   gem 'database_cleaner'
   gem 'nyan-cat-formatter'
   gem 'rspec-retry'
+  gem "codeclimate-test-reporter", require: false
 end
 
 group :development, :test do
