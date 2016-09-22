@@ -44,7 +44,7 @@ feature 'Create Article', '
   end
 
   describe 'Non-Authenticated user' do
-    scenario '- fails to create article and redirected to sign in page' do
+    scenario '- cant see btn to create new article' do
       visit articles_path
 
       expect(page).to_not have_content 'New Article'

@@ -1,7 +1,7 @@
 require_relative '../../acceptance/acceptance_helper'
 
-feature 'Create Article', '
-        I want be able to add article
+feature 'Update Article', '
+        I want be able to update article
   ' do
 
   given!(:admin_user) { create(:admin_user) }
@@ -46,7 +46,7 @@ feature 'Create Article', '
   end
 
   describe 'Non-Authenticated user' do
-    scenario '- fails to create question and redirected to sign in page' do
+    scenario '- cant see update btn' do
       visit article_path(article, locale: 'en')
 
       expect(page).to_not have_content 'Update article'
