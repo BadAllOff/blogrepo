@@ -7,6 +7,8 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+ENV['RAILS_ADMIN_THEME'] = 'rollincode'
+
 module Badblog5
   class Application < Rails::Application
     # Use the responders controller from the responders gem
