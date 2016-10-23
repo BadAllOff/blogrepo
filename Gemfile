@@ -31,6 +31,7 @@ gem 'jbuilder'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'kaminari'
 gem 'high_voltage', '~> 3.0.0'
+gem 'rails_admin', '~> 1.0'
 
 
 group :development, :test do

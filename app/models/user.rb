@@ -22,9 +22,6 @@
 #  confirmation_sent_at   :datetime
 #
 
-# todo Админка для управления пользователями
-# todo Добваить галочку "Мы знакомы?" или  "Я Вас знаю?"
-# TODO rename uploaded images if avatar
 class User < ActiveRecord::Base
   belongs_to :role
   # Include default devise modules. Others available are:

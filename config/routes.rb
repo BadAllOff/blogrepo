@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   scope '(:locale)', locale: /#{I18n.available_locales.join('|')}/ do
     get 'articles_tags/:tag', to: 'articles#index', as: :articles_tag
     get 'books_tags/:tag', to: 'books#index', as: :books_tag

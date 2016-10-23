@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     begin
       redirect_to :back, notice: exception.message
     rescue ActionController::RedirectBackError
-      redirect_to root_path
+      redirect_to main_app.root_path, :alert => exception.message
     end
   end
 
