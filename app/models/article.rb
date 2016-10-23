@@ -17,11 +17,12 @@
 #
 
 class Article < ActiveRecord::Base
-  has_many :comments, as: :commentable
+  has_many :comments, as: :commentable, inverse_of: :commentable
 
   acts_as_taggable # act as taggable не должно быть точек
   acts_as_taggable_on :tags_for_articles
   translates :title, :content, :preview, fallbacks_for_empty_translations: true
+  accepts_nested_attributes_for :translations, allow_destroy: true
 
   # PAPERCLIP_STORAGE_OPTS defined in config/enviroment/development\production.rb
   has_attached_file :image, PAPERCLIP_STORAGE_OPTS

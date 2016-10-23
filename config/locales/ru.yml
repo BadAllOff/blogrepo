@@ -42,6 +42,7 @@ ru:
       blog-description: 'Сниппеты и Алгоритмы качества.'
   articles:
     index:
+      listing_articles: 'Статьи'
       title: 'Заголовок'
       pub_date: 'Дата публикации'
       controls: 'Управление'
@@ -59,7 +60,7 @@ ru:
       article_destroyed: 'Статья удалена.'
   books:
     index:
-      listing_books: 'Список Книг'
+      listing_books: 'Книги'
       author: 'Автор'
       title: 'Название'
       description: 'Описание'

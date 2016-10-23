@@ -1,15 +1,15 @@
 require 'application_responder'
 
 class ApplicationController < ActionController::Base
-  self.responder = ApplicationResponder
-  respond_to :html
-
   before_filter :set_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+
+  self.responder = ApplicationResponder
+  respond_to :html
 
   # cancancan Handle Unauthorized Access
   rescue_from CanCan::AccessDenied do |exception|
@@ -24,7 +24,12 @@ class ApplicationController < ActionController::Base
 
   def set_locale
     if params[:locale].present?
-      I18n.locale = params[:locale]
+      if I18n.available_locales.include?(params[:locale].to_sym)
+        I18n.locale = params[:locale]
+      else
+        flash[:notice] = "#{params[:locale]} translation not available"
+        logger.error flash[:notice]
+      end
     elsif
       request.env['HTTP_ACCEPT_LANGUAGE'] == 'ru'
       I18n.locale = 'ru'

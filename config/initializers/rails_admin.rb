@@ -39,16 +39,33 @@ RailsAdmin.config do |config|
     # history_show
   end
 
+  config.included_models = ['Article','Article::Translation', 'Book','Book::Translation','User', 'Role', 'Comment']
+
+
   config.model Article do
-    edit do
-      configure :content, :ck_editor
-      configure :preview, :ck_editor
+    configure :translations, :globalize_tabs
+  end
+
+  config.model 'Article::Translation' do
+    visible false
+    configure :content, :ck_editor
+    configure :preview, :ck_editor
+    configure :locale, :hidden do
+      help ''
     end
+    include_fields :locale, :title, :preview, :content
   end
 
   config.model Book do
-    edit do
-      configure :description, :ck_editor
-    end
+    configure :translations, :globalize_tabs
   end
+
+  config.model 'Book::Translation' do
+    visible false
+    configure :locale, :hidden do
+      help ''
+    end
+    include_fields :locale, :title, :author, :description
+  end
+
 end
