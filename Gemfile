@@ -32,6 +32,18 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'kaminari'
 gem 'high_voltage', '~> 3.0.0'
 
+
+group :development, :test do
+  gem 'binding_of_caller'
+  gem 'better_errors'
+  gem 'byebug'
+  gem 'spring'
+  gem 'erb2haml'
+  gem 'haml2slim'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+end
+
 group :development do
   gem 'capistrano-rails'
   gem 'quiet_assets'
@@ -54,15 +66,3 @@ group :test do
   gem 'rspec-retry'
   gem "codeclimate-test-reporter", require: false
 end
-
-group :development, :test do
-  gem 'binding_of_caller'
-  gem 'better_errors'
-  gem 'byebug'
-  gem 'spring'
-  gem 'erb2haml'
-  gem 'haml2slim'
-  gem 'rspec-rails'
-  gem 'factory_girl_rails'
-end
-
