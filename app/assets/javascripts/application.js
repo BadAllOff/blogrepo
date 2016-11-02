@@ -16,7 +16,7 @@
 //= require jquery_ujs
 // require turbolinks
 //= require_tree ./general
-//= require_tree ./libs
+// require_tree ./libs
 
 
 var ready;
