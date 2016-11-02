@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 ruby '2.3.1'
 
 gem 'rails', '~> 4.2.7'
+gem 'therubyracer'
+gem 'execjs'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'bootstrap-sass', '~> 3.3.4.1'
 gem 'font-awesome-rails'
@@ -27,7 +29,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
-gem 'turbolinks'
+# gem 'turbolinks'
 gem 'jbuilder'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'kaminari'
@@ -36,6 +38,7 @@ gem 'rails_admin_rollincode', '~> 1.0'
 gem 'rails_admin', '~> 1.0'
 gem 'rails_admin-i18n'
 gem 'rails_admin_globalize_field'
+gem 'rails_admin_tag_list'
 
 
 

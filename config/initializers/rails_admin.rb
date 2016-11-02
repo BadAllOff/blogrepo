@@ -43,7 +43,28 @@ RailsAdmin.config do |config|
 
 
   config.model Article do
+
+    configure :pub_date do
+      strftime_format "%Y-%m-%d %H:%M:%S"
+    end
     configure :translations, :globalize_tabs
+
+    configure :tag_list do
+      hide
+    end
+    configure :content do
+      hide
+    end
+    configure :preview do
+      hide
+    end
+    configure :title do
+      hide
+    end
+    configure :comments do
+      hide
+    end
+
   end
 
   config.model 'Article::Translation' do
@@ -58,6 +79,12 @@ RailsAdmin.config do |config|
 
   config.model Book do
     configure :translations, :globalize_tabs
+    configure :tag_list do
+      hide
+    end
+    configure :comments do
+      hide
+    end
   end
 
   config.model 'Book::Translation' do
