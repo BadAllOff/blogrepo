@@ -2,7 +2,9 @@
 .container
   .row
     .col-sm-8.blog-main
+      hr
       = render 'application/adsense_article_top_adaptive'
+      hr
       - @articles.each do |article|
         = render partial: 'articles/article_preview', locals: { article: article }
       = paginate @articles
