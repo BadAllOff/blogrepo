@@ -26,16 +26,12 @@
         a href="https://twitter.com/ShamilBadalov" target="_blank"
           = fa_icon 'twitter-square'
           | Twitter
-  .sidebar-module.sidebar-module
+  .sidebar-module
+    = render 'application/adsense_sidebar_adaptive'
+  .sidebar-module
     h4= t('tags')
     .tags-box
       - tag_cloud (@tags), %w[btn-xs btn-sm btn btn-lg] do |tag, css_class|
         = link_to articles_tag_path(tag.name), class: "#{css_class} btn btn-info pull-left" do
           = "#{tag.name} "
           span.badge= tag.taggings_count
-    /p
-    /ul.list-group
-    /  - tag_cloud (@tags), %w[tag1 tag2 tag3 tag4] do |tag, css_class|
-    /    li.list-group-item
-    /      span.badge= tag.taggings_count
-    /      = link_to  "#{tag.name}", articles_tag_path(tag.name), class: css_class
