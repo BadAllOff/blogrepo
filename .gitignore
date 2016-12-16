@@ -10,6 +10,7 @@
 public/assets
 public/sitemaps
 public/system
+public/ckeditor
 # если установлен Paperclip
 Procfile
 # про него я еще расскажу
