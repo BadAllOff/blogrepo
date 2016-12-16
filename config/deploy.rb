@@ -6,7 +6,7 @@ set :stage, 'production'
 set :repo_url, "https://#{ENV['GITHUB_USERNAME']}:#{ENV['GITHUB_PASSWORD']}@github.com/BadAllOff/blogrepo.git" # repo address
 set :deploy_to, '/opt/www/badblog'
 set :user, 'deploy'
-set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/assets/ckeditor public/uploads }
+set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/assets/ckeditor public/uploads 'public/ckeditor_assets' }
 set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
 set :whenever_command, 'whenever' # TODO - убрать бандл, заупстить просто веневер
 
