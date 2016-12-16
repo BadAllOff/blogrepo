@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  mount Ckeditor::Engine => '/ckeditor'
   scope '(:locale)', locale: /#{I18n.available_locales.join('|')}/ do
     mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
@@ -13,7 +14,6 @@ Rails.application.routes.draw do
                          sign_in: 'log_in',
                          sign_out: 'log_out'
                      }
-    mount Ckeditor::Engine => '/ckeditor'
     resources :books do
       resources :comments
     end
