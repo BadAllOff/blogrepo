@@ -3,7 +3,7 @@ class WelcomeController < ApplicationController
   before_action :load_tags, only: [:index]
 
   def index
-    get_public_articles
+    @article_decorators = get_public_articles.map { |article| ArticleDecorator.new(article, view_context) }
   end
 
 

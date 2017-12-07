@@ -1,35 +1,30 @@
 h3.blog-post-title
-  = link_to article.title, article_path(article)
+  = article_decorator.title_link
 p.blog-post-meta
-  = time_ago_in_words(article.pub_date)
   |   #{t(:tags)}:
-  |   #{show_article_tags(article)}
-= image_tag article.image.url(:original), class: 'img-responsive img-thumbnail', alt: "#{article.title}"
-.collapse.in id="preview-article-#{article.id}" data-toggle='collapse'
-  = truncate(strip_tags(article.preview), length: 170, separator: ' ') if article.preview
+  |   #{article_decorator.show_article_tags}
+= image_tag article_decorator.image_original, class: 'img-responsive img-thumbnail', alt: "#{article_decorator.title}"
+.collapse.in id="preview-article-#{article_decorator.id}" data-toggle='collapse'
+  = article_decorator.preview
   .clearfix
-  a.btn.pull-right.show_full_article data-article-id="#{article.id}" data-toggle='collapse' data-target="#article-collapse-#{article.id}"
+  a.btn.pull-right.show_full_article data-article-id="#{article_decorator.id}" data-toggle='collapse' data-target="#article-collapse-#{article_decorator.id}"
     = fa_icon 'eye'
     '
     = t(:show_full_article)
-.collapse id="article-collapse-#{article.id}" data-toggle='collapse'
-  = article.content.html_safe if article.content
-  .collapse id="article-comments-collapse-#{article.id}" data-toggle='collapse'
-    = render partial: "comments/disqus_comments", locals: {obj: article}
-  a.btn.pull-right.show_full_article data-article-id="#{article.id}" data-toggle='collapse' data-target="#article-collapse-#{article.id}"
+.collapse id="article-collapse-#{article_decorator.id}" data-toggle='collapse'
+  = article_decorator.content
+  .collapse id="article-comments-collapse-#{article_decorator.id}" data-toggle='collapse'
+    = render partial: "comments/disqus_comments", locals: {obj: article_decorator}
+  a.btn.pull-right.show_full_article data-article-id="#{article_decorator.id}" data-toggle='collapse' data-target="#article-collapse-#{article_decorator.id}"
     = fa_icon 'eye-slash'
     '
     | #{t(:show_preview_article)}
-= link_to article_path(article), class: 'btn pull-right' do
+= link_to article_path(article_decorator.id), class: 'btn pull-right' do
   = fa_icon 'comment-o'
   '
   = t('comments.new.new_comment')
 .clearfix
-- if can? :update, @article
-  = link_to edit_article_path(article), title: t('edit'), class: 'btn btn-warning' do
-    = fa_icon 'edit'
-  '
-- if can? :destroy, @article
-  = link_to article, title: t('destroy'), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do
-    = fa_icon 'trash'
+= article_decorator.small_update_btn
+'
+= article_decorator.small_destroy_btn
 hr

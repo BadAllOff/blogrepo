@@ -4,8 +4,14 @@
     .col-sm-8.blog-main
       = render 'application/adsense_article_top_adaptive'
       hr
-      - @articles.each do |article|
-        = render partial: 'articles/article_preview', locals: { article: article }
+      - @article_decorators.each do |article_decorator|
+        = render partial: 'articles/article_preview', locals: {article_decorator: article_decorator}
+        br/
+        br/
+        br/
       = paginate @articles
+      /- @articles.each do |article|
+      /  = render partial: 'articles/article_preview', locals: { article: article }
+      /= paginate @articles
       nav
     = render 'application/sidebar'

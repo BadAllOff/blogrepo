@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    load_articles
+    @article_decorators = load_articles.map { |article| ArticleDecorator.new(article, view_context) }
   end
 
   # GET /articles/1

@@ -8,8 +8,8 @@
   hr
   = render 'application/adsense_article_top_adaptive'
   hr
-  - @articles.each do |article|
-    = render partial: 'articles/article_preview', locals: { article: article }
+  - @article_decorators.each do |article_decorator|
+    = render partial: 'articles/article_preview', locals: { article_decorator: article_decorator }
     br/
     br/
     br/

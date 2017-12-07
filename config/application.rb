@@ -34,6 +34,8 @@ module Badblog5
     config.i18n.fallbacks = true
     config.i18n.fallbacks = [:ru]
 
+    config.autoload_paths += %W( #{config.root}/app/decorators)
+
     config.generators do |g|
       g.test_framework :rspec,
       fixtures: true,
