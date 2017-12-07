@@ -4,42 +4,16 @@
   .col-sm-8
     .row
       ul.list-unstyled
-        - @books.each do |book|
+        - @books_decorator.each do |book_decorator|
           li.thumbnail.col-sm-3.col-xs-6
             div
-              = link_to "#book-#{book.id}", data: {toggle: "modal"}, title: t(:show) do
-                img.img-responsive alt="#{book.title}" src="#{book.book_cover.url(:medium)}" /
-              = link_to book, title: t(:show), class: 'btn btn-block' do
+              = link_to "#book-#{book_decorator.id}", data: {toggle: "modal"}, title: t(:show) do
+                img.img-responsive alt="#{book_decorator.title}" src="#{book_decorator.cover_medium}" /
+              = link_to book_path(book_decorator.id), title: t(:show), class: 'btn btn-block' do
                 .caption.text-center
                   = fa_icon 'eye'
                   = t(:show)
-  - @books.each do |book|
+  - @books_decorator.each do |book_decorator|
     /! Modals for books
-    .modal.fade id="book-#{book.id}" tabindex="-1"
-      .modal-dialog.modal-lg
-        .modal-content
-          .modal-header
-            button.close.glyphicon.glyphicon-remove data-dismiss="modal" type="button"
-            h3= book.title
-            p.text-muted
-              em= book.author
-            p
-              = t(:tags)
-              | \: #{show_book_tags(book)}
-          .modal-body
-            div
-              img.img-responsive.thumbnail.modal-image.pull-left alt="#{book.title}" src="#{book.book_cover.url(:medium)}" /
-              = book.description.html_safe if book.description
-          .modal-footer
-            .btn-group.btn-group-sm role="group"
-              = link_to book, title: t(:show), class: 'btn btn-default' do
-                = fa_icon 'eye'
-                = t(:show)
-              - if can? :update, @book
-                = link_to edit_book_path(book), title: t(:edit), class: 'btn btn-warning' do
-                  = fa_icon 'edit'
-              - if can? :destroy, @book
-                = link_to book, title: t(:destroy), method: :delete, data: { confirm: t('are_you_shure') }, class: 'btn btn-danger' do
-                  = fa_icon 'trash'
-            button.btn.btn-primary aria-hidden="true" data-dismiss="modal" type="button"  Close
+    = render partial: 'books/book_modal_view', locals: {book_decorator: book_decorator}
   = render 'application/sidebar'

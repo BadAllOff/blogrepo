@@ -31,7 +31,13 @@
   .sidebar-module
     h4= t('tags')
     .tags-box
-      - tag_cloud (@tags), %w[btn-xs btn-sm btn btn-lg] do |tag, css_class|
-        = link_to articles_tag_path(tag.name), class: "#{css_class} btn btn-info pull-left" do
-          = "#{tag.name} "
-          span.badge= tag.taggings_count
+      - if controller_name == 'books'
+        - tag_cloud (@tags), %w[btn-xs btn-sm btn btn-lg] do |tag, css_class|
+            = link_to books_tag_path(tag.name), class: "#{css_class} btn btn-info pull-left" do
+              = "#{tag.name} "
+              span.badge= tag.taggings_count
+      - else
+        - tag_cloud (@tags), %w[btn-xs btn-sm btn btn-lg] do |tag, css_class|
+          = link_to articles_tag_path(tag.name), class: "#{css_class} btn btn-info pull-left" do
+            = "#{tag.name} "
+            span.badge= tag.taggings_count

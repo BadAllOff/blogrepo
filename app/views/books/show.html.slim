@@ -1,12 +1,15 @@
 .col-xs-12.col-sm-6
-  = image_tag @book.book_cover, class: 'img-responsive'
+  = image_tag @book_decorator.book_cover, class: 'img-responsive'
 .col-xs-12.col-sm-6
   p
-    strong= @book.author
+    strong= @book_decorator.author
   p
-    strong= @book.title
+    strong= @book_decorator.title
   p
-    = raw @book.description
+    = raw @book_decorator.description
+  p.blog-post-meta
+    | #{t(:tags)}:
+    | &nbsp #{@book_decorator.show_book_tags}
 .col-xs-12
   hr/
   h2= t('.book_comments')
@@ -25,11 +28,6 @@
     })();
   = render partial: 'comments/comments', locals: { comments: @comments, commentable: @book }
   = render partial: 'comments/form', locals: { commentable: @book }
-- if can? :edit, @book
-  = link_to t('edit'), edit_book_path(@book), class: 'btn btn-default'
-  = link_to @book, title: t(:destroy), method: :delete, class: 'btn btn-danger' do
-    = fa_icon 'trash'
-    |
-    = t('destroy')
-  | \
+= @book_decorator.small_update_btn
+= @book_decorator.small_destroy_btn
 = link_to t('back'), books_path, class: 'btn btn-default'

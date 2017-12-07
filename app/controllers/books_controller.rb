@@ -9,13 +9,14 @@ class BooksController < ApplicationController
   respond_to :html
 
   def index
-    load_books
+    @books_decorator = load_books.map { |book| BookDecorator.new(book, view_context) }
   end
 
   def show
     @commentable = @book
     @comments = @commentable.comments.order('created_at DESC')
     @comment = Comment.new
+    @book_decorator = BookDecorator.new(@book, view_context)
     respond_with(@book)
   end
 
@@ -25,7 +26,6 @@ class BooksController < ApplicationController
   end
 
   def edit
-
   end
 
   def create
@@ -47,12 +47,8 @@ class BooksController < ApplicationController
 
   private
     def load_tags
-      @tags = Book.tag_counts_on(:tags_for_books)
+      @tags = Book.tag_counts_on :tags_for_books
     end
-
-    # def set_book
-    #   @book = Book.find(params[:id])
-    # end
 
     def book_params
       params.require(:book).permit(:author, :title, :description, :draft, :book_cover, :tags_for_book_list)

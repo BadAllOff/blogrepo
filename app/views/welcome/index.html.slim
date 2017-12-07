@@ -10,8 +10,5 @@
         br/
         br/
       = paginate @articles
-      /- @articles.each do |article|
-      /  = render partial: 'articles/article_preview', locals: { article: article }
-      /= paginate @articles
       nav
     = render 'application/sidebar'

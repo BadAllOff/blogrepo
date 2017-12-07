@@ -1,0 +1,23 @@
+.modal.fade id="book-#{book_decorator.id}" tabindex="-1"
+  .modal-dialog.modal-lg
+    .modal-content
+      .modal-header
+        button.close.glyphicon.glyphicon-remove data-dismiss="modal" type="button"
+        h3= book_decorator.link_to_book
+        p.text-muted
+          em= book_decorator.author
+        p
+          = t(:tags)
+          | : #{book_decorator.show_book_tags}
+      .modal-body
+        div
+          img.img-responsive.thumbnail.modal-image.pull-left alt="#{book_decorator.title}" src="#{book_decorator.cover_medium}" /
+          = book_decorator.description.html_safe if book_decorator.description
+      .modal-footer
+        .btn-group.btn-group-sm role="group"
+          = link_to book_path(book_decorator.id), title: t(:show), class: 'btn btn-default' do
+            = fa_icon 'eye'
+            = t(:show)
+          = book_decorator.small_update_btn
+          = book_decorator.small_destroy_btn
+        button.btn.btn-primary aria-hidden="true" data-dismiss="modal" type="button"  Close
