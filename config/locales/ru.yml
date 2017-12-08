@@ -11,6 +11,7 @@ ru:
         next: 'Вперёд › '
         first: "‹‹ Сюда"
         last: "Туда ››"
+        truncate: "..."
   about: 'Об авторе'
   follow_links: 'По ссылкам ниже <i class="fa fa-arrow-down"></i>'
   elsewhere: Где-то ещё
