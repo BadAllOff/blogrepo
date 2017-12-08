@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   get 'feed', to: 'welcome#feed', format: 'rss'
   get 'robots' => 'welcome#robots', format: :text
 
-  root 'welcome#index'
+  root 'articles#index'
   # match '*path', to: redirect("/#{I18n.default_locale}/%{path}"), via: :all
   # match '', to: redirect("/#{I18n.default_locale}"), via: :all
   # The priority is based upon order of creation: first created -> highest priority.

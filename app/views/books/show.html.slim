@@ -9,15 +9,18 @@
     = raw @book_decorator.description
   p.blog-post-meta
     | #{t(:tags)}:
-    | &nbsp #{@book_decorator.show_book_tags}
+    | #{@book_decorator.show_book_tags}
+  = @book_decorator.small_update_btn
+  = @book_decorator.small_destroy_btn
+  = link_to t('back'), books_path, class: 'btn btn-default'
 .col-xs-12
-  hr/
+  hr
   h2= t('.book_comments')
   #disqus_thread
   javascript:
     var disqus_config = function () {
-      this.page.url = "#{books_url(@book)}";  // Replace PAGE_URL with your page's canonical URL variable
-      this.page.identifier = "book-#{@book.id}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      this.page.url = "#{books_url(@book_decorator.id)}";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "book-#{@book_decorator.id}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 
     (function() { // DON'T EDIT BELOW THIS LINE
@@ -26,8 +29,5 @@
       s.setAttribute('data-timestamp', +new Date());
       (d.head || d.body).appendChild(s);
     })();
-  = render partial: 'comments/comments', locals: { comments: @comments, commentable: @book }
-  = render partial: 'comments/form', locals: { commentable: @book }
-= @book_decorator.small_update_btn
-= @book_decorator.small_destroy_btn
-= link_to t('back'), books_path, class: 'btn btn-default'
+  = render partial: 'comments/comments', locals: { comments: @comments, commentable: @commentable }
+  = render partial: 'comments/form', locals: { commentable: @commentable }

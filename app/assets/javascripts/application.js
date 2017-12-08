@@ -22,7 +22,6 @@
 var ready;
 
 ready = function() {
-
   $('a.show_full_article').unbind().bind('click', function(){
     var article_id = $(this).data('article-id');
     console.log($(this).text());

@@ -2,13 +2,13 @@ nav.navbar.navbar-default.navbar-fixed-top.blog-masthead
   .container
     /! Brand and toggle get grouped for better mobile display
     .navbar-header
-      button.navbar-toggle.collapsed data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button"
+      button.navbar-toggle.collapsed data-target="#header-menu" data-toggle="collapse" type="button"
         span.sr-only Toggle navigation
         span.icon-bar
         span.icon-bar
         span.icon-bar
       = link_to 'Badalloff.science', root_path, class: 'navbar-brand'
-    .collapse.navbar-collapse.navbar-right
+    .collapse.navbar-collapse.navbar-right id='header-menu'
       ul.nav.navbar-nav
         li= link_to t('articles_link'), articles_path, class: 'blog-header-nav-item'
         li= link_to t('books_link'), books_path, class: 'blog-header-nav-item'
