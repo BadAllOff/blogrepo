@@ -1,11 +1,11 @@
 .col-sm-12.blog-main
-  = render 'application/adsense_article_top_adaptive'
   h1= @article_decorator.title
-  = image_tag @article_decorator.image_original, class: 'img-responsive', alt: "#{@article_decorator.title}"
+  = image_tag @article_decorator.image_original, class: 'img-responsive article-img', style: " margin: 20px auto;", alt: "#{@article_decorator.title}"
   = @article_decorator.content.html_safe if @article_decorator.content
   p.blog-post-meta
     | #{t(:tags)}:
     | &nbsp #{@article_decorator.show_article_tags}
+  = render 'application/adsense_article_top_adaptive'
   hr/
   .col-xs-12
     h2= t('.article_comments')

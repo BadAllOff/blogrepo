@@ -3,7 +3,7 @@ h3.blog-post-title
 p.blog-post-meta
   |   #{t(:tags)}:
   |   #{article_decorator.show_article_tags}
-= image_tag article_decorator.image_original, class: 'img-responsive img-thumbnail', alt: "#{article_decorator.title}"
+= image_tag article_decorator.image_original, class: 'img-responsive img-thumbnail article-img', alt: "#{article_decorator.title}"
 .collapse.in id="preview-article-#{article_decorator.id}" data-toggle='collapse'
   = article_decorator.preview
   .clearfix
