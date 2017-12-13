@@ -1,18 +1,10 @@
 class CommentsController < ApplicationController
   # todo добавить показ комментариев только после модерации
-  before_action :authenticate_user!, only: [:new, :create, :update, :destroy, :edit]
-  before_action :load_commentable # before_filter is just a new syntax for before_action
+  before_action :authenticate_user!, only: [:create, :update, :destroy]
+  before_action :load_commentable
   load_and_authorize_resource
-  def index
-    @comments = @commentable.comments
-  end
-
-  def new
-    @comment = @commentable.comments.new # todo redirect на нужные страницы
-  end
 
   def create
-
     @comment = @commentable.comments.new(comment_params)
     @comment.commentator_id = current_user.id
     @comment.commentator_name = current_user.username
@@ -24,9 +16,6 @@ class CommentsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def edit
   end
 
   def update

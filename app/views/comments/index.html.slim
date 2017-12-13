@@ -5,4 +5,4 @@ p= link_to t('comments.new.new_comment'), [:new, @commentable, :comment]
   .col-md-8
     h2.page-header= t('.all_comments')
     section.comment-list
-      = render 'comments'
+      = render 'comments', locals: {comments: @comments}
