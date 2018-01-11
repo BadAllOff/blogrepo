@@ -60,10 +60,11 @@ group :development do
   gem 'derailed'
   gem 'web-console'
   gem 'annotate'
-  gem 'rubocop'
+  gem 'rubocop', '~> 0.49.0'
   gem 'guard-rspec', require: false
   gem 'guard-bundler', require: false
   gem 'guard-rails', require: false
+  gem 'pry'
 end
 
 group :test do
