@@ -5,13 +5,14 @@
     .row
       ul.list-unstyled
         - @books_decorator.each do |book_decorator|
-          li.thumbnail.col-sm-3.col-xs-6
+          li.thumbnail.col-sm-3.col-xs-5.book_li
             div
               = link_to "#book-#{book_decorator.id}", data: {toggle: "modal"}, title: t(:show) do
                 img.img-responsive alt="#{book_decorator.title}" src="#{book_decorator.cover_medium}" /
               = link_to book_path(book_decorator.id), title: t(:show), class: 'btn btn-block' do
                 .caption.text-center
                   = fa_icon 'eye'
+                  = raw("&nbsp")
                   = t(:show)
   - @books_decorator.each do |book_decorator|
     /! Modals for books
