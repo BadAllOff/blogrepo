@@ -8,7 +8,6 @@ feature 'Update Article', '
   given!(:article)    { create(:article) }
 
   describe 'Authenticated user' do
-
     before do
       sign_in(admin_user)
       visit article_path(article, locale: 'en')
@@ -25,7 +24,6 @@ feature 'Update Article', '
         expect(page).to have_content 'This is Test article preview'
       end
     end
-
 
     context 'with invalid attributes' do
       scenario "- can't update article" do
@@ -52,5 +50,4 @@ feature 'Update Article', '
       expect(page).to_not have_content 'Update article'
     end
   end
-
 end

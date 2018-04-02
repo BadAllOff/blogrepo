@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-
-
   mount Ckeditor::Engine => '/ckeditor'
   scope '(:locale)', locale: /#{I18n.available_locales.join('|')}/ do
     mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -33,7 +31,6 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

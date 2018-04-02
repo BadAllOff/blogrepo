@@ -3,7 +3,7 @@
 host 'badblog.ninja'
 
 sitemap :site do
-  url root_url, last_mod: Time.now, change_freq: 'daily', priority: 1.0
+  url root_url, last_mod: Time.zone.now, change_freq: 'daily', priority: 1.0
   Article.all.each do |article|
     url article_path(id: article[:id], locale: 'ru'), last_mod: article.updated_at, change_freq: 'weekly', priority: 1.0
     url article_path(id: article[:id], locale: 'en'), last_mod: article.updated_at, change_freq: 'weekly', priority: 1.0

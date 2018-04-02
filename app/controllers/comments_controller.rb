@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  # todo добавить показ комментариев только после модерации
+  # TODO: добавить показ комментариев только после модерации
   before_action :authenticate_user!, only: [:create, :update, :destroy]
   before_action :load_commentable
   load_and_authorize_resource

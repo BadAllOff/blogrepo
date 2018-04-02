@@ -1,5 +1,4 @@
 class WelcomeController < ApplicationController
-
   def feed
     get_public_articles
   end
@@ -23,5 +22,4 @@ class WelcomeController < ApplicationController
   def get_public_articles
     @articles = Article.where(show: true).order('pub_date DESC').page(params[:page]).per(5)
   end
-
 end

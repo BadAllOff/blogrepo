@@ -21,7 +21,6 @@
 
 set :output, "#{path}/log/cron.log"
 
-
 every 6.hours do ||
   rake 'sitemap:generate'
 end

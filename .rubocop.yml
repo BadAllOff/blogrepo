@@ -10,7 +10,10 @@ AllCops:
     - 'vendor/**/*'
     - 'bin/**/*'
     - 'db/schema.rb'
+    - 'db/migrate/**'
     - 'spec/fixtures/*.jpg'
+    - 'Guardfile'
+    - 'Gemfile'
   DisplayCopNames: true
   DisplayStyleGuide: true
   StyleGuideCopsOnly: true
@@ -33,6 +36,18 @@ Style/NumericLiterals:
 Style/BlockComments:
   Description: 'Do not use block comments.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#no-block-comments'
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/RegexpLiteral:
   Enabled: false
 
 Metrics/LineLength:

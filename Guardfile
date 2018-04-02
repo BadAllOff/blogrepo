@@ -58,5 +58,3 @@ group 'specs' do
     files.each { |file| watch(helper.real_path(file)) }
   end
 end
-
-

@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.configure do |config|
-
   Capybara.javascript_driver = :webkit
 
   Capybara::Webkit.configure do |config|
@@ -34,7 +33,6 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
-
   # show retry status in spec process
   config.verbose_retry = true
   # show exception that triggers a retry if verbose_retry is set to true
@@ -44,5 +42,4 @@ RSpec.configure do |config|
   config.around :each, :js do |ex|
     ex.run_with_retry retry: 20
   end
-
 end

@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
-  # TODO Добавить счётчик комментариев и просмотров к книгам.
-  # TODO rename uploaded images
+  # TODO: Добавить счётчик комментариев и просмотров к книгам.
+  # TODO: rename uploaded images
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
   before_action :load_tags, only: [:show, :index]
   load_and_authorize_resource
@@ -24,8 +24,7 @@ class BooksController < ApplicationController
     respond_with(@book)
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @book = Book.new(book_params)
@@ -45,21 +44,22 @@ class BooksController < ApplicationController
   end
 
   private
-    def load_tags
-      @tags = Book.tag_counts_on :tags_for_books
-    end
 
-    def book_params
-      params.require(:book).permit(:author, :title, :description, :draft, :book_cover, :tags_for_book_list)
-    end
+  def load_tags
+    @tags = Book.tag_counts_on :tags_for_books
+  end
 
-    def load_books
-      if user_signed_in?
-        return @books = Book.tagged_with(params[:tag]).order('updated_at DESC') if params[:tag]
-        @books = Book.all.order('updated_at DESC')
-      else
-        return @books = Book.tagged_with(params[:tag]).where(draft: false).order('updated_at DESC')if params[:tag]
-        @books = Book.all.where(draft: false).order('updated_at DESC')
-      end
+  def book_params
+    params.require(:book).permit(:author, :title, :description, :draft, :book_cover, :tags_for_book_list)
+  end
+
+  def load_books
+    if user_signed_in?
+      return @books = Book.tagged_with(params[:tag]).order('updated_at DESC') if params[:tag]
+      @books = Book.all.order('updated_at DESC')
+    else
+      return @books = Book.tagged_with(params[:tag]).where(draft: false).order('updated_at DESC')if params[:tag]
+      @books = Book.all.where(draft: false).order('updated_at DESC')
     end
+  end
 end

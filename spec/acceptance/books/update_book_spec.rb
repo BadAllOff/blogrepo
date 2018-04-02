@@ -8,7 +8,6 @@ feature 'Update Book', '
   given!(:book)    { create(:book) }
 
   describe 'Authenticated user' do
-
     before do
       sign_in(admin_user)
       visit book_path(book, locale: 'en')
@@ -28,7 +27,6 @@ feature 'Update Book', '
         expect(page).to have_content 'New description for book'
       end
     end
-
 
     context 'with invalid attributes' do
       scenario "- can't update book" do
@@ -54,5 +52,4 @@ feature 'Update Book', '
       expect(page).to_not have_content 'Edit'
     end
   end
-
 end

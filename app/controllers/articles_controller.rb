@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  # TODO Добавить счётчик комментариев и просмотров к статьям
+  # TODO: Добавить счётчик комментариев и просмотров к статьям
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
   before_action :load_tags, only: [:index]
 
@@ -20,8 +20,7 @@ class ArticlesController < ApplicationController
     respond_with(@article = Article.new)
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @article = Article.new(article_params)
@@ -30,7 +29,7 @@ class ArticlesController < ApplicationController
     respond_with(@article)
   end
 
-  def update # todo проверка параметра в пост запросе :show - только для админа
+  def update # TODO: проверка параметра в пост запросе :show - только для админа
     @article.tags_for_article_list.add(params[:tags_for_article_list], parse: true)
     respond_to do |format|
       if @article.update(article_params)

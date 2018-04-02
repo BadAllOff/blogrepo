@@ -4,7 +4,7 @@ ruby '2.3.1'
 gem 'rails', '~> 4.2.7'
 gem 'therubyracer'
 gem 'execjs'
-gem 'sprockets-rails', :require => 'sprockets/railtie'
+gem 'sprockets-rails', require: 'sprockets/railtie'
 gem 'bootstrap-sass', '~> 3.3.4.1'
 gem 'font-awesome-rails'
 gem 'rmagick', require: 'rmagick'
@@ -41,8 +41,6 @@ gem 'rails_admin-i18n'
 gem 'rails_admin_globalize_field'
 gem 'rails_admin_tag_list'
 gem "non-stupid-digest-assets"
-
-
 
 group :development, :test do
   gem 'binding_of_caller'

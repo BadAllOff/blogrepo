@@ -43,7 +43,6 @@ Rails.application.configure do
   # STOP sending emails
   config.action_mailer.perform_deliveries = false
 
-
   config.action_mailer.default_options = {
       from: 'my_address@example.com'
   }

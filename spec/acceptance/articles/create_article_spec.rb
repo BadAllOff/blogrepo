@@ -6,7 +6,6 @@ feature 'Create Article', '
 
   given!(:admin_user) { create(:admin_user) }
   describe 'Authenticated user' do
-
     before do
       sign_in(admin_user)
       visit articles_path
@@ -50,5 +49,4 @@ feature 'Create Article', '
       expect(page).to_not have_content 'New Article'
     end
   end
-
 end

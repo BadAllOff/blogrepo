@@ -7,7 +7,6 @@ feature 'Delete Article', '
   given!(:admin_user) { create(:admin_user) }
   given!(:article) { create(:article) }
   describe 'Authenticated user' do
-
     before do
       sign_in(admin_user)
       visit articles_path
@@ -38,5 +37,4 @@ feature 'Delete Article', '
       expect(page).to_not have_css('.fa-trash')
     end
   end
-
 end

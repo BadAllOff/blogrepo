@@ -55,6 +55,4 @@ class User < ActiveRecord::Base
   def guest?
     role.name == 'Guest'
   end
-
-
 end

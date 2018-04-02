@@ -25,7 +25,6 @@
 require 'rails_helper'
 
 RSpec.describe User do
-
   describe 'Associations' do
     it { should belong_to(:role)}
   end
@@ -37,5 +36,4 @@ RSpec.describe User do
     it { should validate_uniqueness_of(:email).case_insensitive }
     it { should validate_uniqueness_of(:username).case_insensitive }
   end
-
 end

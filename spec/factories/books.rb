@@ -1,5 +1,4 @@
 FactoryGirl.define do
-
   factory :book do
     author 'Author of book'
     title 'This is Test book'
@@ -11,5 +10,4 @@ FactoryGirl.define do
     book_cover_updated_at    Time.zone.now
     tags_for_book_list  '4ever, book tag'
   end
-
 end

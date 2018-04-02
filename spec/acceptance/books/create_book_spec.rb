@@ -6,7 +6,6 @@ feature 'Create Book', '
 
   given!(:admin_user) { create(:admin_user) }
   describe 'Authenticated user' do
-
     before do
       sign_in(admin_user)
       visit books_path
@@ -51,5 +50,4 @@ feature 'Create Book', '
       expect(page).to_not have_content 'New Book'
     end
   end
-
 end

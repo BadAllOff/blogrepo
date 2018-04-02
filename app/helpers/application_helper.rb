@@ -1,5 +1,4 @@
 module ApplicationHelper
-
   BOOTSTRAP_FLASH_MSG = {
       success: 'alert-success',
       error: 'alert-danger',
@@ -26,5 +25,4 @@ module ApplicationHelper
     end
     nil
   end
-
 end

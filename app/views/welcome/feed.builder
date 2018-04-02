@@ -1,6 +1,5 @@
 xml.instruct!
 xml.rss version: '2.0', 'xmlns:atom' => 'http://www.w3.org/2005/Atom' do
-
   xml.channel do
     xml.title t('welcome.blog_header.blog_title')
     xml.description t('welcome.blog_header.blog-description')
@@ -17,7 +16,5 @@ xml.rss version: '2.0', 'xmlns:atom' => 'http://www.w3.org/2005/Atom' do
         xml.description(h(strip_tags(article.content[0..160])))
       end
     end
-
   end
-
 end

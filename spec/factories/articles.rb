@@ -17,7 +17,6 @@
 #
 
 FactoryGirl.define do
-
   factory :article do
     title 'This is Test article'
     preview 'This is Test article preview'
@@ -30,5 +29,4 @@ FactoryGirl.define do
     image_updated_at    Time.zone.now
     tags_for_article_list 'Thing, stuff'
   end
-
 end

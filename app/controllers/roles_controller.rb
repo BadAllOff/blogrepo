@@ -18,8 +18,7 @@ class RolesController < ApplicationController
     respond_with(@role)
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @role = Role.new(role_params)
@@ -38,11 +37,11 @@ class RolesController < ApplicationController
   end
 
   private
-    def set_role
-      @role = Role.find(params[:id])
-    end
+  def set_role
+    @role = Role.find(params[:id])
+  end
 
-    def role_params
-      params.require(:role).permit(:name, :description)
-    end
+  def role_params
+    params.require(:role).permit(:name, :description)
+  end
 end

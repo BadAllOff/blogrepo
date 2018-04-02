@@ -8,7 +8,7 @@ set :deploy_to, '/opt/www/badblog'
 set :user, 'deploy'
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/assets/ckeditor public/uploads public/ckeditor_assets }
 set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
-set :whenever_command, 'whenever' # TODO - убрать бандл, заупстить просто веневер
+set :whenever_command, 'whenever' # TODO: - убрать бандл, заупстить просто веневер
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -32,7 +32,6 @@ set :whenever_command, 'whenever' # TODO - убрать бандл, заупст
 # set :keep_releases, 5
 
 namespace :deploy do
-
   %w[start stop restart].each do |command|
     desc 'Manage Unicorn'
     task command do
@@ -43,5 +42,4 @@ namespace :deploy do
   end
 
   after :publishing, :restart
-
 end

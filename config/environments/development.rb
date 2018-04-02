@@ -51,5 +51,4 @@ Rails.application.configure do
       default_url: '/images/:style/missing.png',
       processor: [:cropper]
   }
-
 end

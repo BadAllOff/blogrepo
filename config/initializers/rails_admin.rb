@@ -1,5 +1,4 @@
 RailsAdmin.config do |config|
-
   ### Popular gems integration
 
   ## == Devise ==
@@ -39,11 +38,9 @@ RailsAdmin.config do |config|
     # history_show
   end
 
-  config.included_models = ['Article','Article::Translation', 'Book','Book::Translation','User', 'Role', 'Comment']
-
+  config.included_models = ['Article', 'Article::Translation', 'Book', 'Book::Translation', 'User', 'Role', 'Comment']
 
   config.model Article do
-
     configure :pub_date do
       strftime_format "%Y-%m-%d %H:%M:%S"
     end
@@ -64,7 +61,6 @@ RailsAdmin.config do |config|
     configure :comments do
       hide
     end
-
   end
 
   config.model 'Article::Translation' do
@@ -94,5 +90,4 @@ RailsAdmin.config do |config|
     end
     include_fields :locale, :title, :author, :description
   end
-
 end

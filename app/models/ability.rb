@@ -1,4 +1,4 @@
-# TODO Refactor this to ablities
+# TODO: Refactor this to ablities
 class Ability
   include CanCan::Ability
 
@@ -29,7 +29,6 @@ class Ability
     else
       can :read, [Article, Comment, Book]
     end
-
 
     # Define abilities for the passed in user here. For example:
     #

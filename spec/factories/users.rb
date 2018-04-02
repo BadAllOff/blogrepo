@@ -23,7 +23,6 @@
 #
 
 FactoryGirl.define do
-
   sequence :email do |n|
     "user#{n}@test.com"
   end
@@ -37,12 +36,10 @@ FactoryGirl.define do
     email
     password '123456789'
     password_confirmation '123456789'
-    confirmed_at          Time.now
+    confirmed_at          Time.zone.now
 
     factory :admin_user do
       role_id 1
     end
-
   end
-
 end

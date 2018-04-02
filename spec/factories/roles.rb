@@ -10,7 +10,6 @@
 #
 
 FactoryGirl.define do
-
   factory :admin_role, class: 'Role' do
     id 1
     name 'Administrator'
@@ -28,5 +27,4 @@ FactoryGirl.define do
     name 'Guest'
     description 'Guest must act like guest, be polite and modest. Can only be a observer.'
   end
-
 end
